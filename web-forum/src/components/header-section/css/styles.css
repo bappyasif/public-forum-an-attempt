@@ -29,7 +29,8 @@
     border-radius: 8px;
 }
 
-.header-section .right-side-ui-wrapper .navs .nav-element:hover {
+.header-section .right-side-ui-wrapper .navs .nav-element:hover,
+.header-section .right-side-ui-wrapper .header-icons .menu-dropdown option:hover {
     color: lightgoldenrodyellow;
     background-color: lightgrey;
 }
@@ -45,8 +46,23 @@
 
 .header-section .right-side-ui-wrapper .header-icons .menu-dropdown {
     position: absolute;
-    right: 0;
+    right: 36px;
     top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 332px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: yellowgreen;
+    padding: 4px 11px;
+    border-radius: 4px;
+}
+
+.header-section .right-side-ui-wrapper .header-icons .menu-dropdown option {
+    background-color: lightgoldenrodyellow;
+    margin: 6px 4px;
+    padding: 4px 6px;
+    border-radius: 4px;
 }
 
 .header-section .right-side-ui-wrapper .header-icons .icon-view:nth-child(1) {

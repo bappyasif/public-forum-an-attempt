@@ -52,7 +52,8 @@ let ElementWrapper = ({ icon, altText, clickHnadler, blurUpdater, Component, sta
 
 export let MenuDropdown = () => {
   let options = ["Latest", "Top", "Badges", "Users"].map(name => <ShowDropDownOption key={name} name={name} />)
-  return <select className='menu-dropdown'>{options}</select>
+
+  return <div className='menu-dropdown'>{options}</div>
 }
 
 let ShowDropDownOption = ({ name }) => {

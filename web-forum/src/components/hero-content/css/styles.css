@@ -1,0 +1,22 @@
+.hero-contents-wrapper {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin-left: 150px;
+}
+
+.hero-contents-wrapper .hero-text header {
+    font-size: xxx-large;
+}
+
+.hero-contents-wrapper .hero-text caption {
+    width: max-content;
+    margin-left: 69px;
+}
+
+.hero-contents-wrapper img {
+    height: 220px;
+    width: 51%;
+    margin-left: 38px;
+    z-index: -1;
+}

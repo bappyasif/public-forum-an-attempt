@@ -9,7 +9,7 @@
     font-size: xxx-large;
 }
 
-.hero-contents-wrapper .hero-text caption {
+.hero-contents-wrapper .hero-text div {
     width: max-content;
     margin-left: 69px;
 }

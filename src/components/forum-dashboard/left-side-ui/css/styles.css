@@ -1,0 +1,30 @@
+.left-side-panel-container {
+    width: 38%;
+    background-color: gainsboro;
+    padding: 20px 0;
+}
+
+.left-side-panel-container .panel-headers {
+    display: flex;
+    /* justify-content: space-between;
+    padding: 0 69px; */
+}
+
+.left-side-panel-container .panel-headers .headerItem {
+    background-color: tomato;
+    padding: 4px 69px;
+    border-radius: 8px;
+    width: -webkit-fill-available;
+}
+
+.left-side-panel-container .left-side-contents-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.left-side-panel-container .left-side-contents-container .category-name,
+.left-side-panel-container .left-side-contents-container .topic-number {
+    background-color: lightcoral;
+    padding: 4px 74px;
+    margin: 4px;
+}

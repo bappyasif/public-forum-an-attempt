@@ -14,11 +14,19 @@ export function useOnClickOutside(ref, handler) {
     }, [ref, handler])
 }
 
-export let handleAllStatesUpdate = (state, updater, newVal, name) => {
-    let newItems = state.map(item => item.name === name ? { ...item, attr: newVal } : { ...item })
-    updater(newItems)
-}
-
 export let handleUpdateStatesValue = (statesUpdater, stateName, newData) => {
     statesUpdater(prevStates => ({...prevStates, [stateName]: newData}))
+}
+
+export let RenderListOfElements = ({list, wrapperClassName, elementClassName}) => {
+    let listElementNames = () => list.map(name => <RenderListItem key={name} name={name} itemClassName={elementClassName} />)
+    return (
+        <div className={wrapperClassName}>
+            {listElementNames()}
+        </div>
+    )
+}
+
+let RenderListItem = ({name, itemClassName}) => {
+    return <div className={itemClassName}>{name}</div>
 }

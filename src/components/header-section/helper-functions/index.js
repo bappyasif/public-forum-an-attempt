@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
+import { UserContext } from '../../components-container'
 import { useOnClickOutside } from '../../utility-functions'
 
 export let SearchComponent = ({ blurUpdater }) => {
@@ -51,7 +52,11 @@ let ElementWrapper = ({ icon, altText, clickHnadler, blurUpdater, Component, sta
 }
 
 export let MenuDropdown = () => {
-  let options = ["Latest", "Top", "Badges", "Users"].map(name => <ShowDropDownOption key={name} name={name} />)
+  let allStates = useContext(UserContext)
+
+  let options = allStates.categories.map(name => <ShowDropDownOption key={name} name={name} />)
+
+  // let options = ["Latest", "Top", "Badges", "Users"].map(name => <ShowDropDownOption key={name} name={name} />)
 
   return <div className='menu-dropdown'>{options}</div>
 }

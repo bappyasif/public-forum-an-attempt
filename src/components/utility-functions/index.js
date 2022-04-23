@@ -18,3 +18,7 @@ export let handleAllStatesUpdate = (state, updater, newVal, name) => {
     let newItems = state.map(item => item.name === name ? { ...item, attr: newVal } : { ...item })
     updater(newItems)
 }
+
+export let handleUpdateStatesValue = (statesUpdater, stateName, newData) => {
+    statesUpdater(prevStates => ({...prevStates, [stateName]: newData}))
+}

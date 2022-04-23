@@ -1,28 +1,80 @@
-import React, { useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import HeaderUI from './header-section/ui'
 import HeroContent from './hero-content'
-import { handleAllStatesUpdate } from './utility-functions'
+import { handleAllStatesUpdate, handleUpdateStatesValue } from './utility-functions'
+
+export let UserContext = createContext();
 
 export default function ComponentsContainer() {
-  let [allStates, setAllStates] = useState([])
-  let initVal = {name: 'test', attr: 'some'}
+  let [allStates, setAllStates] = useState({categories: []})
+  
+  // useEffect(() => {
+  //   setAllStates(prevStates => {
+  //     for(let key in prevStates) {
+  //       if(key === 'categories') {
+  //         // console.log('1')  
+  //         // prevStates[key] = prevStates[key].concat('Top', "Latest", "Users", "Badges")
+  //         prevStates[key] = ['Top', "Latest", "Users", "Badges"]
+  //         // console.log('1.5', prevStates[key])
+  //       }
+  //       // console.log('2')
+  //     }
+  //     return prevStates
+  //   })
+  // }, [])
+
   useEffect(() => {
-    setAllStates(allStates.concat(initVal))
-    // setAllStates(prev => [...prev, initVal])
+    // setAllStates(prevStates => ({...prevStates, categories: ['Top', "Latest", "Users", "Badges"]}))
+    // handleUpdateStatesValue(setAllStates, {categories: ['Top', "Latest", "Users", "Badges"]})
+    handleUpdateStatesValue(setAllStates, 'categories', ['Top', "Latest", "Users", "Badges"])
   }, [])
 
   useEffect(() => {
-    // allStates.length === 1 && handleChange(allStates, setAllStates, 'changed', 'test')
-    // allStates.length === 1 && handleAllStatesUpdate(allStates, setAllStates, 'changed', 'test')
+    Object.keys(allStates).length == 1 && setAllStates(prevStates => ({...prevStates, badges: ['e', 'f']}))
+
+    // setAllStates(prevStates => ({...prevStates, badges: ['e', 'f']}))
   }, [allStates])
 
-  console.log(allStates, allStates.length)
-  
+  console.log(allStates, 'allStates')
+
+  // useEffect(() => {
+  //   allStates.categories.length === 4 && setAllStates(prevStates => {
+  //     for(let key in prevStates) {
+  //       if(key !== 'categories') {
+  //         console.log('2')
+  //         prevStates['badges'] = ['badge 01', 'badge 02']
+  //       }
+  //     }
+  //     console.log('1', prevStates)
+  //     // console.log(allStates, 'allStates', prevStates)
+  //     return prevStates;
+  //   })
+  //   // console.log(allStates, 'allStates')
+  // }, [allStates])
+
+  // useEffect(() => console.log(allStates, 'allStates', [allStates]))
+
+  // console.log(allStates, 'allStates')
+  // let [allStates, setAllStates] = useState([])
+  // let initVal = { name: 'test', attr: 'some' }
+
+  // useEffect(() => {
+  //   setAllStates(allStates.concat(initVal))
+  // }, [])
+
+  // useEffect(() => {
+  //   (allStates.length === 1) && allStates[0].attr === 'some' && handleAllStatesUpdate(allStates, setAllStates, 'changed', 'test')
+  // }, [allStates])
+
+  // console.log(allStates, allStates.length)
+
   return (
-    <div className='components-container'>
-      <HeaderUI />
-      <HeroContent />
-    </div>
+    <UserContext.Provider value={allStates}>
+      <div className='components-container'>
+        <HeaderUI />
+        <HeroContent />
+      </div>
+    </UserContext.Provider>
   )
 }
 

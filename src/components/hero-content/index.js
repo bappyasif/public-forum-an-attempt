@@ -15,7 +15,7 @@ let ShowForumWelcomeText = () => {
     return (
         <div className='hero-text'>
             <header>Web Forum</header>
-            <div>For you, by you, of you, democracy!</div>
+            <div>For you, by you, inclusive, democracy!</div>
         </div>
     )
 }

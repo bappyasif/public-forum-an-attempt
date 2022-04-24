@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     text-align: left;
-    margin-left: 150px;
+    justify-content: space-around;
 }
 
 .hero-contents-wrapper .hero-text header {
@@ -15,8 +15,8 @@
 }
 
 .hero-contents-wrapper img {
-    height: 220px;
-    width: 51%;
+    height: 189px;
+    width: 69%;
     margin-left: 38px;
     z-index: -1;
 }

@@ -1,7 +1,7 @@
 .left-side-panel-container {
     width: 38%;
-    background-color: gainsboro;
-    padding: 20px 0;
+    /* background-color: gainsboro; */
+    padding: 2px 0;
 }
 
 .left-side-panel-container .panel-headers {
@@ -24,7 +24,7 @@
 
 .left-side-panel-container .left-side-contents-container .category-name,
 .left-side-panel-container .left-side-contents-container .topic-number {
-    background-color: lightcoral;
+    background-color: gainsboro;
     padding: 4px 74px;
     margin: 4px;
 }

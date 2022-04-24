@@ -12,11 +12,11 @@
 }
 
 .header-section {
-    justify-content: space-around;
+    padding: 4px 49px;
 }
 
 .header-section .right-side-ui-wrapper {
-    width: 38%;
+    width: 42%;
 }
 
 .header-section .right-side-ui-wrapper .navs {
@@ -24,7 +24,7 @@
 }
 
 .header-section .right-side-ui-wrapper .navs .nav-element {
-    background-color: silver;
+    background-color: gainsboro;
     padding: 4px 20px;
     border-radius: 8px;
 }
@@ -32,7 +32,7 @@
 .header-section .right-side-ui-wrapper .navs .nav-element:hover,
 .header-section .right-side-ui-wrapper .header-icons .menu-dropdown option:hover {
     color: lightgoldenrodyellow;
-    background-color: lightgrey;
+    background-color: tomato;
 }
 
 .header-section .right-side-ui-wrapper .header-icons {
@@ -76,7 +76,7 @@
 }
 
 .header-section .right-side-ui-wrapper .header-icons .icon-view:hover {
-    background-color: lightgrey;
+    background-color: tomato;
     transform: scale(1.5);
 }
 

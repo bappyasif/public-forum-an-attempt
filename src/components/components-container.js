@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 import DashboardContainer from './forum-dashboard/dashboard-container';
+import FooterContents from './forum-dashboard/footer-content';
 import HeaderUI from './header-section/ui'
 import HeroContent from './hero-content'
 import { handleUpdateStatesValue } from './utility-functions'
@@ -26,6 +27,7 @@ export default function ComponentsContainer() {
         <HeaderUI />
         <HeroContent />
         <DashboardContainer />
+        <FooterContents />
       </div>
     </UserContext.Provider>
   )

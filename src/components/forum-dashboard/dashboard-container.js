@@ -1,5 +1,6 @@
 import React from 'react'
 import { ForumDashboardHeaderUI } from './header-ui'
+import { LatestUserInteractionsContainer } from './latest-user-interactions-container'
 import { DashboardPanelLeftSide } from './left-side-ui'
 
 function DashboardContainer() {
@@ -13,8 +14,9 @@ function DashboardContainer() {
 
 let ForumDashboardMainView = () => {
   return(
-    <div className='dashboard-main-view-conatiner'>
+    <div className='dashboard-main-view-conatiner' style={{display: 'flex', justifyContent: 'space-around'}}>
       <DashboardPanelLeftSide />
+      <LatestUserInteractionsContainer />
     </div>
   )
 }

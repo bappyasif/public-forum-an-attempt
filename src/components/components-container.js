@@ -10,7 +10,8 @@ export default function ComponentsContainer() {
   let [allStates, setAllStates] = useState({categories: []})
 
   useEffect(() => {
-    handleUpdateStatesValue(setAllStates, 'categories', ['Top', "Latest", "Users", "Badges"])
+    handleUpdateStatesValue(setAllStates, 'categories', ['Top', "Latest", "Users", "Badges"]);
+    handleUpdateStatesValue(setAllStates, 'fakeTopics', fakeTopics)
   }, [])
 
   useEffect(() => {
@@ -29,3 +30,36 @@ export default function ComponentsContainer() {
     </UserContext.Provider>
   )
 }
+
+let fakeTopics = [
+  {
+      text: 'currently need help with this question related to JS',
+      tag: 'JS',
+      datePosted: '22',
+      liveDuration: '15 min'
+  },
+  {
+      text: 'currently need help with this question related to HTML',
+      tag: 'HTML',
+      datePosted: '22',
+      liveDuration: '15 hr'
+  },
+  {
+      text: 'currently need help with this question related to CSS',
+      tag: 'CSS',
+      datePosted: '22',
+      liveDuration: '15 sec'
+  },
+  {
+      text: 'currently need help with this question related to React',
+      tag: 'HTML',
+      datePosted: '22',
+      liveDuration: '51 min'
+  },
+  {
+      text: 'currently need help with this question related to General criteria',
+      tag: 'HTML',
+      datePosted: '22',
+      liveDuration: '1 hr'
+  }
+]

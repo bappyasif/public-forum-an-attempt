@@ -6,13 +6,16 @@
     background-color: tomato;
     padding: 11px 13px;
     border-radius: 8px;
-    line-height: 1.34em;
+    line-height: 1.25em;
+    margin: 0;
 }
 
 .latest-user-interactions-container .latest-topics {
     /* text-align: left; */
+    padding: 0;
+    margin: 0;
 }
-
+.latest-user-interactions-container .latest-topics .topic-ui a,
 .latest-user-interactions-container .latest-topics .topic-ui {
     display: flex;
     align-items: center;
@@ -21,6 +24,12 @@
     background-color: gainsboro;
     padding: 4px 8px;
     border-radius: 8px;
+    width: -webkit-fill-available;
+}
+
+.latest-user-interactions-container .latest-topics .topic-ui a {
+    text-decoration: none;
+    margin: 0;
 }
 
 .latest-user-interactions-container .latest-topics:last-child(0) {

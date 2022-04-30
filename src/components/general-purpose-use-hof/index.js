@@ -7,7 +7,7 @@ export let SearchComponent = ({ blurUpdater }) => {
   let handleChange = event => setText(event.target.value)
   return (
     <div className='search-component'>
-      <input type={'text'} onChange={handleChange} onBlur={blurUpdater} autoFocus={true} defaultValue={text} />
+      <input aria-placeholder='search here' placeholder='search here' type={'text'} onChange={handleChange} onBlur={blurUpdater} autoFocus={true} defaultValue={text} />
     </div>
   )
 }
@@ -37,17 +37,17 @@ let ElementWrapper = ({ icon, altText, clickHnadler, blurUpdater, Component, sta
   useOnClickOutside(ref, () => setStateValue(false))
 
   return (
-    <div className='element-wrapper' ref={altText === 'Menu' ? ref : null} style={{ position: altText === 'Menu' && 'relative' }}>
+    <li className='element-wrapper' aria-label={altText} ref={altText === 'Menu' ? ref : null} style={{ position: altText === 'Menu' && 'relative' }}>
       {
         altText === "Search"
           ?
-          !stateValue && <img className='icon-view' src={icon} alt={altText} onClick={clickHnadler} />
+          !stateValue && <a href='http://localhost:3000/'><img className='icon-view' src={icon} alt={altText} onClick={clickHnadler} /></a>
           :
-          <img className='icon-view' src={icon} alt={altText} onClick={clickHnadler} />
+          <a href='http://localhost:3000/'><img className='icon-view' src={icon} alt={altText} onClick={clickHnadler} /></a>
       }
 
       {stateValue && <Component blurUpdater={altText === 'Search' ? blurUpdater : null} />}
-    </div>
+    </li>
   )
 }
 
@@ -58,9 +58,9 @@ export let MenuDropdown = () => {
 
   // let options = ["Latest", "Top", "Badges", "Users"].map(name => <ShowDropDownOption key={name} name={name} />)
 
-  return <div className='menu-dropdown'>{options}</div>
+  return <nav className='menu-dropdown' aria-label='dropdown-list-main-menu'>{options}</nav>
 }
 
 let ShowDropDownOption = ({ name }) => {
-  return <option value={name}>{name}</option>
+  return <li aria-label={name}><a href='http://localhost:3000/'>{name}</a></li>
 }

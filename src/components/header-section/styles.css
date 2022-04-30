@@ -27,10 +27,15 @@
     background-color: gainsboro;
     padding: 4px 20px;
     border-radius: 8px;
+    list-style: none;
+}
+
+.header-section .right-side-ui-wrapper .navs .nav-element a {
+    text-decoration: none;
 }
 
 .header-section .right-side-ui-wrapper .navs .nav-element:hover,
-.header-section .right-side-ui-wrapper .header-icons .menu-dropdown option:hover {
+.header-section .right-side-ui-wrapper .header-icons .menu-dropdown li:hover {
     color: lightgoldenrodyellow;
     background-color: tomato;
 }
@@ -38,6 +43,7 @@
 .header-section .right-side-ui-wrapper .header-icons {
     /* width: 400px; */
     /* justify-content: space-around; */
+    list-style: none;
 }
 
 .header-section .right-side-ui-wrapper .header-icons .menu-view {
@@ -47,7 +53,7 @@
 .header-section .right-side-ui-wrapper .header-icons .menu-dropdown {
     position: absolute;
     right: 36px;
-    top: 60px;
+    top: 63px;
     display: flex;
     flex-wrap: wrap;
     width: 332px;
@@ -58,11 +64,15 @@
     border-radius: 4px;
 }
 
-.header-section .right-side-ui-wrapper .header-icons .menu-dropdown option {
+.header-section .right-side-ui-wrapper .header-icons .menu-dropdown li {
     background-color: lightgoldenrodyellow;
     margin: 6px 4px;
     padding: 4px 6px;
     border-radius: 4px;
+}
+
+.header-section .right-side-ui-wrapper .header-icons .menu-dropdown li a {
+    text-decoration: none;
 }
 
 .header-section .right-side-ui-wrapper .header-icons .icon-view:nth-child(1) {
@@ -75,7 +85,8 @@
     align-items: center;
 }
 
-.header-section .right-side-ui-wrapper .header-icons .icon-view:hover {
+.header-section .right-side-ui-wrapper .header-icons .icon-view:hover,
+.header-section .right-side-ui-wrapper .header-icons .icon-view:focus {
     background-color: tomato;
     transform: scale(1.5);
 }

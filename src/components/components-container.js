@@ -23,12 +23,12 @@ export default function ComponentsContainer() {
 
   return (
     <UserContext.Provider value={allStates}>
-      <div className='components-container'>
+      <main className='components-container'>
         <HeaderUI />
         <HeroContent />
         <DashboardContainer />
         <FooterContents />
-      </div>
+      </main>
     </UserContext.Provider>
   )
 }

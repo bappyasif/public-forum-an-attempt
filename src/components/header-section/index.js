@@ -7,49 +7,49 @@ import { IconElement} from '../general-purpose-use-hof'
 
 function HeaderUI() {
   return (
-    <div className='header-section'>
+    <header className='header-section'>
       <ForumLogo />
       <HeaderRightSideUI />
-    </div>
+    </header>
   )
 }
 
 let HeaderRightSideUI = () => {
   return (
-    <div className='right-side-ui-wrapper'>
+    <section className='right-side-ui-wrapper'>
       <LoginOrSignupButtons />
       <SearchAndMenuIcons />
-    </div>
+    </section>
   )
 }
 
 let SearchAndMenuIcons = () => {
   let icons = ["Search", "Menu"].map(name => <IconElement key={name} altText={name} icon={name === 'Search' ? search : menu} />)
   return (
-    <div className='header-icons'>
+    <nav className='header-icons'>
       {icons}
-    </div>
+    </nav>
   )
 }
 
 let LoginOrSignupButtons = () => {
   let navs = ["Signup", "Login"].map(name => <NavElement key={name} name={name} />)
   return (
-    <div className='navs'>
+    <nav className='navs'>
       {navs}
-    </div>
+    </nav>
   )
 }
 
 let NavElement = ({ name }) => {
   return (
-    <nav className='nav-element'>{name}</nav>
+    <li className='nav-element' aria-label={name}><a href='http://localhost:3000/'>{name}</a></li>
+    // <li className='nav-element' aria-label={name}>{name}</li>
   )
 }
 
 let ForumLogo = () => {
   return (
-    // <img src={logo} alt='forum logo' />
     <img src={forumLogo} alt='forum logo' />
   )
 }

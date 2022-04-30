@@ -3,12 +3,13 @@ import React from "react"
 export let RenderListOfElements = ({list, wrapperClassName, elementClassName}) => {
     let listElementNames = () => list.map(name => <RenderListItem key={name} name={name} itemClassName={elementClassName} />)
     return (
-        <div className={wrapperClassName}>
+        <ul className={wrapperClassName}>
             {listElementNames()}
-        </div>
+        </ul>
     )
 }
 
 let RenderListItem = ({name, itemClassName}) => {
-    return <div className={itemClassName}>{name}</div>
+    // return <li aria-label={name} className={itemClassName}><a href="#">{name}</a></li>
+    return <li aria-label={name} className={itemClassName}>{itemClassName.includes('number') !== true ? <a href='http://localhost:3000/'>{name}</a> : name}</li>
 }

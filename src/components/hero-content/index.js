@@ -13,10 +13,10 @@ function HeroContent() {
 
 let ShowForumWelcomeText = () => {
     return (
-        <div className='hero-text'>
-            <header>Web Forum</header>
-            <div>For you, by you, inclusive, democracy!</div>
-        </div>
+        <section className='hero-text'>
+            <h1>Web Forum</h1>
+            <em>For you, by you, inclusive, democracy!</em>
+        </section>
     )
 }
 

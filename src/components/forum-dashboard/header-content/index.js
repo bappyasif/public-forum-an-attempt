@@ -9,9 +9,9 @@ export function ForumDashboardHeaderUI() {
     let listLabels = () => allStates.headerLables && <RenderListOfElements list={allStates.headerLables} wrapperClassName='rest-labels' elementClassName={'header-label'} />
 
   return (
-    <div className='dahsboard-header-ui-container'>
-        <div className='all-categories-label'>All Categories</div>
+    <nav className='dahsboard-header-ui-container'>
+        <div className='all-categories-label' aria-label='all-categories'>All Categories</div>
         {listLabels()}
-    </div>
+    </nav>
   )
 }

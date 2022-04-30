@@ -5,13 +5,14 @@
     justify-content: space-around;
 }
 
-.hero-contents-wrapper .hero-text header {
-    font-size: xxx-large;
+.hero-contents-wrapper .hero-text h1 {
+    font-size: larger;
 }
 
-.hero-contents-wrapper .hero-text div {
+.hero-contents-wrapper .hero-text em {
     width: max-content;
-    margin-left: 69px;
+    margin-left: 63px;
+    color: tomato;
 }
 
 .hero-contents-wrapper img {

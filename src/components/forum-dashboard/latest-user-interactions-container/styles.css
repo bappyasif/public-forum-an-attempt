@@ -3,9 +3,10 @@
 }
 
 .latest-user-interactions-container .interactions-header {
-    background-color: gainsboro;
+    background-color: tomato;
     padding: 11px 13px;
     border-radius: 8px;
+    line-height: 1.34em;
 }
 
 .latest-user-interactions-container .latest-topics {
@@ -29,7 +30,7 @@
 
 .latest-user-interactions-container .latest-topics .topic-ui img {
     width: 110px;
-    height: 69px;
+    height: 99px;
     border-radius: 50%;
 }
 

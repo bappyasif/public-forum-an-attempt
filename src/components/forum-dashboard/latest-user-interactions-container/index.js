@@ -33,7 +33,7 @@ let LatestTopicsFromUsers = () => {
 let TopicUI = ({topicContent}) => {
     return (
         <div className='topic-ui'>
-            <img className='profile-pic' src='https://picsum.photos/200' alt='' />
+            <img className='profile-pic' src='https://picsum.photos/200' alt='profile picture' />
             <div className='mid-section'>
                 <div className='topic-text'>{topicContent.text}</div>
                 <div className='topic-tag'>{topicContent.tag}</div>

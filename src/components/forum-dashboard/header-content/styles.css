@@ -22,6 +22,12 @@
     border-radius: 8px; 
 }
 
+.dahsboard-header-ui-container .rest-labels .header-label:hover,
+.dahsboard-header-ui-container .all-categories-label:hover {
+    background-color: coral;
+    transform: scale(1.1);
+}
+
 .dahsboard-header-ui-container .all-categories-label {
     padding: 11px 29px;
 }

@@ -2,18 +2,32 @@
     width: 38%;
     /* background-color: gainsboro; */
     padding: 2px 0;
+    margin-right: 31px;
+}
+
+.left-side-contents-container .focused-categories,
+.left-side-contents-container .topics-nunbers {
+    /* width: 65vmin; */
 }
 
 .left-side-panel-container .panel-headers {
     display: flex;
     /* justify-content: space-between;
     padding: 0 69px; */
+    line-height: 1.7em;
+    margin-bottom: 8px;
 }
 
 .left-side-panel-container .panel-headers .headerItem {
     background-color: tomato;
     padding: 4px 69px;
     border-radius: 8px;
+    /* width: 65vmin; */
+}
+
+.left-side-panel-container .panel-headers .headerItem:nth-child(1),
+.left-side-contents-container .focused-categories {
+    margin-right: 17px;
     width: -webkit-fill-available;
 }
 

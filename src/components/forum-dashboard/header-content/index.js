@@ -11,7 +11,7 @@ export function ForumDashboardHeaderUI() {
   return (
     <div className='dahsboard-header-ui-container'>
         <div className='all-categories-label'>All Categories</div>
-        <div className='rest-labels'>{listLabels()}</div>
+        {listLabels()}
     </div>
   )
 }

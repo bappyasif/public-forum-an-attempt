@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from 'react'
-import { UserContext } from '../../components-container'
-import { useOnClickOutside } from '../../utility-functions'
+import { UserContext } from '../components-container'
+import { useOnClickOutside } from '../hooks'
 
 export let SearchComponent = ({ blurUpdater }) => {
   let [text, setText] = useState(null)

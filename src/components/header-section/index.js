@@ -1,9 +1,9 @@
 import React from 'react'
-import search from '../img-resources/search.png'
-import menu from '../img-resources/menu.png'
-import forumLogo from '../img-resources/forum-logo.png'
-import '../css/styles.css'
-import { IconElement} from '../helper-functions'
+import search from '../assets/search.png'
+import menu from '../assets/menu.png'
+import forumLogo from '../assets/forum-logo.png'
+import './styles.css'
+import { IconElement} from '../general-purpose-use-hof'
 
 function HeaderUI() {
   return (

@@ -1,9 +1,9 @@
 import React, { createContext, useEffect, useState } from 'react'
 import DashboardContainer from './forum-dashboard/dashboard-container';
 import FooterContents from './forum-dashboard/footer-content';
-import HeaderUI from './header-section/ui'
+import HeaderUI from './header-section'
 import HeroContent from './hero-content'
-import { handleUpdateStatesValue } from './utility-functions'
+// import { handleUpdateStatesValue } from './utility-functions'
 
 export let UserContext = createContext();
 
@@ -31,6 +31,10 @@ export default function ComponentsContainer() {
       </div>
     </UserContext.Provider>
   )
+}
+
+export let handleUpdateStatesValue = (statesUpdater, stateName, newData) => {
+  statesUpdater(prevStates => ({...prevStates, [stateName]: newData}))
 }
 
 let fakeTopics = [

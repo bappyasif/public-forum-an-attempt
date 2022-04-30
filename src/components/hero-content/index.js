@@ -1,6 +1,6 @@
 import React from 'react'
-import infoGraphics from './resized-infographic.png'
-import './css/styles.css'
+import infoGraphics from '../assets/resized-infographic.png'
+import './styles.css'
 
 function HeroContent() {
   return (

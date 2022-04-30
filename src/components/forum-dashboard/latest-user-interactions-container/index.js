@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../components-container'
-import "./css/styles.css"
+import "./styles.css"
 
 export function LatestUserInteractionsContainer() {
   return (

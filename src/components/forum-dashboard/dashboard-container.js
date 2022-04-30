@@ -1,7 +1,7 @@
 import React from 'react'
-import { ForumDashboardHeaderUI } from './header-ui'
+import { ForumDashboardHeaderUI } from './header-content'
 import { LatestUserInteractionsContainer } from './latest-user-interactions-container'
-import { DashboardPanelLeftSide } from './left-side-ui'
+import { DashboardPanelLeftSide } from './left-side-panel-content'
 
 function DashboardContainer() {
   return (

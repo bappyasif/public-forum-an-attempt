@@ -3,7 +3,7 @@ import search from '../assets/search.png'
 import menu from '../assets/menu.png'
 import forumLogo from '../assets/forum-logo.png'
 import './styles.css'
-import { IconElement} from '../general-purpose-use-hof'
+import { IconElement } from '../general-purpose-use-hof'
 
 function HeaderUI() {
   return (
@@ -26,8 +26,10 @@ let HeaderRightSideUI = () => {
 let SearchAndMenuIcons = () => {
   let icons = ["Search", "Menu"].map(name => <IconElement key={name} altText={name} icon={name === 'Search' ? search : menu} />)
   return (
-    <nav className='header-icons'>
-      {icons}
+    <nav aria-label='MenuDropdown'>
+      <ul className='header-icons'>
+        {icons}
+      </ul>
     </nav>
   )
 }
@@ -35,16 +37,17 @@ let SearchAndMenuIcons = () => {
 let LoginOrSignupButtons = () => {
   let navs = ["Signup", "Login"].map(name => <NavElement key={name} name={name} />)
   return (
-    <nav className='navs'>
-      {navs}
+    <nav role={'navigation'}>
+      <ul className='navs'>
+        {navs}
+      </ul>
     </nav>
   )
 }
 
 let NavElement = ({ name }) => {
   return (
-    <li className='nav-element' aria-label={name}><a href='http://localhost:3000/'>{name}</a></li>
-    // <li className='nav-element' aria-label={name}>{name}</li>
+    <li className='nav-element' aria-label={name} title={name}><a href='http://localhost:3000/'>{name}</a></li>
   )
 }
 

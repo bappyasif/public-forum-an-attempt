@@ -37,13 +37,13 @@ let ElementWrapper = ({ icon, altText, clickHnadler, blurUpdater, Component, sta
   useOnClickOutside(ref, () => setStateValue(false))
 
   return (
-    <li className='element-wrapper' aria-label={altText} ref={altText === 'Menu' ? ref : null} style={{ position: altText === 'Menu' && 'relative' }}>
+    <li aria-label={altText} className='element-wrapper' ref={altText === 'Menu' ? ref : null} style={{ position: altText === 'Menu' && 'relative' }}>
       {
         altText === "Search"
           ?
-          !stateValue && <a href='http://localhost:3000/'><img className='icon-view' src={icon} alt={altText} onClick={clickHnadler} /></a>
+          !stateValue && <img className='icon-view' src={icon} alt={altText} onClick={clickHnadler} />
           :
-          <a href='http://localhost:3000/'><img className='icon-view' src={icon} alt={altText} onClick={clickHnadler} /></a>
+          <img className='icon-view' src={icon} alt={altText} onClick={clickHnadler} />
       }
 
       {stateValue && <Component blurUpdater={altText === 'Search' ? blurUpdater : null} />}
@@ -54,7 +54,7 @@ let ElementWrapper = ({ icon, altText, clickHnadler, blurUpdater, Component, sta
 export let MenuDropdown = () => {
   let allStates = useContext(UserContext)
 
-  let options = allStates.categories.map(name => <ShowDropDownOption key={name} name={name} />)
+  let options = allStates.categoriesInfo.map(item => <ShowDropDownOption key={item.name} name={item.name} />)
 
   return <nav className='menu-dropdown' aria-label='dropdown-list-main-menu'>{options}</nav>
 }

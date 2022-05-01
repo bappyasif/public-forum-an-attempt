@@ -7,12 +7,14 @@
 
 .hero-contents-wrapper .hero-text h1 {
     font-size: larger;
+    margin: 0;
+    padding: 0;
 }
 
 .hero-contents-wrapper .hero-text em {
     width: max-content;
     margin-left: 63px;
-    color: tomato;
+    color: darkviolet;
 }
 
 .hero-contents-wrapper img {

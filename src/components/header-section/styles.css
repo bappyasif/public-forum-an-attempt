@@ -19,8 +19,13 @@
     width: 42%;
 }
 
-.header-section .right-side-ui-wrapper .navs {
-    width: 35%;
+.header-section .right-side-ui-wrapper ul {
+    margin: 0;
+    padding: 0;
+}
+
+.header-section .right-side-ui-wrapper nav .navs {
+    width: -webkit-fill-available;
 }
 
 .header-section .right-side-ui-wrapper .navs .nav-element {
@@ -28,6 +33,7 @@
     padding: 4px 20px;
     border-radius: 8px;
     list-style: none;
+    margin-right: 13px;
 }
 
 .header-section .right-side-ui-wrapper .navs .nav-element a {
@@ -86,7 +92,7 @@
 }
 
 .header-section .right-side-ui-wrapper .header-icons .icon-view:hover,
-.header-section .right-side-ui-wrapper .header-icons .icon-view:focus {
+.header-section .right-side-ui-wrapper .header-icons .icon-view:focus-visible {
     background-color: tomato;
     transform: scale(1.5);
 }

@@ -12,14 +12,14 @@
     background-color: gainsboro;
 }
 
-.footer-content .footer-left-container h6 {
+.footer-content .footer-left-container h2 {
     font-size: large;
     margin: 0;
     padding: 0;
     line-height: 1.7em;
 }
 
-.footer-content .footer-left-container nav {
+.footer-content .footer-left-container nav ul {
     list-style: none;
     list-style-position: inside;
     display: flex;
@@ -29,7 +29,7 @@
     margin: 0 auto;
 }
 
-.footer-content .footer-left-container nav li {
+.footer-content .footer-left-container nav ul li {
     width: fit-content;
     background-color: coral;
     padding: 11px;

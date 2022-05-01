@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../../components-container'
-import { RenderListOfElements } from '../../render-list-of-elements';
-// import { RenderListOfElements } from '../../utility-functions';
+import { RenderListOfElements } from '../../general-purpose-use-hof';
 import './styles.css'
 
 export function ForumDashboardHeaderUI() {

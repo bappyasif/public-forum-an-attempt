@@ -56,11 +56,22 @@ export let MenuDropdown = () => {
 
   let options = allStates.categories.map(name => <ShowDropDownOption key={name} name={name} />)
 
-  // let options = ["Latest", "Top", "Badges", "Users"].map(name => <ShowDropDownOption key={name} name={name} />)
-
   return <nav className='menu-dropdown' aria-label='dropdown-list-main-menu'>{options}</nav>
 }
 
 let ShowDropDownOption = ({ name }) => {
   return <li aria-label={name}><a href='http://localhost:3000/'>{name}</a></li>
+}
+
+export let RenderListOfElements = ({list, wrapperClassName, elementClassName}) => {
+  let listElementNames = () => list.map(name => <RenderListItem key={name} name={name} itemClassName={elementClassName} />)
+  return (
+      <ul className={wrapperClassName}>
+          {listElementNames()}
+      </ul>
+  )
+}
+
+let RenderListItem = ({name, itemClassName}) => {
+  return <li aria-label={name} className={itemClassName}>{itemClassName.includes('number') !== true ? <a href='http://localhost:3000/'>{name}</a> : name}</li>
 }

@@ -56,11 +56,13 @@
     /* border-bottom: 4px solid tomato; */
     border-collapse: separate;
     border-spacing: 2px;
+    border-radius: 11px;
 }
 
 .left-side-panel-container td:hover,
 .left-side-panel-container td:focus {
-    border-bottom: 2px solid tomato;
+    /* border-bottom: 2px solid tomato; */
+    background-color: coral;
 }
 
 .left-side-panel-container caption {

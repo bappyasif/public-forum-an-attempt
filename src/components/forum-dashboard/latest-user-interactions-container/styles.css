@@ -4,14 +4,13 @@
 
 .latest-user-interactions-container .interactions-header {
     background-color: tomato;
-    padding: 11px 13px;
+    padding: 18px 13px;
     border-radius: 8px;
     line-height: 1.25em;
     margin: 0;
 }
 
 .latest-user-interactions-container .latest-topics {
-    /* text-align: left; */
     padding: 0;
     margin: 0;
 }

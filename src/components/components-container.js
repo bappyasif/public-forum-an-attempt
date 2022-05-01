@@ -3,7 +3,6 @@ import DashboardContainer from './forum-dashboard/dashboard-container';
 import FooterContents from './forum-dashboard/footer-content';
 import HeaderUI from './header-section'
 import HeroContent from './hero-content'
-// import { handleUpdateStatesValue } from './utility-functions'
 
 export let UserContext = createContext();
 
@@ -11,7 +10,7 @@ export default function ComponentsContainer() {
   let [allStates, setAllStates] = useState({categories: []})
 
   useEffect(() => {
-    handleUpdateStatesValue(setAllStates, 'categories', ['Top', "Latest", "Users", "Badges"]);
+    handleUpdateStatesValue(setAllStates, 'categoriesInfo', [{name: 'Top', topics: 1234}, {name: "Latest", topics: 5678}, {name: "Users", topics: 9012}, {name: "Badges", topics: 3456}]);
     handleUpdateStatesValue(setAllStates, 'fakeTopics', fakeTopics)
   }, [])
 

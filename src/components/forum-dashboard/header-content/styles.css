@@ -1,11 +1,39 @@
+:root {
+    --primary-clr: tomato;
+    --secondary-clr: coral;
+    --bg-clr: gainsboro;
+    --special-clr: darkviolet;
+}
+
 .dashboard-container .dahsboard-header-ui-container {
     display: flex;
     justify-content: space-between;
     margin: 20px 90px;
-    background-color: gainsboro;
+    background-color: var(--bg-clr);
     padding: 20px;
     /* width: fit-content; */
     margin: 29px auto;
+}
+
+.dahsboard-header-ui-container .categories-labels {
+    display: flex;
+}
+
+.dahsboard-header-ui-container button {
+    padding: 0 20px;
+    border-radius: 8px;
+    background-color: var(--secondary-clr);
+    box-shadow: none;
+    border-color: none;
+    border: none;
+    font-weight: bolder;
+    color: var(--special-clr);
+}
+
+.dahsboard-header-ui-container button:hover {
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+        0 0 0 2px var(--primary-clr),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
 .dahsboard-header-ui-container .rest-labels {
@@ -23,14 +51,14 @@
 
 .dahsboard-header-ui-container .rest-labels .header-label,
 .dahsboard-header-ui-container .all-categories-label {
-    background-color: tomato;
+    background-color: var(--primary-clr);
     padding: 11px 20px;
-    border-radius: 8px; 
+    border-radius: 8px;
 }
 
 .dahsboard-header-ui-container .rest-labels .header-label:hover,
 .dahsboard-header-ui-container .all-categories-label:hover {
-    background-color: coral;
+    background-color: var(--secondary-clr);
     transform: scale(1.1);
 }
 

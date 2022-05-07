@@ -1,3 +1,7 @@
+:root {
+    --special-clr: darkviolet;
+}
+
 .hero-contents-wrapper {
     display: flex;
     align-items: center;
@@ -14,7 +18,7 @@
 .hero-contents-wrapper .hero-text em {
     width: max-content;
     margin-left: 63px;
-    color: darkviolet;
+    color: var(--special-clr);
 }
 
 .hero-contents-wrapper img {

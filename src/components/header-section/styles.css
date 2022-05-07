@@ -1,3 +1,10 @@
+:root {
+    --primary-clr: tomato;
+    --secondary-clr: coral;
+    --bg-clr: gainsboro;
+    --special-clr: darkviolet;
+}
+
 * {
     font-size: x-large;
 }
@@ -29,7 +36,7 @@
 }
 
 .header-section .right-side-ui-wrapper .navs .nav-element {
-    background-color: gainsboro;
+    background-color: var(--bg-clr);
     padding: 4px 20px;
     border-radius: 8px;
     list-style: none;
@@ -43,7 +50,7 @@
 .header-section .right-side-ui-wrapper .navs .nav-element:hover,
 .header-section .right-side-ui-wrapper .header-icons .menu-dropdown li:hover {
     color: lightgoldenrodyellow;
-    background-color: tomato;
+    background-color: var(--primary-clr);
 }
 
 .header-section .right-side-ui-wrapper .header-icons {
@@ -93,7 +100,7 @@
 
 .header-section .right-side-ui-wrapper .header-icons .icon-view:hover,
 .header-section .right-side-ui-wrapper .header-icons .icon-view:focus-visible {
-    background-color: tomato;
+    background-color: var(--primary-clr);
     transform: scale(1.5);
 }
 

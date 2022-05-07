@@ -1,9 +1,16 @@
+:root {
+    --primary-clr: tomato;
+    --secondary-clr: coral;
+    --bg-clr: gainsboro;
+    --special-clr: darkviolet;
+}
+
 .latest-user-interactions-container {
     text-align: left;
 }
 
 .latest-user-interactions-container .interactions-header {
-    background-color: tomato;
+    background-color: var(--primary-clr);
     padding: 18px 13px;
     border-radius: 8px;
     line-height: 1.25em;
@@ -20,7 +27,7 @@
     align-items: center;
     justify-content: space-between;
     margin: 11px 0px;
-    background-color: gainsboro;
+    background-color: var(--bg-clr);
     padding: 4px 8px;
     border-radius: 8px;
     width: -webkit-fill-available;

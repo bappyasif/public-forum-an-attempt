@@ -1,15 +1,22 @@
+:root {
+    --primary-clr: tomato;
+    --secondary-clr: coral;
+    --bg-clr: gainsboro;
+    --special-clr: darkviolet;
+}
+
 .footer-content {
     display: flex;
     align-items: baseline;
     text-align: justify;
     margin-top: 20px;
-    background-color: whitesmoke;
+    background-color: var(--bg-clr);
 }
 
 .footer-content .footer-left-container {
     width: 74%;
     padding: 4px 20px;
-    background-color: gainsboro;
+    background-color: var(--bg-clr);
 }
 
 .footer-content .footer-left-container h2 {
@@ -31,7 +38,7 @@
 
 .footer-content .footer-left-container nav ul li {
     width: fit-content;
-    background-color: coral;
+    background-color: var(--secondary-clr);
     padding: 11px;
     margin: 4px;
 }
@@ -46,7 +53,7 @@
 
 .footer-content .footer-right-container {
     margin-left: 42px;
-    background-color: gainsboro;
+    background-color: var(--bg-clr);
     align-self: flex-end;
     padding: 75.1px;
 }

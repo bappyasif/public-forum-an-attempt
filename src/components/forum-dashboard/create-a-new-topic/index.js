@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import plusPng from '../../assets/plus.png'
 import downArrow from '../../assets/down-arrow.png'
 import { UserContext } from '../../components-container'
@@ -31,6 +31,11 @@ let TopicFooter = ({closeModal}) => {
 
 let MarkDownTextEditor = () => {
     let [value, setValue] = useState('')
+
+    useEffect(() => {
+        document.querySelector('textarea')?.setAttribute('aria-label', 'markdown area')
+        document.querySelectorAll('.create-a-new-topic svg').forEach(node => node.setAttribute('aria-label', node.parentNode.ariaLabel))
+    }, [])
 
     return (
         <MDEditor value={value} onChange={setValue} >

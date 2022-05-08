@@ -41,11 +41,6 @@ let MarkDownTextEditor = () => {
         <MDEditor value={value} onChange={setValue} >
             <MDEditor.Markdown source={value} />
         </MDEditor>
-        // <div className='mark-down-editor-container'>
-        //     <MDEditor value={value} onChange={setValue} >
-        //         <MDEditor.Markdown source={value} />
-        //     </MDEditor>
-        // </div>
     )
 }
 
@@ -89,7 +84,7 @@ let AllTagsListDropdown = ({ handleOption }) => {
 
 let DropdownsOption = ({ option, handleOption }) => {
     return (
-        <option aria-labelledby={option} value={option} onClick={handleOption}>{option}</option>
+        <option aria-label={option} value={option} onClick={handleOption}>{option}</option>
     )
 }
 

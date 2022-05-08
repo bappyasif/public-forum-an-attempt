@@ -20,7 +20,7 @@ export function ForumDashboardHeaderUI() {
         {listLabels()}
       </div>
       <button aria-label='new topic' id='new-topic' onClick={toggleShowModal}>New Topic</button>
-      {showModal && <CreateNewTopic />}
+      {showModal && <CreateNewTopic closeModal={toggleShowModal} />}
     </nav>
   )
 }

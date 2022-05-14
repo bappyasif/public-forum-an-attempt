@@ -2,7 +2,8 @@
 .user-topic h2,
 .user-topic ul,
 .user-topic li,
-.user-topic section {
+.user-topic section,
+.user-topic .topic-content p {
     margin: 0;
     padding: 0;
 }
@@ -25,4 +26,28 @@
 
 .user-topic #header-section ul li:last-child {
     margin-right: 0;
+}
+
+.user-topic .topic-content {
+    text-align: justify;
+    margin: 20px 60px 11px 51px;
+}
+
+.user-topic .topic-content .starting-infos,
+.user-topic .topic-content .starting-infos .user-info {
+    display: flex;
+}
+
+.user-topic .topic-content .starting-infos {
+    justify-content: space-between;
+}
+
+.user-topic .topic-content .starting-infos .user-info img {
+    margin-right: 11px;
+}
+
+.user-topic .topic-description .topic-snaps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

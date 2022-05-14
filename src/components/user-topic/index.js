@@ -1,12 +1,14 @@
 import { LinkPreview } from '@dhaiwat10/react-link-preview'
 import React from 'react'
 import './styles.css'
+import TopicMap from './topic-map'
 
 function UserTopic() {
   return (
     <div className='user-topic'>
       <TopicHeader />
       <TopicContent />
+      <TopicMap />
     </div>
   )
 }

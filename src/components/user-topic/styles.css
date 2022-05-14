@@ -1,11 +1,21 @@
 .user-topic h1,
 .user-topic h2,
+.user-topic h4,
 .user-topic ul,
 .user-topic li,
 .user-topic section,
-.user-topic .topic-content p {
+.user-topic p {
     margin: 0;
     padding: 0;
+}
+
+.user-topic {
+    text-align: -webkit-center;
+}
+
+.user-topic li {
+    list-style-position: inside;
+    list-style-type: none;
 }
 
 .user-topic #header-section {

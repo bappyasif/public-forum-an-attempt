@@ -3,6 +3,7 @@ import DashboardContainer from './forum-dashboard/dashboard-container';
 import FooterContents from './forum-dashboard/footer-content';
 import HeaderUI from './header-section'
 import HeroContent from './hero-content'
+import UserTopic from './user-topic';
 
 export let UserContext = createContext();
 
@@ -25,6 +26,8 @@ export default function ComponentsContainer() {
       <main className='components-container'>
         <HeaderUI />
         <HeroContent />
+        {/* temporary placement of topic */}
+        <UserTopic />
         <DashboardContainer />
         <FooterContents />
       </main>

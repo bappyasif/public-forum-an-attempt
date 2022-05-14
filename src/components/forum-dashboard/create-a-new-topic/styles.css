@@ -76,6 +76,7 @@
     flex-wrap: wrap;
     z-index: 2;
     width: min-content;
+    background-color: var(--bg-clr);
 }
 
 .topic-title-and-tags .tags-dropdown option {
@@ -95,11 +96,12 @@
     margin-bottom: 0;
 }
 
-.create-a-new-topic .w-md-editor-toolbar,
+/* .create-a-new-topic .w-md-editor-toolbar, */
 .create-a-new-topic .w-md-editor-content,
 .create-a-new-topic .wmde-markdown {
     background-color: var(--bg-clr);
     outline: 2px solid var(--primary-clr);
+    color: var(--special-clr);
 }
 
 .create-a-new-topic .w-md-editor-content {

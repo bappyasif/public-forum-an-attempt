@@ -1,0 +1,28 @@
+.user-topic h1,
+.user-topic h2,
+.user-topic ul,
+.user-topic li,
+.user-topic section {
+    margin: 0;
+    padding: 0;
+}
+
+.user-topic #header-section {
+    text-align: justify;
+    margin-left: 51px;
+}
+
+.user-topic #header-section ul {
+    display: flex;
+}
+
+.user-topic #header-section ul li {
+    margin: 0 8px 0 0;
+    background-color: var(--primary-clr);
+    padding: 0 4px;
+    list-style: none;
+}
+
+.user-topic #header-section ul li:last-child {
+    margin-right: 0;
+}

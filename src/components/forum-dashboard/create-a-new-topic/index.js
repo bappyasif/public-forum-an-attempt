@@ -7,12 +7,16 @@ import { useOnClickOutside } from '../../hooks'
 import MDEditor from '@uiw/react-md-editor'
 
 export function CreateNewTopic({closeModal}) {
+    let handleCreateTopic = () => {
+        closeModal()
+        // route will come here
+    }
     return (
         <div className='create-a-new-topic'>
             <HeaderElement />
             <TopicTitleAndTags />
             <MarkDownTextEditor />
-            <TopicFooter closeModal={closeModal} />
+            <TopicFooter closeModal={handleCreateTopic} />
         </div>
     )
 }

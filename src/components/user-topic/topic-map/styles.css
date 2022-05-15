@@ -16,6 +16,10 @@
     width: max-content;
 }
 
+.topic-map li:first-child {
+    width: 101px;
+}
+
 .topic-map .topic-map-drop-down {
     outline: solid 2px var(--primary-clr);
     margin: 2px 11px;

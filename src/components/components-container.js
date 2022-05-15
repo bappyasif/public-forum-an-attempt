@@ -28,7 +28,7 @@ export default function ComponentsContainer() {
         <HeroContent />
         {/* temporary placement of topic */}
         <UserTopic />
-        <DashboardContainer />
+        <DashboardContainer setAllStates={setAllStates} />
         <FooterContents />
       </main>
     </UserContext.Provider>

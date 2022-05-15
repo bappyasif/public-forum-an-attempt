@@ -1,7 +1,10 @@
 import { LinkPreview } from '@dhaiwat10/react-link-preview'
-import React from 'react'
+import ReactMarkdown from 'react-markdown'
+import React, { useContext } from 'react'
+import { UserContext } from '../components-container'
 import './styles.css'
 import TopicMap from './topic-map'
+import remarkGfm from 'remark-gfm'
 
 function UserTopic() {
   return (
@@ -49,11 +52,19 @@ let UserInfo = () => {
 }
 
 let TopicDescription = () => {
+  // let regex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/
+
+  let allStates = useContext(UserContext)
+
+  // let tokens = allStates.markdownIt.split('\n')
+
+  // console.log(tokens, 'tokens!!')
   return (
     <div className='topic-description'>
-      <DescriptionText />
+      <ReactMarkdown children={allStates.markdownIt} remarkPlugins={remarkGfm} />
+      {/* <DescriptionText />
       <ShowUserLinkPreview />
-      <ShowTopicRelatedSnaps />
+      <ShowTopicRelatedSnaps /> */}
     </div>
   )
 }

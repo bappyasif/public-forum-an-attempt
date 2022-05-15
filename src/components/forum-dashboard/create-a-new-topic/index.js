@@ -1,40 +1,52 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import plusPng from '../../assets/plus.png'
 import downArrow from '../../assets/down-arrow.png'
-import { UserContext } from '../../components-container'
+import { handleUpdateStatesValue, UserContext } from '../../components-container'
 import './styles.css'
 import { useOnClickOutside } from '../../hooks'
 import MDEditor from '@uiw/react-md-editor'
 
-export function CreateNewTopic({closeModal}) {
+export function CreateNewTopic({closeModal, setAllStates}) {
+    // let allStates = useContext(UserContext)
+
+    let [markdownContents, setMarkdownContents] = useState(null)
+    
+    let handleMarkdownContent = () => handleUpdateStatesValue(setAllStates, 'markdownIt', markdownContents)
+
     let handleCreateTopic = () => {
         closeModal()
         // route will come here
     }
+    // console.log(markdownContents, allStates, 'from topic')
     return (
         <div className='create-a-new-topic'>
             <HeaderElement />
             <TopicTitleAndTags />
-            <MarkDownTextEditor />
-            <TopicFooter closeModal={handleCreateTopic} />
+            <MarkDownTextEditor setMarkdownContents={setMarkdownContents} />
+            <TopicFooter closeModal={handleCreateTopic} handleMarkdownContent={handleMarkdownContent} />
         </div>
     )
 }
 
-let TopicFooter = ({closeModal}) => {
+let TopicFooter = ({closeModal, handleMarkdownContent}) => {
     return (
         <div className='footer-container'>
             <button onClick={closeModal}>
                 <img src={plusPng} alt='plus sign to create a topic' />
-                <div>Create Topic</div>
+                <div onClick={handleMarkdownContent}>Create Topic</div>
             </button>
             <div onClick={closeModal}>Cancel</div>
         </div>
     )
 }
 
-let MarkDownTextEditor = () => {
+let MarkDownTextEditor = ({setMarkdownContents}) => {
     let [value, setValue] = useState('')
+    
+    useEffect(() => {
+        setMarkdownContents(value)
+        // eslint-disable-next-line
+    }, [value])
 
     useEffect(() => {
         document.querySelector('textarea')?.setAttribute('aria-label', 'markdown area')

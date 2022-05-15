@@ -3,10 +3,10 @@ import { ForumDashboardHeaderUI } from './header-content'
 import { LatestUserInteractionsContainer } from './latest-user-interactions-container'
 import { DashboardPanelLeftSide } from './left-side-panel-content'
 
-function DashboardContainer() {
+function DashboardContainer({setAllStates}) {
   return (
     <div className='dashboard-container' style={{margin: '0px 49px'}}>
-      <ForumDashboardHeaderUI />
+      <ForumDashboardHeaderUI setAllStates={setAllStates} />
       <ForumDashboardMainView />
     </div>
   )

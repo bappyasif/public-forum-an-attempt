@@ -14,7 +14,7 @@ function DashboardContainer({setAllStates}) {
 
 let ForumDashboardMainView = () => {
   return(
-    <div className='dashboard-main-view-conatiner' style={{display: 'flex', justifyContent: 'space-around', backgroundColor: 'whitesmoke'}}>
+    <div className='dashboard-main-view-conatiner' style={{display: 'grid', gridTemplateColumns: '1fr 2fr'}}>
       <DashboardPanelLeftSide />
       <LatestUserInteractionsContainer />
     </div>

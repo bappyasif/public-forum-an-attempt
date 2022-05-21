@@ -4,9 +4,7 @@ p {
 }
 
 .left-side-panel-container {
-    width: 38%;
-    padding: 2px 20px;
-    /* margin-right: 31px; */
+    padding: 2px 0px;
 }
 
 .left-side-panel-container ul {
@@ -88,13 +86,11 @@ p {
 }
 
 .left-side-panel-container .lsp-headers li:first-child {
-    /* justify-self: baseline; */
-    /* text-align: left; */
+
 }
 
 .left-side-panel-container .lsp-headers li:last-child {
-    /* justify-self: end; */
-    /* text-align: right; */
+
 }
 
 .left-side-panel-container > .lsp-topic-list {
@@ -104,9 +100,6 @@ p {
 }
 
 .left-side-panel-container .lsp-topic-list li {
-    /* display: flex;
-    justify-content: space-between;
-    padding: 0 2px; */
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 11px;

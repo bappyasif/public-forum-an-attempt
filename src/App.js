@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import './App.css';
 import ComponentsContainer from './components/components-container';
 
@@ -21,6 +21,7 @@ function App() {
               </main>
             }
           />
+          {/* <Outlet /> */}
         </Routes>
       </BrowserRouter>
 

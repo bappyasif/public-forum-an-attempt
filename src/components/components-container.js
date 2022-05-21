@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
+import { Outlet } from 'react-router-dom';
 import DashboardContainer from './forum-dashboard/dashboard-container';
 import FooterContents from './forum-dashboard/footer-content';
 import HeaderUI from './header-section'
@@ -30,6 +31,7 @@ export default function ComponentsContainer() {
         <UserTopic />
         <DashboardContainer setAllStates={setAllStates} />
         <FooterContents />
+        <Outlet />
       </main>
     </UserContext.Provider>
   )

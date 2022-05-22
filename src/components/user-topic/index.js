@@ -61,7 +61,7 @@ let TopicDescription = () => {
   // console.log(tokens, 'tokens!!')
   return (
     <div className='topic-description'>
-      <ReactMarkdown children={allStates.markdownIt} remarkPlugins={remarkGfm} />
+      <ReactMarkdown children={allStates?.markdownIt} remarkPlugins={remarkGfm} />
       {/* <DescriptionText />
       <ShowUserLinkPreview />
       <ShowTopicRelatedSnaps /> */}

@@ -40,6 +40,23 @@ export let handleUpdateStatesValue = (statesUpdater, stateName, newData) => {
   statesUpdater(prevStates => ({ ...prevStates, [stateName]: newData }))
 }
 
+export let fakeReplies = [
+  {
+    id: '01',
+    name: "some user",
+    picUrl: "https://unsplash.it/47",
+    replyText: "this is a demo reply text on this fake topic, if found helpful feel free to use it as a solution or give it an appropriate reaction",
+    postedTime: "44m"
+  },
+  {
+    id: '02',
+    name: "another user",
+    picUrl: "https://unsplash.it/47",
+    replyText: "this is a demo reply text on this fake topic, if found helpful feel free to use it as a solution or give it an appropriate reaction",
+    postedTime: "42m"
+  },
+]
+
 let fakeTopics = [
   {
     id: '1',

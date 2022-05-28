@@ -1,0 +1,58 @@
+.user-actions {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 29px;
+    position: relative;
+    margin-top: 36px;
+}
+
+.user-actions > svg:first-child,
+.user-actions > svg:last-child {
+    fill: red;
+}
+
+.user-actions .reactions-picker {
+    position: absolute;
+    top: -45px;
+    right: 162px;
+    display: flex;
+    gap: 17px;
+    background-color: var(--primary-clr);
+    padding: 8px;
+    border-radius: 2px;
+    animation: reactions-frame .2s ease-in-out 1;
+}
+
+@keyframes reactions-frame {
+    from {
+        top: 0;
+        right: 60;
+    }
+
+    to {
+        top: -45px;
+        right: 162px;
+    }
+}
+
+.fold-down {
+    display: none;
+    animation: reactions-fold .2s linear 1;
+}
+
+@keyframes reactions-fold {
+    from {
+        top: -45px;
+        right: 162px;
+    }
+
+    to {
+        top: 0;
+        right: 60;
+    }
+}
+
+.user-actions .show-options {
+    display: flex;
+    gap: 31px;
+}

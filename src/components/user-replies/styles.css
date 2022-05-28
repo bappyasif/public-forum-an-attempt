@@ -1,0 +1,24 @@
+.reply-wrapper {
+    border: solid;
+    margin: 6px;
+    padding: 13px 27px 15px;
+}
+
+.reply-wrapper .text-content {
+    margin-left: 54px;
+    text-align: justify;
+}
+
+.rr-top-part {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rr-top-part > .user-info {
+    display: flex;
+    align-items: self-start;
+}
+
+.rr-top-part > .user-info > img {
+    margin-right: 6px;
+}

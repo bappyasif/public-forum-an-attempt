@@ -4,7 +4,7 @@ import {faBookmark, faGrin, faHandSpock, faHeart} from "@fortawesome/free-regula
 import React, { useState } from 'react'
 import "./styles.css"
 
-function UserActions({showReactions, handleMouseIn, handleMouseOut}) {
+function UserActions({showReactions, handleMouseIn, handleMouseOut, originalUserPost}) {
     let [optionsVisible, setOptionsVisible] = useState(false)
     let handleOptionsVisible = () => setOptionsVisible(true)
     let handleOptionsHidden = () => setOptionsVisible(false)

@@ -11,7 +11,8 @@
 }
 
 .user-actions .reactions-picker,
-.user-actions .fold-down {
+.user-actions .fold-down,
+.fold-down {
     position: absolute;
     display: flex;
     gap: 17px;
@@ -21,7 +22,8 @@
 }
 
 .user-actions .reactions-picker,
-.user-actions .fold-down {
+.user-actions .fold-down,
+.fold-down {
     top: -45px;
     right: 162px;
 }
@@ -37,6 +39,7 @@
     }
 }
 
+.user-actions .fold-down,
 .fold-down {
     visibility: hidden;
     animation: reactions-fold .2s linear 1;

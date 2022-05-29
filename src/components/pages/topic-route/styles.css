@@ -1,0 +1,21 @@
+/* .topic-page .fold-down {
+    top: -45px;
+    right: 162px;
+}
+
+.topic-page .fold-down {
+    visibility: hidden;
+    animation: reactions-fold .2s linear 1;
+}
+
+@keyframes reactions-fold {
+    from {
+        visibility: visible;
+        transform: translate(0px, 0px);
+    }
+
+    to {
+        transform: translate(80px, 0px);
+        visibility: hidden;
+    }
+} */

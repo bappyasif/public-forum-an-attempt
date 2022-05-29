@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faLink, faEllipsis, faPencilSquare, faReply, faThumbsUp, faSurprise, faHandsClapping, faFlag} from "@fortawesome/free-solid-svg-icons"
 import {faBookmark, faGrin, faHandSpock, faHeart} from "@fortawesome/free-regular-svg-icons"
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import "./styles.css"
 
 function UserActions({showReactions, handleMouseIn, handleMouseOut}) {
@@ -9,17 +9,12 @@ function UserActions({showReactions, handleMouseIn, handleMouseOut}) {
     let handleOptionsVisible = () => setOptionsVisible(true)
     let handleOptionsHidden = () => setOptionsVisible(false)
 
-    // useEffect(() => {
-    //     let heartSvg = document.querySelector('#fa-heart');
-    //     showReactions && heartSvg.addEventListener('mouseenter', () => heartSvg.classList.remove("fold-down"))
-    // }, [showReactions])
   return (
     <div className='user-actions'>
         <FontAwesomeIcon id='fa-heart' icon={faHeart} onMouseEnter={handleMouseIn} style={{position: "relative"}} />
         {<ShowReactions handleShowReactions={handleMouseOut} showReactions={showReactions} />}
 
         <FontAwesomeIcon icon={faLink} />
-        {/* <FontAwesomeIcon icon={faEllipsis} onClick={handleOptionsVisible} style={{position: "relative"}} /> */}
         {optionsVisible ? <ShowOptions handleOptionsHidden={handleOptionsHidden} /> : <FontAwesomeIcon icon={faEllipsis} onClick={handleOptionsVisible} style={{position: "relative"}} />}
 
         <FontAwesomeIcon icon={faReply} />
@@ -39,9 +34,7 @@ let ShowOptions = ({handleOptionsHidden}) => {
 
 let ShowReactions = ({handleShowReactions, showReactions}) => {
     let handleClick = () => handleShowReactions()
-    // useEffect(() => {
 
-    // }, [showReactions])
     return (
         <div id='reactions' className={`${showReactions ? 'reactions-picker' : 'fold-down'}`} onMouseLeave={handleShowReactions}>
             <FontAwesomeIcon icon={faHeart} onClick={handleClick} />

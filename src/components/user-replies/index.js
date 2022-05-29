@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { fakeReplies } from '../components-container'
 import UserActions from '../user-actions';
 import "./styles.css";
@@ -20,17 +20,6 @@ let RenderReply = ({ item }) => {
   let handleMouseMovedIn = () => setShowReactions(true)
   
   let handleMouseMovedOut = () => setShowReactions(false)
-
-  // useEffect(() => {
-  //   let replyWrapper = document.querySelector('.reply-wrapper');
-  //   let reactionsPicker = document.querySelector('.reactions-picker');
-
-  //   let addLeavingAnimation = () => !showReactions ? reactionsPicker.classList.add('fold-down') : reactionsPicker.classList.remove('fold-down')
-  //   replyWrapper.addEventListener("mouseleave", addLeavingAnimation)
-
-  //   return () => replyWrapper.removeEventListener("mouseleave", addLeavingAnimation)
-
-  // }, [showReactions])
   
   return (
     <div className='reply-wrapper' onMouseLeave={handleMouseMovedOut}>

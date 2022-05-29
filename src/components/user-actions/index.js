@@ -1,16 +1,21 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faLink, faEllipsis, faPencilSquare, faReply, faThumbsUp, faSurprise, faHandsClapping, faFlag} from "@fortawesome/free-solid-svg-icons"
 import {faBookmark, faGrin, faHandSpock, faHeart} from "@fortawesome/free-regular-svg-icons"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./styles.css"
 
 function UserActions({showReactions, handleMouseIn, handleMouseOut}) {
     let [optionsVisible, setOptionsVisible] = useState(false)
     let handleOptionsVisible = () => setOptionsVisible(true)
     let handleOptionsHidden = () => setOptionsVisible(false)
+
+    // useEffect(() => {
+    //     let heartSvg = document.querySelector('#fa-heart');
+    //     showReactions && heartSvg.addEventListener('mouseenter', () => heartSvg.classList.remove("fold-down"))
+    // }, [showReactions])
   return (
     <div className='user-actions'>
-        <FontAwesomeIcon icon={faHeart} onMouseEnter={handleMouseIn} style={{position: "relative"}} />
+        <FontAwesomeIcon id='fa-heart' icon={faHeart} onMouseEnter={handleMouseIn} style={{position: "relative"}} />
         {<ShowReactions handleShowReactions={handleMouseOut} showReactions={showReactions} />}
 
         <FontAwesomeIcon icon={faLink} />
@@ -34,8 +39,11 @@ let ShowOptions = ({handleOptionsHidden}) => {
 
 let ShowReactions = ({handleShowReactions, showReactions}) => {
     let handleClick = () => handleShowReactions()
+    // useEffect(() => {
+
+    // }, [showReactions])
     return (
-        <div className={`reactions-picker ${!showReactions ? 'fold-down' : ''}`} onMouseLeave={handleShowReactions}>
+        <div id='reactions' className={`${showReactions ? 'reactions-picker' : 'fold-down'}`} onMouseLeave={handleShowReactions}>
             <FontAwesomeIcon icon={faHeart} onClick={handleClick} />
             <FontAwesomeIcon icon={faThumbsUp} onClick={handleClick} />
             <FontAwesomeIcon icon={faGrin} onClick={handleClick} />

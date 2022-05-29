@@ -6,49 +6,81 @@
     margin-top: 36px;
 }
 
-.user-actions > svg:first-child,
+/* .user-actions > svg:first-child,
 .user-actions > svg:last-child {
     fill: red;
+} */
+
+#fa-heart:hover + #reactions {
+    animation: reactions-frame .2s ease-in-out 1;
 }
 
-.user-actions .reactions-picker {
+.user-actions .reactions-picker,
+.user-actions .fold-down {
     position: absolute;
-    top: -45px;
-    right: 162px;
+    /* top: -45px;
+    right: 162px; */
+    /* visibility: hidden; */
     display: flex;
     gap: 17px;
     background-color: var(--primary-clr);
     padding: 8px;
     border-radius: 2px;
-    animation: reactions-frame .2s ease-in-out 1;
+    /* animation: reactions-frame .2s ease-in-out 1; */
+}
+
+.user-actions .reactions-picker,
+.user-actions .fold-down {
+    top: -45px;
+    right: 162px;
 }
 
 @keyframes reactions-frame {
     from {
-        top: 0;
-        right: 60;
+        transform: translate(80px, 0px);
+        /* top: 0;
+        right: 60; */
+        visibility: visible;
     }
 
     to {
-        top: -45px;
-        right: 162px;
+        /* visibility: hidden; */
+        /* top: -45px;
+        right: 162px; */
+        transform: translate(0px, 0px);
     }
 }
 
 .fold-down {
-    display: none;
+    visibility: hidden;
     animation: reactions-fold .2s linear 1;
 }
 
+/* #fa-heart:hover + #reactions, */
+/* #reactions:hover:not(), */
+/* #fa-heart:hover:not() + #reactions {
+    animation: reactions-fold 2s ease-in-out 1;
+} */
+
 @keyframes reactions-fold {
     from {
-        top: -45px;
-        right: 162px;
+        visibility: visible;
+        /* top: -45px;
+        right: 162px; */
+        /* transform: translate(-80px, 0px); */
+        /* transform: translateX(-80px); */
+        transform: translate(0px, 0px);
     }
 
     to {
-        top: 0;
-        right: 60;
+        /* top: 0;
+        right: 60; */
+        /* display: none !important; */
+        /* visibility: hidden !important; */
+        /* transform: translate(80px, 0px); */
+        /* transform: translateX(80px); */
+        transform: translate(80px, 0px);
+        visibility: hidden;
     }
 }
 

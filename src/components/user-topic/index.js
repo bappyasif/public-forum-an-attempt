@@ -1,7 +1,6 @@
-import { LinkPreview } from '@dhaiwat10/react-link-preview'
+// import { LinkPreview } from '@dhaiwat10/react-link-preview'
 import ReactMarkdown from 'react-markdown'
 import React, { useContext } from 'react'
-// import { UserContext } from '../components-container'
 import './styles.css'
 import TopicMap from './topic-map'
 import remarkGfm from 'remark-gfm'
@@ -72,25 +71,25 @@ let TopicDescription = () => {
   )
 }
 
-let ShowTopicRelatedSnaps = () => {
-  let imgs = ['https://unsplash.it/600/400', 'https://unsplash.it/600/400']
-  let showSnaps = () => imgs.map(imgUrl => <ShowSnap key={imgUrl} imgUrl={imgUrl} />)
-  return (
-    <div className='topic-snaps'>
-      {showSnaps()}
-    </div>
-  )
-}
+// let ShowTopicRelatedSnaps = () => {
+//   let imgs = ['https://unsplash.it/600/400', 'https://unsplash.it/600/400']
+//   let showSnaps = () => imgs.map(imgUrl => <ShowSnap key={imgUrl} imgUrl={imgUrl} />)
+//   return (
+//     <div className='topic-snaps'>
+//       {showSnaps()}
+//     </div>
+//   )
+// }
 
-let ShowSnap = ({imgUrl}) => {
-  return <img src={imgUrl} alt='topic snap' />
-}
+// let ShowSnap = ({imgUrl}) => {
+//   return <img src={imgUrl} alt='topic snap' />
+// }
 
-let ShowUserLinkPreview = () => {
-  return (
-    <LinkPreview url='https://developer.mozilla.org' />
-  )
-}
+// let ShowUserLinkPreview = () => {
+//   return (
+//     <LinkPreview url='https://developer.mozilla.org' />
+//   )
+// }
 
 let DescriptionText = () => {
   return (

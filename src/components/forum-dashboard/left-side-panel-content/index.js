@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../../../App'
-// import { UserContext } from '../../components-container'
 import './styles.css'
 
 export function DashboardPanelLeftSide() {

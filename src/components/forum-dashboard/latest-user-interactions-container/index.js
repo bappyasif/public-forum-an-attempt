@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { baseUri, UserContext } from '../../../App'
-// import { UserContext } from '../../components-container'
 import "./styles.css"
 
 export function LatestUserInteractionsContainer() {

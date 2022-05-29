@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import plusPng from '../../assets/plus.png'
 import downArrow from '../../assets/down-arrow.png'
-// import { handleUpdateStatesValue, UserContext } from '../../components-container'
 import './styles.css'
 import { useOnClickOutside } from '../../hooks'
 import MDEditor from '@uiw/react-md-editor'
@@ -9,14 +8,12 @@ import { useNavigate } from 'react-router-dom'
 import { baseUri, handleUpdateStatesValue, UserContext } from '../../../App'
 
 export function CreateNewTopic({closeModal, setAllStates}) {
-    let allStates = useContext(UserContext)
+    // let allStates = useContext(UserContext)
     let navigate = useNavigate()
 
     let [markdownContents, setMarkdownContents] = useState(null)
     
     let handleMarkdownContent = () => handleUpdateStatesValue(setAllStates, 'markdownIt', markdownContents)
-
-    // let handleMarkdownContent = () => setAllStates(prevStates => ({...prevStates, "markdownIt": markdownContents}))
 
     let handleCreateTopic = () => {
         closeModal()
@@ -24,16 +21,12 @@ export function CreateNewTopic({closeModal, setAllStates}) {
         navigate(baseUri + "/topic/22")
     }
 
-    useEffect(() => handleMarkdownContent(), [markdownContents])
-
-    // let handleUserMarkDowns = (value) => setMarkdownContents(prevData => prevData ? prevData + value : value)
-    console.log(markdownContents, allStates, 'from topic')
+    // console.log(markdownContents, allStates, 'from topic')
     return (
         <div className='create-a-new-topic'>
             <HeaderElement />
             <TopicTitleAndTags />
             <MarkDownTextEditor setMarkdownContents={setMarkdownContents} />
-            {/* <MarkDownTextEditor setMarkdownContents={handleUserMarkDowns} /> */}
             <TopicFooter closeModal={handleCreateTopic} handleMarkdownContent={handleMarkdownContent} />
         </div>
     )

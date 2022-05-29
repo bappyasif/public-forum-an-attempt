@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import { createContext, useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -37,11 +36,6 @@ function App() {
             <Route path={`${baseUri}/topic/`} element={<TopicPage />}>
               <Route path=':topicId' element={<TopicPage />} />
             </Route>
-
-            {/* <Route path={baseUri} element={<ComponentsContainer />}>
-      <Route path='topic' />
-    </Route> */}
-
 
             <Route path={`${baseUri}/test/`} element={<TestComponent />}>
               <Route path=':testId' element={<NestedRouteCompTest />} />

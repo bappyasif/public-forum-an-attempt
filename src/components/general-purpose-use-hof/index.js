@@ -1,5 +1,6 @@
 import React, { useContext, useRef, useState } from 'react'
-import { UserContext } from '../components-container'
+import { UserContext } from '../../App'
+// import { UserContext } from '../components-container'
 import { useOnClickOutside } from '../hooks'
 
 export let SearchComponent = ({ blurUpdater }) => {

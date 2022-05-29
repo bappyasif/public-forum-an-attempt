@@ -5,24 +5,23 @@ import FooterContents from './forum-dashboard/footer-content';
 import HeaderUI from './header-section'
 import HeroContent from './hero-content'
 
-export let UserContext = createContext();
+// export let UserContext = createContext();
 
-export default function ComponentsContainer() {
-  let [allStates, setAllStates] = useState({ categories: [] })
+export default function ComponentsContainer({setAllStates}) {
+  // let [allStates, setAllStates] = useState({ categories: [] })
 
-  useEffect(() => {
-    handleUpdateStatesValue(setAllStates, 'categoriesInfo', [{ name: 'Top', topics: 1234 }, { name: "Latest", topics: 5678 }, { name: "Users", topics: 9012 }, { name: "Badges", topics: 3456 }]);
-    handleUpdateStatesValue(setAllStates, 'fakeTopics', fakeTopics)
-  }, [])
+  // useEffect(() => {
+  //   handleUpdateStatesValue(setAllStates, 'categoriesInfo', [{ name: 'Top', topics: 1234 }, { name: "Latest", topics: 5678 }, { name: "Users", topics: 9012 }, { name: "Badges", topics: 3456 }]);
+  //   handleUpdateStatesValue(setAllStates, 'fakeTopics', fakeTopics)
+  // }, [])
 
-  useEffect(() => {
-    Object.keys(allStates).length === 1 && setAllStates(prevStates => ({ ...prevStates, headerLables: ['Categories', 'Top', "Latest", "FAQ"] }))
-  }, [allStates])
+  // useEffect(() => {
+  //   Object.keys(allStates).length === 1 && setAllStates(prevStates => ({ ...prevStates, headerLables: ['Categories', 'Top', "Latest", "FAQ"] }))
+  // }, [allStates])
 
-  console.log(allStates, 'allStates')
+  // console.log(allStates, 'allStates')
 
   return (
-    <UserContext.Provider value={allStates}>
       <main className='components-container'>
         <HeaderUI />
         <HeroContent />
@@ -32,13 +31,24 @@ export default function ComponentsContainer() {
         <FooterContents />
         <Outlet />
       </main>
-    </UserContext.Provider>
+    // <UserContext.Provider value={allStates}>
+    //   <main className='components-container'>
+    //     <HeaderUI />
+    //     <HeroContent />
+    //     {/* temporary placement of topic */}
+    //     {/* <UserTopic /> */}
+    //     <DashboardContainer setAllStates={setAllStates} />
+    //     <FooterContents />
+    //     <Outlet />
+    //   </main>
+    // </UserContext.Provider>
   )
 }
 
-export let handleUpdateStatesValue = (statesUpdater, stateName, newData) => {
-  statesUpdater(prevStates => ({ ...prevStates, [stateName]: newData }))
-}
+// export let handleUpdateStatesValue = (statesUpdater, stateName, newData) => {
+//   console.log(newData, 'newData!!', statesUpdater, stateName)
+//   statesUpdater(prevStates => ({ ...prevStates, [stateName]: newData }))
+// }
 
 export let fakeReplies = [
   {
@@ -57,7 +67,7 @@ export let fakeReplies = [
   },
 ]
 
-let fakeTopics = [
+export let fakeTopics = [
   {
     id: '1',
     text: 'currently need help with this question related to JS',

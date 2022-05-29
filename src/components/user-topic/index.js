@@ -1,10 +1,11 @@
 import { LinkPreview } from '@dhaiwat10/react-link-preview'
 import ReactMarkdown from 'react-markdown'
 import React, { useContext } from 'react'
-import { UserContext } from '../components-container'
+// import { UserContext } from '../components-container'
 import './styles.css'
 import TopicMap from './topic-map'
 import remarkGfm from 'remark-gfm'
+import { UserContext } from '../../App'
 
 function UserTopic() {
   return (
@@ -59,6 +60,7 @@ let TopicDescription = () => {
   // let tokens = allStates.markdownIt.split('\n')
 
   // console.log(tokens, 'tokens!!')
+  console.log(allStates?.markdownIt, 'allStates?.markdownIt', allStates)
   return (
     <div className='topic-description'>
       <ReactMarkdown children={allStates?.markdownIt} remarkPlugins={remarkGfm} />

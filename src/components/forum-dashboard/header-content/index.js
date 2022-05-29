@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
-import { UserContext } from '../../components-container'
+import { UserContext } from '../../../App';
+// import { UserContext } from '../../components-container'
 import { RenderListOfElements } from '../../general-purpose-use-hof';
 import { CreateNewTopic } from '../create-a-new-topic';
 import './styles.css'

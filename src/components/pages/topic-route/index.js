@@ -20,12 +20,8 @@ function TopicPage() {
         <main className='topic-page'>
             <HeaderUI />
             {params.topicId && <UserTopic />}
-            {/* {params.topicId && <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} originalUserPost={true} />} */}
-            {/* <div>{params.topicId && <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} />}</div> */}
             {params.topicId && <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} />}
             <div onMouseEnter={handleMouseMovedOut}>{params.topicId && <UserReplies />}</div>
-            {/* {params.topicId && <UserReplies />} */}
-            {/* {params.topicId && <UserReplies showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} />} */}
             <FooterContents />
         </main>
     )

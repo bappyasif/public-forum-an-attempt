@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faLink, faEllipsis, faPencilSquare, faReply, faThumbsUp, faSurprise, faHandsClapping, faFlag} from "@fortawesome/free-solid-svg-icons"
+import {faLink, faEllipsis, faReply, faThumbsUp, faSurprise, faHandsClapping, faFlag} from "@fortawesome/free-solid-svg-icons"
 import {faBookmark, faGrin, faHandSpock, faHeart} from "@fortawesome/free-regular-svg-icons"
 import React, { useState } from 'react'
 import "./styles.css"
 
-function UserActions({showReactions, handleMouseIn, handleMouseOut, originalUserPost}) {
+function UserActions({showReactions, handleMouseIn, handleMouseOut}) {
     let [optionsVisible, setOptionsVisible] = useState(false)
     let handleOptionsVisible = () => setOptionsVisible(true)
     let handleOptionsHidden = () => setOptionsVisible(false)

@@ -27,15 +27,15 @@ export function CreateNewTopic({closeModal, setAllStates}) {
             <HeaderElement />
             <TopicTitleAndTags />
             <MarkDownTextEditor setMarkdownContents={setMarkdownContents} />
-            <TopicFooter closeModal={handleCreateTopic} handleMarkdownContent={handleMarkdownContent} />
+            <TopicFooter createTopic={handleCreateTopic} closeModal={closeModal} handleMarkdownContent={handleMarkdownContent} />
         </div>
     )
 }
 
-let TopicFooter = ({closeModal, handleMarkdownContent}) => {
+let TopicFooter = ({createTopic, closeModal, handleMarkdownContent}) => {
     return (
         <div className='footer-container'>
-            <button onClick={closeModal}>
+            <button onClick={createTopic}>
                 <img src={plusPng} alt='plus sign to create a topic' />
                 <div onClick={handleMarkdownContent}>Create Topic</div>
             </button>

@@ -26,6 +26,11 @@
     height: 42px;
 }
 
+.topic-title-and-tags img {
+    padding: 6px 0;
+    height: 29px;
+}
+
 .create-a-new-topic .header-element p {
     margin: 0;
     margin-left: 20px;
@@ -35,6 +40,9 @@
     position: relative;
     justify-content: space-between;
     margin-bottom: 11px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 27px;
 }
 
 .topic-title-and-tags fieldset {
@@ -47,7 +55,7 @@
     border: none;
     background-color: var(--bg-clr);
     outline: 2px solid var(--secondary-clr);
-    line-height: 1.34em;
+    line-height: 1.64em;
     padding-left: 6px;
     width: 20.6vw;
 }
@@ -64,7 +72,6 @@
 }
 
 .topic-title-and-tags>div>div {
-    width: 230.1px;
     text-align: left;
     padding-left: 4px;
 }

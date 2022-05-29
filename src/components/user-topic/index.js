@@ -62,6 +62,7 @@ let TopicDescription = () => {
   return (
     <div className='topic-description'>
       <ReactMarkdown children={allStates?.markdownIt} remarkPlugins={remarkGfm} />
+      <DescriptionText />
       {/* <DescriptionText />
       <ShowUserLinkPreview />
       <ShowTopicRelatedSnaps /> */}

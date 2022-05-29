@@ -5,6 +5,7 @@ import HeaderUI from '../../header-section'
 import UserActions from '../../user-actions'
 import UserReplies from '../../user-replies'
 import UserTopic from '../../user-topic'
+import "./styles.css"
 
 function TopicPage() {
     let params = useParams()

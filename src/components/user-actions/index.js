@@ -1,64 +1,73 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faHeartbeat, faLink, faEllipsis, faReply, faThumbsUp, faSurprise, faHandsClapping, faFlag} from "@fortawesome/free-solid-svg-icons"
-import {faBookmark, faGrin, faHandSpock, faHeart} from "@fortawesome/free-regular-svg-icons"
+import { faHeartbeat, faLink, faEllipsis, faReply, faThumbsUp, faSurprise, faHandsClapping, faFlag } from "@fortawesome/free-solid-svg-icons"
+import { faBookmark, faGrin, faHandSpock, faHeart } from "@fortawesome/free-regular-svg-icons"
 import React, { useEffect, useState } from 'react'
 import "./styles.css"
 
-function UserActions({showReactions, handleMouseIn, handleMouseOut}) {
+function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies }) {
     let [heartCount, setHeartCount] = useState(0);
     let [whichIcon, setWhichIcon] = useState(null);
+    let [rndNum, setRndNum] = useState(null)
 
     let [reactionName, setReactionName] = useState(null)
     let handleReactionName = value => setReactionName(value);
-    console.log(reactionName, 'reactionName');
+    // console.log(reactionName, 'reactionName');
 
     let [optionsVisible, setOptionsVisible] = useState(false)
     let handleOptionsVisible = () => setOptionsVisible(true)
     let handleOptionsHidden = () => setOptionsVisible(false)
 
     useEffect(() => {
-        if(reactionName == 'heart') {
+        let rnd = Math.random()
+        setRndNum(rnd)
+    }, [])
+
+    useEffect(() => {
+        if (reactionName === 'heart') {
             setHeartCount(prevCount => prevCount + 1)
         }
-        
+
         showIcon();
     }, [reactionName])
 
     let showIcon = () => {
-       if (reactionName === 'heart') {
+        if (reactionName === 'heart') {
             setWhichIcon(faHeart)
-        } else if(reactionName === 'thumbsUp') {
+        } else if (reactionName === 'thumbsUp') {
             setWhichIcon(faThumbsUp)
-        } else if(reactionName === 'grin') {
+        } else if (reactionName === 'grin') {
             setWhichIcon(faGrin)
-        } else if(reactionName === 'surprise') {
+        } else if (reactionName === 'surprise') {
             setWhichIcon(faSurprise)
-        } else if(reactionName === 'clap') {
+        } else if (reactionName === 'clap') {
             setWhichIcon(faHandsClapping)
-        } else if(reactionName === 'spock') {
+        } else if (reactionName === 'spock') {
             setWhichIcon(faHandSpock)
         }
     }
 
-  return (
-    <div className='user-actions'>
-        {heartCount > 0 && reactionName === 'heart' && <span style={{marginRight: '-13px'}}>{heartCount}</span>}
+    return (
+        <div className='user-actions'>
+            {/* { fromReplies && rndNum > .2 && <FontAwesomeIcon id='topic-user-reaction' icon={whichIcon} />} */}
+            { <FontAwesomeIcon id='topic-user-reply-reaction' icon={ whichIcon } style={{visibility: fromReplies && rndNum > .2 ? 'visible' : 'hidden'}} />}
+            {/* { <FontAwesomeIcon id='topic-user-reply-reaction' icon={ whichIcon } />} */}
+            <div>
+                {heartCount > 0 && reactionName === 'heart' && <span style={{ marginRight: '-13px' }}>{heartCount}</span>}
 
-        {/* <FontAwesomeIcon id='fa-heart' icon={showReactions ? faHeartbeat : faHeart } onMouseEnter={handleMouseIn} style={{position: "relative", color: reactionName ? 'var(--primary-clr)' : 'none' }} /> */}
-        {/* <FontAwesomeIcon id='fa-heart' icon={ whichIcon ? whichIcon : faHeart } onMouseEnter={handleMouseIn} style={{position: "relative", color: reactionName ? 'var(--primary-clr)' : 'none' }} /> */}
-        <FontAwesomeIcon id='fa-heart' icon={ showReactions ? faHeartbeat : whichIcon ? whichIcon : faHeart } onMouseEnter={handleMouseIn} style={{position: "relative", color: reactionName ? 'var(--primary-clr)' : 'none' }} />
-        {<ShowReactions handleShowReactions={handleMouseOut} showReactions={showReactions} handleReactionName={handleReactionName} />}
+                <FontAwesomeIcon id='fa-heart' icon={showReactions ? faHeartbeat : whichIcon ? whichIcon : faHeart} onMouseEnter={handleMouseIn} style={{ position: "relative", color: reactionName ? 'var(--primary-clr)' : 'none' }} />
+                {<ShowReactions handleShowReactions={handleMouseOut} showReactions={showReactions} handleReactionName={handleReactionName} />}
 
-        <FontAwesomeIcon icon={faLink} />
-        {optionsVisible ? <ShowOptions handleOptionsHidden={handleOptionsHidden} /> : <FontAwesomeIcon icon={faEllipsis} onClick={handleOptionsVisible} style={{position: "relative"}} />}
+                <FontAwesomeIcon icon={faLink} />
+                {optionsVisible ? <ShowOptions handleOptionsHidden={handleOptionsHidden} /> : <FontAwesomeIcon icon={faEllipsis} onClick={handleOptionsVisible} style={{ position: "relative" }} />}
 
-        <FontAwesomeIcon icon={faReply} />
-    </div>
-  )
+                <FontAwesomeIcon icon={faReply} />
+            </div>
+        </div>
+    )
 }
 
-let ShowOptions = ({handleOptionsHidden}) => {
-    let handleClick = () => handleOptionsHidden() 
+let ShowOptions = ({ handleOptionsHidden }) => {
+    let handleClick = () => handleOptionsHidden()
     return (
         <div className='show-options'>
             <FontAwesomeIcon icon={faFlag} onClick={handleClick} />
@@ -67,9 +76,8 @@ let ShowOptions = ({handleOptionsHidden}) => {
     )
 }
 
-let ShowReactions = ({handleShowReactions, showReactions, handleReactionName}) => {
+let ShowReactions = ({ handleShowReactions, showReactions, handleReactionName }) => {
     let handleClick = (evt) => {
-        // console.log(evt.target, '!!', evt.target.getAttribute("name"))
         handleReactionName(evt.target.getAttribute("name") || evt.target.parentNode.getAttribute("name"))
         handleShowReactions()
     }

@@ -1,9 +1,22 @@
 .user-actions {
     display: flex;
     justify-content: flex-end;
+    align-items: baseline;
+    position: relative;
+}
+
+.user-actions > div {
+    display: flex;
+    justify-content: flex-end;
     column-gap: 29px;
     position: relative;
     margin-top: 36px;
+}
+
+.user-actions #topic-user-reply-reaction {
+    position: absolute;
+    left: 40px;
+    bottom: 0;
 }
 
 .user-actions #reactions {

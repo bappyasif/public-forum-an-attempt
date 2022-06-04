@@ -25,7 +25,7 @@ let RenderReply = ({ item }) => {
     <div className='reply-wrapper' onMouseLeave={handleMouseMovedOut}>
       <RenderReplyTopPart name={name} picUrl={picUrl} postedTime={postedTime} />
       <RenderReplyTextContent replyText={replyText} />
-      <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} />
+      <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} fromReplies={true} />
     </div>
   )
 }

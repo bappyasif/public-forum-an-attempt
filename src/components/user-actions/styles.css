@@ -6,6 +6,21 @@
     margin-top: 36px;
 }
 
+.user-actions #reactions {
+    gap: 6px;
+    background-color: var(--secondary-clr);
+}
+
+.user-actions #reactions svg {
+    padding: 4px 11px;
+}
+
+.user-actions #reactions svg:hover {
+    background-color: var(--primary-clr);
+    border: solid 1px var(--background-clr);
+    border-radius: 6px;
+}
+
 #fa-heart:hover + #reactions {
     animation: reactions-frame .2s ease-in-out 1;
 }
@@ -16,7 +31,7 @@
     position: absolute;
     display: flex;
     gap: 17px;
-    background-color: var(--primary-clr);
+    /* background-color: var(--primary-clr); */
     padding: 8px;
     border-radius: 2px;
 }
@@ -24,7 +39,7 @@
 .user-actions .reactions-picker,
 .user-actions .fold-down,
 .fold-down {
-    top: -45px;
+    top: -54px;
     right: 162px;
 }
 

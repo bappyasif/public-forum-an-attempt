@@ -9,7 +9,7 @@ import "./styles.css"
 
 function TopicPage() {
     let params = useParams()
-    
+
     let [showReactions, setShowReactions] = useState(false)
 
     let handleMouseMovedIn = () => setShowReactions(true)
@@ -20,9 +20,11 @@ function TopicPage() {
     return (
         <main className='topic-page'>
             <HeaderUI />
-            {params.topicId && <UserTopic />}
-            {params.topicId && <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} />}
-            <div onMouseEnter={handleMouseMovedOut}>{params.topicId && <UserReplies />}</div>
+            <div style={{width: '850px', margin: '0 auto'}}>
+                {params.topicId && <UserTopic />}
+                {params.topicId && <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} />}
+                <div onMouseEnter={handleMouseMovedOut}>{params.topicId && <UserReplies />}</div>
+            </div>
             <FooterContents />
         </main>
     )

@@ -13,6 +13,28 @@
     margin-top: 36px;
 }
 
+.user-actions > div svg {
+    outline: solid 1px var(--background-clr);
+    padding: 6px;
+    border-radius: 6px;
+    width: 29px;
+}
+
+.user-actions > div svg:hover {
+    outline: solid 1px var(--primary-clr);
+}
+
+.user-actions > div svg:last-child {
+    color: var(--primary-clr);
+    position: relative;
+}
+
+.user-actions > div svg:last-child::after {
+    content: "Reply";
+    width: fit-content;
+    /* background-color: aqua; */
+}
+
 .user-actions #topic-user-reply-reaction {
     position: absolute;
     left: 40px;

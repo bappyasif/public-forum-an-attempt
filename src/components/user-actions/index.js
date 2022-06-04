@@ -48,9 +48,7 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
 
     return (
         <div className='user-actions'>
-            {/* { fromReplies && rndNum > .2 && <FontAwesomeIcon id='topic-user-reaction' icon={whichIcon} />} */}
             { <FontAwesomeIcon id='topic-user-reply-reaction' icon={ whichIcon } style={{visibility: fromReplies && rndNum > .2 ? 'visible' : 'hidden'}} />}
-            {/* { <FontAwesomeIcon id='topic-user-reply-reaction' icon={ whichIcon } />} */}
             <div>
                 {heartCount > 0 && reactionName === 'heart' && <span style={{ marginRight: '-13px' }}>{heartCount}</span>}
 

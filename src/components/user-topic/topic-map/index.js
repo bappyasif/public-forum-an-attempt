@@ -70,7 +70,7 @@ let ShowHighlightedTopicUser = ({ item }) => {
 
     return (
         <li className={title} onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
-            <h4>{title}</h4>
+            <h2>{title}</h2>
             <div>
                 <img src={user.imgUrl} alt='depicting user' />
                 {showTooltip && <p className='tooltip'>{user.name}</p>}
@@ -81,15 +81,15 @@ let ShowHighlightedTopicUser = ({ item }) => {
 }
 
 let mapsDemo = [
-    { title: 'created', user: { imgUrl: 'https://unsplash.it/42', name: 'user' }, at: 42 },
-    { title: 'last reply', user: { imgUrl: 'https://unsplash.it/42', name: 'user' }, at: 42 },
+    { title: 'created', user: { imgUrl: 'https://unsplash.it/26', name: 'user' }, at: 42 },
+    { title: 'last reply', user: { imgUrl: 'https://unsplash.it/26', name: 'user' }, at: 42 },
 ]
 
 let participatingUsers = [
-    { name: 'User Een', imgUrl: 'https://unsplash.it/42' },
-    { name: 'User Twee', imgUrl: 'https://unsplash.it/42' },
-    { name: 'User Drie', imgUrl: 'https://unsplash.it/42' },
-    { name: 'User vier', imgUrl: 'https://unsplash.it/42' }
+    { name: 'User Een', imgUrl: 'https://unsplash.it/26' },
+    { name: 'User Twee', imgUrl: 'https://unsplash.it/26' },
+    { name: 'User Drie', imgUrl: 'https://unsplash.it/26' },
+    { name: 'User vier', imgUrl: 'https://unsplash.it/26' }
 ]
 
 let mapsNumbers = [

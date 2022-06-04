@@ -5,33 +5,40 @@
 
 .user-topic > .map {
     padding: 11px;
-    width: fit-content;
+    width: min-content;
     background-color: var(--bg-clr);
+    /* margin: 0 auto; */
+    /* margin-right: -92px; */
 }
 
 .topic-map {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     background-color: var(--bg-clr);
     width: max-content;
 }
 
 .topic-map li:first-child {
-    width: 101px;
+    /* width: 101px; */
+}
+
+.topic-map .created,
+.topic-map .last.reply {
+    width: 60px;
 }
 
 .topic-map .topic-map-drop-down {
     outline: solid 2px var(--primary-clr);
     margin: 2px 11px;
     width: 69px;
-    height: 71px;
+    height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .topic-map .topic-map-drop-down > svg {
-    transform: scale(2.2);
+    transform: scale(1.5);
     color: var(--primary-clr);
 }
 
@@ -40,11 +47,18 @@
     background-color: var(--bg-clr);
     position: relative;
     padding: 0 29px 0 11px;
+    flex-wrap: wrap;
+    /* width: 49vw; */
 }
 
 .topic-map li {
     text-align: justify;
     margin: 0 11px 0 4px;
+    /* font-size: small; */
+}
+
+.topic-map li * {
+    font-size: small;
 }
 
 .topic-map li>div {
@@ -65,7 +79,7 @@
 }
 
 .topic-map ul .numbers-group span {
-    font-size: xx-large;
+    /* font-size: xx-large; */
 }
 
 .topic-map ul .users-group {

@@ -58,7 +58,10 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
                 <FontAwesomeIcon icon={faLink} />
                 {optionsVisible ? <ShowOptions handleOptionsHidden={handleOptionsHidden} /> : <FontAwesomeIcon icon={faEllipsis} onClick={handleOptionsVisible} style={{ position: "relative" }} />}
 
-                <FontAwesomeIcon icon={faReply} />
+                <div>
+                    <FontAwesomeIcon icon={faReply} id='reply-icon' />
+                    <span>Reply</span>
+                </div>
             </div>
         </div>
     )

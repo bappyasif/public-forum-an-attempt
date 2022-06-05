@@ -30,26 +30,18 @@
     outline: solid 1px var(--primary-clr);
 }
 
-.user-actions > div > div {
+.user-actions > div > #reply-div {
     display: flex;
     align-items: center;
     gap: 11px;
-    padding: 2px 13px 2px 6px;
+    padding: 0px 13px 0px 6px;
+    color: var(--primary-clr);
 }
 
-/* .user-actions > div svg:last-child, */
 .user-actions > div > #reply-icon {
     color: var(--primary-clr);
     position: relative;
 }
-
-/* .user-actions > div > svg:last-child::after, */
-/* .user-actions > div > #reply-icon::after {
-    content: "Reply";
-    width: fit-content;
-    position: absolute;
-    right: 0px;
-} */
 
 .user-actions #topic-user-reply-reaction {
     position: absolute;
@@ -82,7 +74,6 @@
     position: absolute;
     display: flex;
     gap: 17px;
-    /* background-color: var(--primary-clr); */
     padding: 8px;
     border-radius: 2px;
 }

@@ -15,7 +15,7 @@
 }
 
 .user-actions > div svg,
-.user-actions > div > div  {
+.user-actions > div > #reply-div  {
     outline: solid 1px var(--bg-clr);
     padding: 6px;
     border-radius: 6px;
@@ -26,7 +26,7 @@
 }
 
 .user-actions > div > svg:hover,
-.user-actions > div > div:hover {
+.user-actions > div > #reply-div:hover {
     outline: solid 1px var(--primary-clr);
 }
 
@@ -54,7 +54,9 @@
     background-color: var(--secondary-clr);
 }
 
-.user-actions #reactions p #tooltipText {
+.user-actions #reactions p #tooltipText,
+.user-actions > div > p > .ua-tooltips,
+.user-actions > div > .show-options > p > .ua-tooltips {
     position: absolute;
     left: 45px;
     width: max-content;

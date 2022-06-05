@@ -16,7 +16,7 @@
 
 .user-actions > div svg,
 .user-actions > div > div  {
-    outline: solid 1px var(--background-clr);
+    outline: solid 1px var(--bg-clr);
     padding: 6px;
     border-radius: 6px;
 }
@@ -54,13 +54,26 @@
     background-color: var(--secondary-clr);
 }
 
+.user-actions #reactions p #tooltipText {
+    position: absolute;
+    left: 45px;
+    width: max-content;
+    top: 17px;
+    font-size: medium;
+    border: solid 1px var(--primary-clr);
+    padding: 1px 4px;
+    background-color: var(--bg-clr);
+    z-index: 99;
+    border-radius: 4px;
+}
+
 .user-actions #reactions svg {
     padding: 4px 11px;
 }
 
 .user-actions #reactions svg:hover {
     background-color: var(--primary-clr);
-    border: solid 1px var(--background-clr);
+    border: solid 1px var(--bg-clr);
     border-radius: 6px;
 }
 

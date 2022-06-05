@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeartbeat, faLink, faEllipsis, faReply, faThumbsUp, faSurprise, faHandsClapping, faFlag } from "@fortawesome/free-solid-svg-icons"
 import { faBookmark, faGrin, faHandSpock, faHeart } from "@fortawesome/free-regular-svg-icons"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./styles.css"
+import { useOnHoverOutside } from '../hooks'
 
 function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies }) {
     let [heartCount, setHeartCount] = useState(0);
@@ -83,10 +84,10 @@ let ShowOptions = ({ handleOptionsHidden }) => {
 }
 
 let ShowReactions = ({ handleShowReactions, showReactions, handleReactionName }) => {
-    let handleClick = (evt) => {
-        handleReactionName(evt.target.getAttribute("name") || evt.target.parentNode.getAttribute("name"))
-        handleShowReactions()
-    }
+    // let handleClick = (evt) => {
+    //     handleReactionName(evt.target.getAttribute("name") || evt.target.parentNode.getAttribute("name"))
+    //     handleShowReactions()
+    // }
 
     return (
         <div id='reactions' className={`${showReactions ? 'reactions-picker' : 'fold-down'}`} onMouseLeave={handleShowReactions}>
@@ -109,6 +110,8 @@ let ShowReactions = ({ handleShowReactions, showReactions, handleReactionName })
 
 let GenerateIcon = ({iconName, name, handleReactionName, handleShowReactions}) => {
     let [tooltipText, setTooltipText] = useState(null)
+    // let ref = useRef(null)
+    // useOnHoverOutside(ref, () => setTooltipText(''))
 
     let handleClick = (evt) => {
         let gotName = evt.target.getAttribute("name") || evt.target.parentNode.getAttribute("name")
@@ -122,24 +125,24 @@ let GenerateIcon = ({iconName, name, handleReactionName, handleShowReactions}) =
     let handleMouseEnter = () => {
         // handleUpdate(()=>{}, null, updateTooltipText)
         if (name === 'heart') {
-            setTooltipText('faHeart')
+            setTooltipText('react to this post with: heart')
         } else if (name === 'thumbsUp') {
-            setTooltipText('faThumbsUp')
+            setTooltipText('react to this post with: thumbsUp')
         } else if (name === 'grin') {
-            setTooltipText('faGrin')
+            setTooltipText('react to this post with: grin')
         } else if (name === 'surprise') {
-            setTooltipText('faSurprise')
+            setTooltipText('react to this post with: surprise')
         } else if (name === 'clap') {
-            setTooltipText('faHandsClapping')
+            setTooltipText('react to this post with: clapping')
         } else if (name === 'spock') {
-            setTooltipText('faHandSpock')
+            setTooltipText('react to this post with: spock')
         }
     }
 
     return (
-        <p onMouseEnter={handleMouseEnter}>
+        <p onMouseEnter={handleMouseEnter} onMouseLeave={() => setTooltipText('')} style={{position: 'relative'}}>
             <FontAwesomeIcon icon={iconName && iconName} onClick={handleClick} name={name} />
-            <span>{tooltipText}</span>
+            {tooltipText && <span id='tooltipText'>{tooltipText}</span>}
         </p>
     )
 }

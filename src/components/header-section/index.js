@@ -47,13 +47,13 @@ let LoginOrSignupButtons = () => {
 
 let NavElement = ({ name }) => {
   return (
-    <li className='nav-element' aria-label={name} title={name}><a href='http://localhost:3000/'>{name}</a></li>
+    <li className='nav-element' aria-label={name} title={name}><a href='http://localhost:3000/' tabIndex='0'>{name}</a></li>
   )
 }
 
 let ForumLogo = () => {
   return (
-    <img src={forumLogo} alt='forum logo' />
+    <img src={forumLogo} alt='your favourite forum logo' tabIndex={'0'} />
   )
 }
 

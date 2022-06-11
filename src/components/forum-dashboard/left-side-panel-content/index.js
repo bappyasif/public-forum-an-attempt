@@ -25,8 +25,8 @@ let RenderTopic = ({topicItem}) => {
   let {name, topics} = {...topicItem}
   return (
     <li>
-      <p>{name}</p>
-      <p>{topics}</p>
+      <p tabIndex={'0'}>{name}</p>
+      <p tabIndex={'0'}>{topics}</p>
     </li>
   )
 }

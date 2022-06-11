@@ -39,7 +39,7 @@ let TopicFooter = ({createTopic, closeModal, handleMarkdownContent}) => {
                 <img src={plusPng} alt='plus sign to create a topic' />
                 <div onClick={handleMarkdownContent}>Create Topic</div>
             </button>
-            <div onClick={closeModal}>Cancel</div>
+            <div role={'button'} onClick={closeModal}>Cancel</div>
         </div>
     )
 }
@@ -96,7 +96,7 @@ let AllTagsListDropdown = ({ handleOption }) => {
     let allStates = useContext(UserContext)
     let allOptions = () => allStates.categoriesInfo?.map(item => <DropdownsOption key={item.name} option={item.name} handleOption={handleOption} />)
     return (
-        <div className='tags-dropdown'>
+        <div className='tags-dropdown' aria-labelledby='dropdowns'>
             {allOptions()}
         </div>
     )
@@ -111,7 +111,7 @@ let DropdownsOption = ({ option, handleOption }) => {
 let TopicTitle = () => {
     return (
         <fieldset>
-            <label htmlFor='topic-title'></label>
+            <label htmlFor='topic-title' aria-label='enter a topic title'></label>
             <input id='topic-title' type={'text'} aria-required='true' placeholder='type title or paste a link here' />
         </fieldset>
     )
@@ -119,7 +119,7 @@ let TopicTitle = () => {
 
 let HeaderElement = () => {
     return (
-        <div className='header-element'>
+        <div className='header-element' role={'button'}>
             <img src={plusPng} alt='depiction for add a new topic' />
             <p>Create a new topic</p>
         </div>

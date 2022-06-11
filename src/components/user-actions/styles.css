@@ -21,6 +21,11 @@
     border-radius: 6px;
 }
 
+.user-actions > div #reply-icon {
+    outline: none;
+    background-color: none;
+}
+
 .user-actions > div svg {
     width: 29px;
 }
@@ -28,6 +33,18 @@
 .user-actions > div > svg:hover,
 .user-actions > div > #reply-div:hover {
     outline: solid 1px var(--primary-clr);
+}
+
+.user-actions > div svg:hover {
+    background-color: var(--secondary-clr);
+}
+
+.user-actions > div #reply-icon:hover {
+    background-color: inherit;
+}
+
+.user-actions > div #reply-div:hover {
+    background-color: var(--bg-clr);
 }
 
 .user-actions > div > #reply-div {
@@ -75,7 +92,7 @@
 
 .user-actions #reactions svg:hover {
     background-color: var(--primary-clr);
-    border: solid 1px var(--bg-clr);
+    outline: solid 1px var(--bg-clr);
     border-radius: 6px;
 }
 

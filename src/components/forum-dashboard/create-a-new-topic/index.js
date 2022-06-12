@@ -23,23 +23,23 @@ export function CreateNewTopic({closeModal, setAllStates}) {
 
     // console.log(markdownContents, allStates, 'from topic')
     return (
-        <div className='create-a-new-topic'>
+        <section className='create-a-new-topic' aria-label='create a topic modal'>
             <HeaderElement />
             <TopicTitleAndTags />
             <MarkDownTextEditor setMarkdownContents={setMarkdownContents} />
             <TopicFooter createTopic={handleCreateTopic} closeModal={closeModal} handleMarkdownContent={handleMarkdownContent} />
-        </div>
+        </section>
     )
 }
 
 let TopicFooter = ({createTopic, closeModal, handleMarkdownContent}) => {
     return (
-        <div className='footer-container'>
-            <button onClick={createTopic}>
+        <div className='footer-container' role={'region'} aria-label='create or cancel topic'>
+            <button onClick={createTopic} tabIndex='0' aria-label='create topic'>
                 <img src={plusPng} alt='plus sign to create a topic' />
                 <div onClick={handleMarkdownContent}>Create Topic</div>
             </button>
-            <div role={'button'} onClick={closeModal}>Cancel</div>
+            <button role={'button'} onClick={closeModal} tabIndex='0' aria-label='cancel topic'>Cancel</button>
         </div>
     )
 }
@@ -58,7 +58,7 @@ let MarkDownTextEditor = ({setMarkdownContents}) => {
     }, [])
 
     return (
-        <MDEditor value={value} onChange={setValue} >
+        <MDEditor value={value} onChange={setValue}>
             <MDEditor.Markdown source={value} />
         </MDEditor>
     )
@@ -81,10 +81,10 @@ let TopicTitleAndTags = () => {
     useOnClickOutside(ref, () => setShowDropsowns(false))
 
     return (
-        <div className='topic-title-and-tags' ref={ref}>
+        <div className='topic-title-and-tags' ref={ref} aria-label='topic title and tags' role={'region'}>
             <TopicTitle />
-            <div>
-                <div className='option-selected'>{optionSelected}</div>
+            <div role={'complementary'} aria-label='choose from this dropdown'>
+                <div className='option-selected' aria-label={optionSelected} role='menuitem'>{optionSelected}</div>
                 <img src={downArrow} onClick={toggleDropDowns} alt='dropdown arrow' />
             </div>
             {showDropdowns && <AllTagsListDropdown handleOption={handleOption} />}
@@ -96,7 +96,7 @@ let AllTagsListDropdown = ({ handleOption }) => {
     let allStates = useContext(UserContext)
     let allOptions = () => allStates.categoriesInfo?.map(item => <DropdownsOption key={item.name} option={item.name} handleOption={handleOption} />)
     return (
-        <div className='tags-dropdown' aria-labelledby='dropdowns'>
+        <div className='tags-dropdown' aria-label='dropdowns items' role={'menu'}>
             {allOptions()}
         </div>
     )
@@ -110,7 +110,7 @@ let DropdownsOption = ({ option, handleOption }) => {
 
 let TopicTitle = () => {
     return (
-        <fieldset>
+        <fieldset aria-label='topic title'>
             <label htmlFor='topic-title' aria-label='enter a topic title'></label>
             <input id='topic-title' type={'text'} aria-required='true' placeholder='type title or paste a link here' />
         </fieldset>

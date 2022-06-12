@@ -10,6 +10,7 @@
 
 .dahsboard-header-ui-container .categories-labels {
     display: flex;
+    align-items: center;
 }
 
 .dahsboard-header-ui-container button {
@@ -20,6 +21,7 @@
     border-color: none;
     border: none;
     font-weight: bolder;
+    margin-left: 18px;
 }
 
 .dahsboard-header-ui-container button:hover {
@@ -36,6 +38,11 @@
     justify-content: space-between;
     list-style: none;
     margin: 0;
+}
+
+.rest-labels li.header-label {
+    min-width: 105px;
+    justify-content: center;
 }
 
 .dahsboard-header-ui-container .rest-labels .header-label {

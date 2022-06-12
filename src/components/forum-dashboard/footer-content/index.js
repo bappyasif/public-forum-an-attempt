@@ -3,7 +3,7 @@ import './styles.css'
 
 function FooterContents() {
     return (
-        <footer className='footer-content'>
+        <footer className='footer-content' aria-label='web forum important mentions' role={'contentinfo'}>
             <LeftSide />
             <RightSide />
         </footer>
@@ -12,15 +12,15 @@ function FooterContents() {
 
 let RightSide = () => {
     return (
-        <div className='footer-right-container'>
+        <section className='footer-right-container' aria-label='copytight mention'>
             <em>copyright by ab but codebase and design layout is free to use with a mention!!</em>
-        </div>
+        </section>
     )
 }
 
 let LeftSide = () => {
     return (
-        <section className='footer-left-container'>
+        <section className='footer-left-container' aria-label='important links'>
             <h2>this is to let you know about some notable and important info about ourselves and how you can contact wth us and continue to grow with us, help you , help us</h2>
             <nav aria-label={'footer-navigation'}>
                 <ul>

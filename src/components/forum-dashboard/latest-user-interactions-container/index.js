@@ -5,7 +5,7 @@ import "./styles.css"
 
 export function LatestUserInteractionsContainer() {
     return (
-        <section className='latest-user-interactions-container'>
+        <section className='latest-user-interactions-container' aria-label='latest posts on topics'>
             <InteractionHeader />
             <LatestTopicsFromUsers />
         </section>
@@ -25,7 +25,7 @@ let LatestTopicsFromUsers = () => {
     console.log(latestTopics, 'Latest')
 
     return (
-        <ul className='latest-topics'>
+        <ul className='latest-topics' aria-label='most recent topics posts'>
             {renderTopics()}
         </ul>
     )

@@ -4,24 +4,24 @@ import './styles.css'
 
 function HeroContent() {
   return (
-    <div className='hero-contents-wrapper'>
+    <section className='hero-contents-wrapper' aria-label='forum slogan, featured infographic'>
         <ShowForumWelcomeText />
         <ShowInfographic />
-    </div>
+    </section>
   )
 }
 
 let ShowForumWelcomeText = () => {
     return (
-        <section className='hero-text'>
+        <aside className='hero-text' aria-label='forum slogan'>
             <h1>Web Forum</h1>
-            <em>For you, by you, inclusive, democracy!</em>
-        </section>
+            <em>Of you, For you, By you, inclusive, democracy!</em>
+        </aside>
     )
 }
 
 let ShowInfographic = () => {
-    return <img src={infoGraphics} alt='infographic about web communications' />
+    return <aside aria-label='featured infographic'><img src={infoGraphics} alt='infographic about web communications' /></aside>
 }
 
 export default HeroContent

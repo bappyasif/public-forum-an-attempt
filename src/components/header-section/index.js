@@ -7,7 +7,7 @@ import { IconElement } from '../general-purpose-use-hof'
 
 function HeaderUI() {
   return (
-    <header className='header-section'>
+    <header className='header-section' aria-label='forum header' role={'banner'}>
       <ForumLogo />
       <HeaderRightSideUI />
     </header>
@@ -16,7 +16,7 @@ function HeaderUI() {
 
 let HeaderRightSideUI = () => {
   return (
-    <section className='right-side-ui-wrapper'>
+    <section className='right-side-ui-wrapper' aria-label='main navigations'>
       <LoginOrSignupButtons />
       <SearchAndMenuIcons />
     </section>
@@ -27,7 +27,7 @@ let SearchAndMenuIcons = () => {
   let icons = ["Search", "Menu"].map(name => <IconElement key={name} altText={name} icon={name === 'Search' ? search : menu} />)
   return (
     <nav aria-label='MenuDropdown'>
-      <ul className='header-icons'>
+      <ul className='header-icons' aria-label='menu icons'>
         {icons}
       </ul>
     </nav>
@@ -37,8 +37,8 @@ let SearchAndMenuIcons = () => {
 let LoginOrSignupButtons = () => {
   let navs = ["Signup", "Login"].map(name => <NavElement key={name} name={name} />)
   return (
-    <nav role={'navigation'}>
-      <ul className='navs'>
+    <nav aria-label='inclusions navgations'>
+      <ul className='navs' aria-label='user login or signup'>
         {navs}
       </ul>
     </nav>

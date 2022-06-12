@@ -66,12 +66,12 @@ let ShowDropDownOption = ({ name }) => {
 export let RenderListOfElements = ({list, wrapperClassName, elementClassName}) => {
   let listElementNames = () => list.map(name => <RenderListItem key={name} name={name} itemClassName={elementClassName} />)
   return (
-      <ul className={wrapperClassName}>
+      <ul className={wrapperClassName} aria-label='prominent topics'>
           {listElementNames()}
       </ul>
   )
 }
 
 let RenderListItem = ({name, itemClassName}) => {
-  return <li aria-label={name} className={itemClassName}>{itemClassName.includes('number') !== true ? <a href='http://localhost:3000/'>{name}</a> : name}</li>
+  return <li aria-label={name} className={itemClassName} tabIndex={'0'}>{itemClassName.includes('number') !== true ? <a href='http://localhost:3000/' tabIndex={'-1'}>{name}</a> : name}</li>
 }

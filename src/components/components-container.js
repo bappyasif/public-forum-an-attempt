@@ -8,7 +8,7 @@ import HeroContent from './hero-content'
 export default function ComponentsContainer({setAllStates}) {
   
   return (
-      <main className='components-container'>
+      <main className='components-container' aria-label='web forum'>
         <HeaderUI />
         <HeroContent />
         <DashboardContainer setAllStates={setAllStates} />

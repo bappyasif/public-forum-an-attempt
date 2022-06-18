@@ -77,57 +77,57 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
 
     let OptionElement = () => {
         return (
-            <p id='option-icon' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
+            <p id='option-icon' role={'img'} aria-label='option icon' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
                 <FontAwesomeIcon icon={faEllipsis} onClick={handleOptionsVisible} />
-                {userActionIconName === 'option-icon' && <span className='ua-tooltips'>{tooltipText}</span>}
+                {userActionIconName === 'option-icon' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
             </p>
         )
     }
 
     return (
-        <div className='user-actions'>
+        <section className='user-actions' aria-label='user actions'>
             {<FontAwesomeIcon id='topic-user-reply-reaction' icon={whichIcon && whichIcon} style={{ visibility: fromReplies && rndNum > .2 ? 'visible' : 'hidden' }} />}
 
             <div>
-                {heartCount > 0 && reactionName === 'heart' && <span style={{ marginRight: '-13px' }}>{heartCount}</span>}
+                {heartCount > 0 && reactionName === 'heart' && <span style={{ marginRight: '-13px' }} >{heartCount}</span>}
 
-                <p id='fa-heart' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
+                <p id='fa-heart' role={'img'} aria-label='choose reaction' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
                     <FontAwesomeIcon icon={showReactions ? faHeartbeat : whichIcon ? whichIcon : faHeart} onMouseEnter={handleMouseIn} style={{ position: "relative", color: reactionName ? 'var(--primary-clr)' : 'none' }} />
-                    {userActionIconName === 'fa-heart' && <span className='ua-tooltips'>{tooltipText}</span>}
+                    {userActionIconName === 'fa-heart' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
                 </p>
 
                 {<ShowReactions handleShowReactions={handleMouseOut} showReactions={showReactions} handleReactionName={handleReactionName} />}
 
-                <p id='fa-link' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
+                <p id='fa-link' role={'img'} aria-label='included link/s' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
                     <FontAwesomeIcon icon={faLink} />
-                    {userActionIconName === 'fa-link' && <span className='ua-tooltips'>{tooltipText}</span>}
+                    {userActionIconName === 'fa-link' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
                 </p>
 
                 {optionsVisible ? <ShowOptions handleOptionsHidden={handleOptionsHidden} userActionIconName={userActionIconName} tooltipText={tooltipText} handleHover={handleHover} setUserActionIconName={setUserActionIconName} /> : <OptionElement />}
 
-                <p id='reply-div' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
+                <p id='reply-div' role={'img'} aria-label='reply to this topic' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
                     <FontAwesomeIcon icon={faReply} id='reply-icon' onMouseEnter={handleHover} />
                     <span>Reply</span>
-                    {userActionIconName === 'reply-div' && <span className='ua-tooltips'>{tooltipText}</span>}
+                    {userActionIconName === 'reply-div' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
                 </p>
             </div>
 
-        </div>
+        </section>
     )
 }
 
 let ShowOptions = ({ handleOptionsHidden, userActionIconName, tooltipText, handleHover, setUserActionIconName }) => {
     let handleClick = () => handleOptionsHidden()
     return (
-        <div className='show-options'>
-            <p id='flag-icon' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
+        <div className='show-options' role={'contentinfo'} aria-label='show options'>
+            <p role={'img'} aria-label='flag this' id='flag-icon' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
                 <FontAwesomeIcon icon={faFlag} onClick={handleClick} />
-                { userActionIconName === 'flag-icon' && <span className='ua-tooltips'>{tooltipText}</span>}
+                { userActionIconName === 'flag-icon' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
             </p>
             
-            <p id='bookmark-icon' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
+            <p id='bookmark-icon' role={'img'} aria-label='bookmark this' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
                 <FontAwesomeIcon icon={faBookmark} onClick={handleClick} />
-                { userActionIconName === 'bookmark-icon' && <span className='ua-tooltips'>{tooltipText}</span>}
+                { userActionIconName === 'bookmark-icon' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
             </p>
         </div>
     )
@@ -136,7 +136,7 @@ let ShowOptions = ({ handleOptionsHidden, userActionIconName, tooltipText, handl
 let ShowReactions = ({ handleShowReactions, showReactions, handleReactionName }) => {
 
     return (
-        <div id='reactions' className={`${showReactions ? 'reactions-picker' : 'fold-down'}`} onMouseLeave={handleShowReactions}>
+        <div id='reactions' role={'menu'} aria-label='reactions options to choose' className={`${showReactions ? 'reactions-picker' : 'fold-down'}`} onMouseLeave={handleShowReactions}>
             <GenerateIcon iconName={faHeart} name='heart' handleReactionName={handleReactionName} handleShowReactions={handleShowReactions} />
             <GenerateIcon iconName={faThumbsUp} name='thumbsUp' handleReactionName={handleReactionName} handleShowReactions={handleShowReactions} />
             <GenerateIcon iconName={faGrin} name='grin' handleReactionName={handleReactionName} handleShowReactions={handleShowReactions} />
@@ -173,9 +173,9 @@ let GenerateIcon = ({ iconName, name, handleReactionName, handleShowReactions })
     }
 
     return (
-        <p onMouseEnter={handleMouseEnter} onMouseLeave={() => setTooltipText('')} style={{ position: 'relative' }}>
+        <p tabIndex={'0'} role={'img'} aria-label={name} onMouseEnter={handleMouseEnter} onMouseLeave={() => setTooltipText('')} style={{ position: 'relative' }}>
             <FontAwesomeIcon icon={iconName && iconName} onClick={handleClick} name={name} />
-            {tooltipText && <span id='tooltipText'>{tooltipText}</span>}
+            {tooltipText && <span id='tooltipText' role={'tooltip'}>{tooltipText}</span>}
         </p>
     )
 }

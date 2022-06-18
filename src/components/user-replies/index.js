@@ -6,9 +6,9 @@ import "./styles.css";
 function UserReplies() {
   let renderReplies = () => fakeReplies?.map(item => <RenderReply key={item.id} item={item} />)
   return (
-    <div className='render-replies'>
+    <section className='render-replies' aria-label='render replies'>
       {renderReplies()}
-    </div>
+    </section>
   )
 }
 
@@ -22,7 +22,7 @@ let RenderReply = ({ item }) => {
   let handleMouseMovedOut = () => setShowReactions(false)
   
   return (
-    <div className='reply-wrapper' onMouseLeave={handleMouseMovedOut}>
+    <div className='reply-wrapper' role={'contentinfo'} aria-label='reply container' onMouseLeave={handleMouseMovedOut}>
       <RenderReplyTopPart name={name} picUrl={picUrl} postedTime={postedTime} />
       <RenderReplyTextContent replyText={replyText} />
       <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} fromReplies={true} />
@@ -38,13 +38,13 @@ let RenderReplyTextContent = ({ replyText }) => {
 
 let RenderReplyTopPart = ({ name, picUrl, postedTime }) => {
   return (
-    <div className='rr-top-part'>
-      <p className='user-info'>
+    <section className='rr-top-part'  aria-label='topic reply info container'>
+      <p className='user-info' aria-label='user info'>
         <img src={picUrl} alt="user depiction" />
-        <span>{name}</span>
+        <span aria-label={'user name'}>{name}</span>
       </p>
-      <span>{postedTime}</span>
-    </div>
+      <span aria-label='posted time'>{postedTime}</span>
+    </section>
   )
 }
 

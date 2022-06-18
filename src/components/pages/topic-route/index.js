@@ -20,11 +20,11 @@ function TopicPage() {
     return (
         <main className='topic-page'>
             <HeaderUI />
-            <div style={{width: '850px', margin: '0 auto'}}>
+            <section style={{width: '850px', margin: '0 auto'}} aria-label='user topic and replies'>
                 {params.topicId && <UserTopic />}
                 {params.topicId && <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} />}
                 <div onMouseEnter={handleMouseMovedOut}>{params.topicId && <UserReplies />}</div>
-            </div>
+            </section>
             <FooterContents />
         </main>
     )

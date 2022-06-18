@@ -6,18 +6,18 @@ import './styles.css'
 function TopicMap() {
 
     return (
-        <div className='map'>
-            <section className='topic-map'>
+        <section className='map' aria-label='topic map'>
+            <div className='topic-map'>
                 <ShowRecentTopicMaps />
                 <ShowTopicMapDropdown />
-            </section>
-        </div>
+            </div>
+        </section>
     )
 }
 
 let ShowTopicMapDropdown = () => {
     return (
-        <div className='topic-map-drop-down'>
+        <div className='topic-map-drop-down' role={'img'} aria-label='dropdown icon'>
             <FontAwesomeIcon icon={faAngleDown} width={156} />
         </div>
     )
@@ -25,7 +25,7 @@ let ShowTopicMapDropdown = () => {
 
 let ShowRecentTopicMaps = () => {
     return (
-        <ul>
+        <ul aria-label='current topic map info'>
             {mapsDemo.map(item => <ShowHighlightedTopicUser key={item.title} item={item} />)}
             {mapsNumbers.map(item => <ShowTopicRelatedNumbers key={item.title} item={item} />)}
             <CurrentlyParticipatingUsers />
@@ -36,7 +36,7 @@ let ShowRecentTopicMaps = () => {
 let CurrentlyParticipatingUsers = () => {
     let populateUsers = () => participatingUsers.map(item => <PopulateUser key={item.name} item={item} />)
     return (
-        <li className='users-group'>
+        <li className='users-group' role={'list'} aria-label='list of user replied'>
             {populateUsers()}
         </li>
     )
@@ -47,7 +47,7 @@ let PopulateUser = ({ item }) => {
     let [showTooltip, setShowTooltip] = useState(false)
 
     return (
-        <div onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
+        <div role={'listitem'} aria-label='replied user' onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
             <img src={imgUrl} alt='user depiction' />
             {showTooltip && <p>{name}</p>}
         </div>
@@ -57,7 +57,7 @@ let PopulateUser = ({ item }) => {
 let ShowTopicRelatedNumbers = ({ item }) => {
     let { title, count } = { ...item }
     return (
-        <li className='numbers-group'>
+        <li className='numbers-group' aria-label={title}>
             <span>{count}</span>
             <p>{title}</p>
         </li>
@@ -69,7 +69,7 @@ let ShowHighlightedTopicUser = ({ item }) => {
     let [showTooltip, setShowTooltip] = useState(false)
 
     return (
-        <li className={title} onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
+        <li className={title} aria-label={title} onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
             <h2>{title}</h2>
             <div>
                 <img src={user.imgUrl} alt='depicting user' />

@@ -8,46 +8,46 @@ import { UserContext } from '../../App'
 
 function UserTopic() {
   return (
-    <div className='user-topic'>
+    <section className='user-topic' aria-label='user topic'>
       <TopicHeader />
       <TopicContent />
       <TopicMap />
-    </div>
+    </section>
   )
 }
 
 let TopicContent = () => {
   return (
-    <div className='topic-content'>
+    <section className='topic-content' aria-label='topic content'>
       <UserInfoAndTopicTimeStamp />
       <TopicDescription />
-    </div>
+    </section>
   )
 }
 
 let UserInfoAndTopicTimeStamp = () => {
   return (
-    <div className='starting-infos'>
+    <p className='starting-infos' aria-label='user topic posted info'>
       <UserInfo />
       <TimeStamp />
-    </div>
+    </p>
   )
 }
 
 let TimeStamp = () => {
   return (
-    <p className='time-stamp'>
+    <span className='time-stamp' aria-label='time stamp' role={'timer'}>
       42 <span>{Math.random() > .51 ? 'm' : 'h'}</span>
-    </p>
+    </span>
   )
 }
 
 let UserInfo = () => {
   return (
-    <div className='user-info'>
-      <img src='https://unsplash.it/60' alt='user visual' />
-      <p>User Name</p>
-    </div>
+    <p className='user-info' aria-label='user info'>
+      <img src='https://unsplash.it/60' alt='user visual' tabIndex={'0'} />
+      <span aria-label='user name' tabIndex={'0'} role={''}>User Name</span>
+    </p>
   )
 }
 
@@ -61,13 +61,13 @@ let TopicDescription = () => {
   // console.log(tokens, 'tokens!!')
   console.log(allStates?.markdownIt, 'allStates?.markdownIt', allStates)
   return (
-    <div className='topic-description'>
+    <p className='topic-description' aria-label='user topic decription container' role={'article'}>
       <ReactMarkdown children={allStates?.markdownIt} remarkPlugins={remarkGfm} />
       <DescriptionText />
       {/* <DescriptionText />
       <ShowUserLinkPreview />
       <ShowTopicRelatedSnaps /> */}
-    </div>
+    </p>
   )
 }
 
@@ -93,7 +93,7 @@ let TopicDescription = () => {
 
 let DescriptionText = () => {
   return (
-    <p>
+    <p aria-label='user topic description text'>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
   )
@@ -101,11 +101,11 @@ let DescriptionText = () => {
 
 let TopicHeader = () => {
   return (
-    <section id='header-section'>
+    <section id='header-section' aria-label='topic header' tabIndex={'0'}>
       <h1>user topic sentence goes here, if you know how to help with this, please, feel free to do so</h1>
-      <ul>
-        <li>HTML</li>
-        <li>CSS</li>
+      <ul aria-label='topic category'>
+        <li tabIndex={'0'}>HTML</li>
+        <li tabIndex={'0'}>CSS</li>
       </ul>
     </section>
   )

@@ -3,7 +3,7 @@ import './styles.css'
 
 function FooterContents() {
     return (
-        <footer className='footer-content' aria-label='web forum important mentions' role={'contentinfo'}>
+        <footer className='footer-content' aria-label='web forum important mentions'>
             <LeftSide />
             <RightSide />
         </footer>

@@ -15,7 +15,7 @@ let ShowForumWelcomeText = () => {
     return (
         <aside className='hero-text' aria-label='forum slogan'>
             <h1>Web Forum</h1>
-            <em>Of you, For you, By you, inclusive, democracy!</em>
+            <em>For you, By you, Of you, democracy, all inclusive!!</em>
         </aside>
     )
 }

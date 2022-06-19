@@ -72,8 +72,8 @@
 }
 
 .user-actions #reactions p #tooltipText,
-.user-actions > div > p > .ua-tooltips,
-.user-actions > div > .show-options > p > .ua-tooltips {
+.user-actions > div .ua-tooltips,
+.user-actions > div > .show-options .ua-tooltips {
     position: absolute;
     left: 45px;
     width: max-content;

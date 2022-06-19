@@ -51,7 +51,7 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
     let handleHover = evt => {
         // let gotId = evt.target.id || evt.target.parentNode.id || evt.target.parentNode.parentNode.id;
         let gotId = evt.target.parentNode.id || evt.target.id || evt.target.parentNode.parentNode.id;
-        // console.log(gotId, 'gotID!!')
+        console.log(gotId, 'gotID!!')
         gotId && setUserActionIconName(gotId);
     }
 
@@ -75,14 +75,62 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
         }
     }
 
+    let handleFaHeartKeypressed = evt => {
+        // console.log(evt.target.keyCode, 'keyCOde', evt.keyCode)
+        // console.log('keyCOde', evt.keyCode)
+        // if(evt.keyCode === 13) {
+        //     handleHover(evt)
+        //     handleMouseIn()
+        // } else if(evt.keyCode === 27) {
+        //     setUserActionIconName('')
+        //     handleMouseOut()
+        // }
+        
+        handleKeyPressed(evt);
+
+        if(evt.keyCode === 13) {
+            handleMouseIn()
+        } else if(evt.keyCode === 27) {
+            handleMouseOut()
+        }
+    }
+
+    let handleFaLinkKeypressed = evt => {
+        handleKeyPressed(evt)
+        // console.log('keyCOde', evt.keyCode)
+        // if(evt.keyCode === 13) {
+        //     handleHover(evt)
+        //     // handleMouseIn()
+        // } else if(evt.keyCode === 27) {
+        //     setUserActionIconName('')
+        //     // handleMouseOut()
+        // }
+    }
+
+    let handleOptionIconKeypressed = (evt) => {
+        handleKeyPressed(evt)
+    }
+
+    let handleKeyPressed = (evt) => {
+        if(evt.keyCode === 13) {
+            handleHover(evt)
+        } else if(evt.keyCode === 27) {
+            setUserActionIconName('')
+        }
+    }
+
     let OptionElement = () => {
         return (
-            <p id='option-icon' role={'img'} aria-label='option icon' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
+            <p id='option-icon' tabIndex={'0'} role={'button'} aria-label='option icon' onKeyUp={handleOptionIconKeypressed} onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
                 <FontAwesomeIcon icon={faEllipsis} onClick={handleOptionsVisible} />
                 {userActionIconName === 'option-icon' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
             </p>
         )
     }
+
+    /**
+     * things to consider
+     */
 
     return (
         <section className='user-actions' aria-label='user actions'>
@@ -91,21 +139,21 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
             <div>
                 {heartCount > 0 && reactionName === 'heart' && <span style={{ marginRight: '-13px' }} >{heartCount}</span>}
 
-                <p id='fa-heart' role={'img'} aria-label='choose reaction' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
+                <p id='fa-heart' tabIndex={'0'} role={'button'} aria-label='choose reaction' onKeyUp={handleFaHeartKeypressed} onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
                     <FontAwesomeIcon icon={showReactions ? faHeartbeat : whichIcon ? whichIcon : faHeart} onMouseEnter={handleMouseIn} style={{ position: "relative", color: reactionName ? 'var(--primary-clr)' : 'none' }} />
                     {userActionIconName === 'fa-heart' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
                 </p>
 
                 {<ShowReactions handleShowReactions={handleMouseOut} showReactions={showReactions} handleReactionName={handleReactionName} />}
 
-                <p id='fa-link' role={'img'} aria-label='included link/s' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
+                <p id='fa-link' role={'button'} tabIndex={'0'} aria-label='included link/s' onKeyUp={handleFaLinkKeypressed} onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
                     <FontAwesomeIcon icon={faLink} />
                     {userActionIconName === 'fa-link' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
                 </p>
 
                 {optionsVisible ? <ShowOptions handleOptionsHidden={handleOptionsHidden} userActionIconName={userActionIconName} tooltipText={tooltipText} handleHover={handleHover} setUserActionIconName={setUserActionIconName} /> : <OptionElement />}
 
-                <p id='reply-div' role={'img'} aria-label='reply to this topic' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
+                <p id='reply-div' role={'button'} aria-label='reply to this topic' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
                     <FontAwesomeIcon icon={faReply} id='reply-icon' onMouseEnter={handleHover} />
                     <span>Reply</span>
                     {userActionIconName === 'reply-div' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}

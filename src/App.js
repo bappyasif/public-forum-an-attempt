@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import ComponentsContainer, { fakeTopics } from './components/components-container';
 import NestedRouteCompTest from './components/pages/NestedRouteCompTest';
+import TagRoute from './components/pages/tag-route';
 import TestComponent from './components/pages/TestComponet';
 import TopicPage from './components/pages/topic-route';
 
@@ -36,6 +37,8 @@ function App() {
             <Route path={`${baseUri}/topic/`} element={<TopicPage />}>
               <Route path=':topicId' element={<TopicPage />} />
             </Route>
+
+            <Route path={`${baseUri}/category/`} element={<TagRoute />}></Route>
 
             <Route path={`${baseUri}/test/`} element={<TestComponent />}>
               <Route path=':testId' element={<NestedRouteCompTest />} />

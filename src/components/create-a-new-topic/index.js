@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import plusPng from '../../assets/plus.png'
-import downArrow from '../../assets/down-arrow.png'
+import plusPng from '../assets/plus.png'
+import downArrow from '../assets/down-arrow.png'
 import './styles.css'
-import { useOnClickOutside } from '../../hooks'
+import { useOnClickOutside } from '../hooks'
 import MDEditor from '@uiw/react-md-editor'
 import { useNavigate } from 'react-router-dom'
-import { baseUri, handleUpdateStatesValue, UserContext } from '../../../App'
+import { baseUri, handleUpdateStatesValue, UserContext } from '../../App'
 
 export function CreateNewTopic({closeModal, setAllStates}) {
     // let allStates = useContext(UserContext)

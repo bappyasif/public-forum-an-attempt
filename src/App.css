@@ -3,6 +3,12 @@
   --secondary-clr: coral;
   --bg-clr: gainsboro;
   --special-clr: darkviolet;
+  --text-clr: white;
+}
+
+ul, li, ol, p, button, a {
+  padding: 0;
+  margin: 0;
 }
 
 .App {

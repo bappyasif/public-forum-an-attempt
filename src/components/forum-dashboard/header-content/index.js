@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../../../App';
+import { CreateNewTopic } from '../../create-a-new-topic';
 import { RenderListOfElements } from '../../general-purpose-use-hof';
-import { CreateNewTopic } from '../create-a-new-topic';
+
 import './styles.css'
 
 export function ForumDashboardHeaderUI({ setAllStates }) {

@@ -59,10 +59,10 @@ let CurrentTopicTagCategory = ({ categoryName }) => {
 
 let ShowAllAvailableTags = ({setShowLists, showLists}) => {
     let allStates = useContext(UserContext)
-    let renderLisrItems = () => allStates?.categoriesInfo.map(item => <li key={item.name}><span className='tag-name'>{item.name}</span><FontAwesomeIcon icon={faCaretRight} /><span>{item.topics}</span></li>)
+    let renderListItems = () => allStates.categoriesInfo?.map(item => <li key={item.name}><span className='tag-name'>{item.name}</span><FontAwesomeIcon icon={faCaretRight} /><span>{item.topics}</span></li>)
     return (
         <ul className={`tags-list ${showLists ? 'show' : 'hide'}`}>
-            {renderLisrItems()}
+            {renderListItems()}
         </ul>
     )
 }

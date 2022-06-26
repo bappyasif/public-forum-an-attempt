@@ -3,22 +3,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useContext, useState } from 'react'
 import './styles.css'
 import {UserContext} from '../../App'
+import { CreateNewTopic } from '../create-a-new-topic'
 
-function TopicTagCategoryHeader({ categoryName }) {
+function TopicTagCategoryHeader({ categoryName, setAllStates }) {
     return (
         <section aria-label='topic tag category header' className='ttch-container'>
             <CurrentTopicTagCategory categoryName={categoryName} />
             <NavigationBar />
-            <NavigationControls />
+            <NavigationControls setAllStates={setAllStates} />
         </section>
     )
 }
 
-let NavigationControls = () => {
+let NavigationControls = ({setAllStates}) => {
+    let [showModal, setShowModal] = useState(false)
+    let toggleShowModal = evt => {
+        setShowModal(!showModal)
+        // console.log(evt.target, 'herejhere')
+    }
     return (
         <div className='navigation-controls'>
-            <CreateTopic />
+            <CreateTopic toggleShowModal={toggleShowModal} />
             <NotificationBell />
+            {showModal && <CreateNewTopic closeModal={toggleShowModal} setAllStates={setAllStates} />}
         </div>
     )
 }
@@ -33,9 +40,9 @@ let NotificationBell = () => {
     )
 }
 
-let CreateTopic = () => {
+let CreateTopic = ({toggleShowModal}) => {
     return (
-        <button className='create-topic'>
+        <button className='create-topic' onClick={toggleShowModal}>
             <FontAwesomeIcon icon={faPlus} />
             <span>New Topic</span>
         </button>

@@ -1,10 +1,10 @@
 import React from 'react'
 import TagCategory from '../../tag-category'
 
-function TagRoute() {
+function TagRoute({setAllStates}) {
   return (
     <section aria-label='category topic tag route'>
-        <TagCategory />
+        <TagCategory setAllStates={setAllStates} />
     </section>
   )
 }

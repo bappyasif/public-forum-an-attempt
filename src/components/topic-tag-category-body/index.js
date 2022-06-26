@@ -24,7 +24,7 @@ let TableRow = ({ items }) => {
     // let renderDatas = () => itemsArray[0].map(item => <td>{item}</td>)
     // let renderDatas = () => itemsArray.map((item, _) => item.map(elem => <td key={_}>{elem}</td>))
     // console.log(itemsArray, 'itemsArray')
-    let renderEngagedUsersPhotos = () => users?.map(imgUrl => <a  key={imgUrl}><img src={imgUrl} /></a>)
+    let renderEngagedUsersPhotos = () => users?.map(imgUrl => <a  key={imgUrl}><img src={imgUrl} alt='user who took part in it' /></a>)
     return (
         <tr className='table-data-row'>
             {/* {renderDatas()} */}
@@ -47,7 +47,7 @@ let TableRow = ({ items }) => {
 
 let TableHead = () => {
     let headers = ['Topic', '_', 'Replies', 'Views', 'Activity']
-    let renderHeaders = () => <tr>{headers.map(name => <th key={name}>{name != '_' ? name : ' '}</th>)}</tr>
+    let renderHeaders = () => <tr>{headers.map(name => <th key={name}>{name !== '_' ? name : ' '}</th>)}</tr>
     return (
         <thead aria-label='table headers'>
             {renderHeaders()}

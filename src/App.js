@@ -38,7 +38,7 @@ function App() {
               <Route path=':topicId' element={<TopicPage />} />
             </Route>
 
-            <Route path={`${baseUri}/category/`} element={<TagRoute />}></Route>
+            <Route path={`${baseUri}/category/`} element={<TagRoute setAllStates={setAllStates} />}></Route>
 
             <Route path={`${baseUri}/test/`} element={<TestComponent />}>
               <Route path=':testId' element={<NestedRouteCompTest />} />

@@ -26,10 +26,11 @@ a {
 
 .ttch-container {
     margin: 0 0 29px;
+    /* position: relative; */
 }
 
-.ttch-container > .navs-view,
-.ttch-container > .navigation-controls {
+/* .ttch-container > .navigation-controls */
+.ttch-container > .navs-view {
     gap: 11px;
     position: relative;
 }
@@ -52,6 +53,12 @@ li.nav-item a {
     padding: 6px 11px;
     outline: none;
     border: none;
+    position: relative;
+}
+
+.ttch-container > .navigation-controls .create-a-new-topic {
+    position: absolute;
+    bottom: 0;
 }
 
 .ttch-container > .navigation-controls > .create-topic span {

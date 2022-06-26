@@ -1,9 +1,10 @@
 import { faBell, faPlus, faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import './styles.css'
-import {UserContext} from '../../App'
+import { UserContext } from '../../App'
 import { CreateNewTopic } from '../create-a-new-topic'
+import { useOnClickOutside } from '../hooks'
 
 function TopicTagCategoryHeader({ categoryName, setAllStates }) {
     return (
@@ -15,15 +16,14 @@ function TopicTagCategoryHeader({ categoryName, setAllStates }) {
     )
 }
 
-let NavigationControls = ({setAllStates}) => {
+let NavigationControls = ({ setAllStates }) => {
     let [showModal, setShowModal] = useState(false)
     let toggleShowModal = evt => {
         setShowModal(!showModal)
-        // console.log(evt.target, 'herejhere')
     }
     return (
         <div className='navigation-controls'>
-            <CreateTopic toggleShowModal={toggleShowModal} />
+            <CreateTopic toggleShowModal={toggleShowModal} showModal={setShowModal} />
             <NotificationBell />
             {showModal && <CreateNewTopic closeModal={toggleShowModal} setAllStates={setAllStates} />}
         </div>
@@ -40,7 +40,9 @@ let NotificationBell = () => {
     )
 }
 
-let CreateTopic = ({toggleShowModal}) => {
+let CreateTopic = ({ toggleShowModal, showModal }) => {
+    // let ref = useRef();
+    // useOnClickOutside(ref, () => showModal(false))
     return (
         <button className='create-topic' onClick={toggleShowModal}>
             <FontAwesomeIcon icon={faPlus} />
@@ -52,8 +54,12 @@ let CreateTopic = ({toggleShowModal}) => {
 let CurrentTopicTagCategory = ({ categoryName }) => {
     let [showLists, setShowLists] = useState(false)
     let handleClick = evt => setShowLists(!showLists)
+
+    let ref = useRef();
+    useOnClickOutside(ref, () => setShowLists(false))
+
     return (
-        <ol className='cttc-wrapper'>
+        <ol className='cttc-wrapper' ref={ref}>
             <li onClick={handleClick}>
                 <span>{categoryName}</span>
                 <FontAwesomeIcon icon={faCaretRight} className={showLists ? 'active' : 'inactive'} />
@@ -64,13 +70,28 @@ let CurrentTopicTagCategory = ({ categoryName }) => {
     )
 }
 
-let ShowAllAvailableTags = ({setShowLists, showLists}) => {
+let ShowAllAvailableTags = ({ setShowLists, showLists }) => {
     let allStates = useContext(UserContext)
-    let renderListItems = () => allStates.categoriesInfo?.map(item => <li key={item.name}><span className='tag-name'>{item.name}</span><FontAwesomeIcon icon={faCaretRight} /><span>{item.topics}</span></li>)
+
+    // let ref = useRef();
+    // useOnClickOutside(ref, () => setShowLists(false))
+
+    let renderListItems = () => allStates.categoriesInfo?.map(item => <DropDownListItem key={item.name} item={item} setShowLists={setShowLists} />)
+
     return (
         <ul className={`tags-list ${showLists ? 'show' : 'hide'}`}>
             {renderListItems()}
         </ul>
+    )
+}
+
+let DropDownListItem = ({item, setShowLists}) => {
+    return (
+        <li key={item.name} onClick={() => setShowLists(false)}>
+            <span className='tag-name'>{item.name}</span>
+            <FontAwesomeIcon icon={faCaretRight} />
+            <span>{item.topics}</span>
+        </li>
     )
 }
 

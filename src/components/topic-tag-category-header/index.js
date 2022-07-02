@@ -6,10 +6,10 @@ import { UserContext } from '../../App'
 import { CreateNewTopic } from '../create-a-new-topic'
 import { useOnClickOutside } from '../hooks'
 
-function TopicTagCategoryHeader({ categoryName, setAllStates }) {
+function TopicTagCategoryHeader({ categoryName, setAllStates, updateCategory }) {
     return (
         <section aria-label='topic tag category header' className='ttch-container'>
-            <CurrentTopicTagCategory categoryName={categoryName} />
+            <CurrentTopicTagCategory categoryName={categoryName} updateCategory={updateCategory} />
             <NavigationBar />
             <NavigationControls setAllStates={setAllStates} />
         </section>
@@ -51,7 +51,7 @@ let CreateTopic = ({ toggleShowModal, showModal }) => {
     )
 }
 
-let CurrentTopicTagCategory = ({ categoryName }) => {
+let CurrentTopicTagCategory = ({ categoryName, updateCategory }) => {
     let [showLists, setShowLists] = useState(false)
     let handleClick = evt => setShowLists(!showLists)
 
@@ -59,35 +59,42 @@ let CurrentTopicTagCategory = ({ categoryName }) => {
     useOnClickOutside(ref, () => setShowLists(false))
 
     return (
-        <ol className='cttc-wrapper' ref={ref}>
-            <li onClick={handleClick}>
-                <span>{categoryName}</span>
-                <FontAwesomeIcon icon={faCaretRight} className={showLists ? 'active' : 'inactive'} />
-            </li>
-            {/* {showLists && <ShowAllAvailableTags setShowLists={setShowLists} showLists={showLists} />} */}
-            <ShowAllAvailableTags setShowLists={setShowLists} showLists={showLists} />
-        </ol>
+        <div className='cttc-wrapper' ref={ref}>
+            <ol aria-label='currenty showing category name'>
+                <li onClick={handleClick} aria-label={'category item'}>
+                    <span><h1>{categoryName}</h1></span>
+                    <FontAwesomeIcon icon={faCaretRight} className={showLists ? 'active' : 'inactive'} />
+                </li>
+                {/* {showLists && <ShowAllAvailableTags setShowLists={setShowLists} showLists={showLists} />} */}
+                {/* <ShowAllAvailableTags setShowLists={setShowLists} showLists={showLists} updateCategory={updateCategory} /> */}
+            </ol>
+            <ShowAllAvailableTags setShowLists={setShowLists} showLists={showLists} updateCategory={updateCategory} />
+        </div>
     )
 }
 
-let ShowAllAvailableTags = ({ setShowLists, showLists }) => {
+let ShowAllAvailableTags = ({ setShowLists, showLists, updateCategory }) => {
     let allStates = useContext(UserContext)
 
     // let ref = useRef();
     // useOnClickOutside(ref, () => setShowLists(false))
 
-    let renderListItems = () => allStates.categoriesInfo?.map(item => <DropDownListItem key={item.name} item={item} setShowLists={setShowLists} />)
+    let renderListItems = () => allStates.categoriesInfo?.map(item => <DropDownListItem key={item.name} item={item} setShowLists={setShowLists} updateCategory={updateCategory} />)
 
     return (
-        <ul className={`tags-list ${showLists ? 'show' : 'hide'}`}>
+        <ul className={`tags-list ${showLists ? 'show' : 'hide'}`} aria-label='list of available tags'>
             {renderListItems()}
         </ul>
     )
 }
 
-let DropDownListItem = ({item, setShowLists}) => {
+let DropDownListItem = ({ item, setShowLists, updateCategory }) => {
+    let handleClick = () => {
+        setShowLists(false)
+        updateCategory(item.name)
+    }
     return (
-        <li key={item.name} onClick={() => setShowLists(false)}>
+        <li key={item.name} onClick={handleClick} aria-label='tag item'>
             <span className='tag-name'>{item.name}</span>
             <FontAwesomeIcon icon={faCaretRight} />
             <span>{item.topics}</span>
@@ -98,7 +105,7 @@ let DropDownListItem = ({item, setShowLists}) => {
 let NavigationBar = () => {
     let showNavs = () => labels.map(name => <li key={name} className='nav-item'><a className='nav-link' href='http://localhost:3000/public-forum-an-attempt/category' target={'_blank'}>{name}</a></li>)
     return (
-        <ul className='navs-view'>
+        <ul className='navs-view' role={'navigation'} aria-label='featuring tags nav items'>
             {showNavs()}
         </ul>
     )

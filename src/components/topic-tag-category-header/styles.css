@@ -15,10 +15,17 @@ a {
     text-decoration: none;
 }
 
+h1, h2 {
+    margin: 0;
+    padding: 0;
+}
+
 .ttch-container,
 .ttch-container > .navs-view,
 .ttch-container > .navigation-controls,
-.ttch-container ol.cttc-wrapper ul.tags-list li {
+.ttch-container ol.cttc-wrapper ul.tags-list li,
+.ttch-container .cttc-wrapper ul.tags-list li,
+ol>li {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,19 +48,25 @@ ol>li {
     padding: 2px 9px;
 }
 
+ol>li {
+    min-width: 116px;
+    justify-content: center;
+}
+
 ol>li>span {
     margin: 0 11px 0 0;
 }
 
 li.nav-item a {
     color: black;
+    padding: 4px 2px;
 }
 
 .ttch-container > .navigation-controls > .create-topic {
     padding: 6px 11px;
-    outline: none;
     border: none;
     position: relative;
+    margin: 0 13px;
 }
 
 .ttch-container > .navigation-controls .create-a-new-topic {
@@ -74,11 +87,14 @@ details summary {
     justify-content: center;
 }
 
-.ttch-container ol.cttc-wrapper {
+.ttch-container ol.cttc-wrapper,
+.ttch-container .cttc-wrapper {
     position: relative;
+    min-width: 200px;
 }
 
-.ttch-container ol.cttc-wrapper ul.tags-list {
+.ttch-container ol.cttc-wrapper ul.tags-list,
+.ttch-container .cttc-wrapper ul.tags-list {
     position: absolute;
     background: var(--bg-clr);
     text-align: justify;
@@ -89,22 +105,26 @@ details summary {
     outline: solid 1.1px var(--secondary-clr);
 }
 
-.ttch-container ol.cttc-wrapper ul.tags-list li {
+.ttch-container ol.cttc-wrapper ul.tags-list li,
+.ttch-container .cttc-wrapper ul.tags-list li {
     margin: 0 0 11px 0;
 }
 
-.ttch-container ol.cttc-wrapper ul.tags-list li:last-child {
+.ttch-container ol.cttc-wrapper ul.tags-list li:last-child,
+.ttch-container .cttc-wrapper ul.tags-list li:last-child {
     margin-bottom: 0px;
 }
 
-.ttch-container ol.cttc-wrapper ul.tags-list li span.tag-name {
+.ttch-container ol.cttc-wrapper ul.tags-list li span.tag-name,
+.ttch-container .cttc-wrapper ul.tags-list li span.tag-name {
     background-color: var(--primary-clr);
     padding: 6px;
     min-width: 105px;
     text-align: center;
 }
 
-.ttch-container ol.cttc-wrapper ul.tags-list li svg {
+.ttch-container ol.cttc-wrapper ul.tags-list li svg,
+.ttch-container .cttc-wrapper ul.tags-list li svg {
     color: var(--secondary-clr);
 }
 

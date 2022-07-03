@@ -10,7 +10,7 @@ export function ForumDashboardHeaderUI({ setAllStates }) {
 
   let allStates = useContext(UserContext);
 
-  let listLabels = () => allStates.headerLables && <RenderListOfElements list={allStates.headerLables} wrapperClassName='rest-labels' elementClassName={'header-label'} />
+  let listLabels = () => allStates.headerLables && <RenderListOfElements list={allStates.headerLables} wrapperClassName='rest-labels' elementClassName={'header-label'} setAllStates={setAllStates} />
 
   let toggleShowModal = () => setShowModal(!showModal)
 

@@ -14,13 +14,16 @@ export let UserContext = createContext();
 function App() {
   let [allStates, setAllStates] = useState({ categories: [] })
 
+  // let [categoryName, setCategoryName] = useState('HTML-CSS')
+  // let updateCategoryName = newValue => setCategoryName(newValue)
+
   useEffect(() => {
     handleUpdateStatesValue(setAllStates, 'categoriesInfo', [{ name: 'Top', topics: 1234 }, { name: "Latest", topics: 5678 }, { name: "Users", topics: 9012 }, { name: "Badges", topics: 3456 }]);
     handleUpdateStatesValue(setAllStates, 'fakeTopics', fakeTopics)
   }, [])
 
   useEffect(() => {
-    Object.keys(allStates).length === 1 && setAllStates(prevStates => ({ ...prevStates, headerLables: ['Categories', 'Top', "Latest", "FAQ"] }))
+    Object.keys(allStates).length === 1 && setAllStates(prevStates => ({ ...prevStates, headerLables: ['General', 'Top', "Latest", "FAQ"] }))
   }, [allStates])
 
   console.log(allStates, 'allStates')
@@ -34,8 +37,8 @@ function App() {
             <Route path={baseUri} element={<ComponentsContainer setAllStates={setAllStates} />} />
             {/* <Route path={`${baseUri}/topic/`} element={<TopicPage />} /> */}
             {/* <Route path={`${baseUri}/topic/`} element={<NestedRouteCompTest />}> */}
-            <Route path={`${baseUri}/topic/`} element={<TopicPage />}>
-              <Route path=':topicId' element={<TopicPage />} />
+            <Route path={`${baseUri}/topic/`} element={<TopicPage setAllStates={setAllStates} />}>
+              <Route path=':topicId' element={<TopicPage setAllStates={setAllStates} />} />
             </Route>
 
             <Route path={`${baseUri}/category/`} element={<TagRoute setAllStates={setAllStates} />}></Route>

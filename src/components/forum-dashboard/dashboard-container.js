@@ -7,15 +7,15 @@ function DashboardContainer({setAllStates}) {
   return (
     <div className='dashboard-container' style={{margin: '0px 49px'}}>
       <ForumDashboardHeaderUI setAllStates={setAllStates} />
-      <ForumDashboardMainView />
+      <ForumDashboardMainView setAllStates={setAllStates} />
     </div>
   )
 }
 
-let ForumDashboardMainView = () => {
+let ForumDashboardMainView = ({setAllStates}) => {
   return(
     <div className='dashboard-main-view-conatiner' style={{display: 'grid', gridTemplateColumns: '1fr 2fr'}}>
-      <DashboardPanelLeftSide />
+      <DashboardPanelLeftSide setAllStates={setAllStates} />
       <LatestUserInteractionsContainer />
     </div>
   )

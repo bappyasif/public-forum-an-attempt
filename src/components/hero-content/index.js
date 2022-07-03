@@ -13,15 +13,15 @@ function HeroContent() {
 
 let ShowForumWelcomeText = () => {
     return (
-        <aside className='hero-text' aria-label='forum slogan'>
+        <p className='hero-text' aria-label='forum slogan' role={'article'}>
             <h1>Web Forum</h1>
             <em>For you, By you, Of you, democracy, all inclusive!!</em>
-        </aside>
+        </p>
     )
 }
 
 let ShowInfographic = () => {
-    return <aside aria-label='featured infographic'><img src={infoGraphics} alt='infographic about web communications' /></aside>
+    return <p aria-label='featured infographic' role={'article'}><img src={infoGraphics} alt='infographic about web communications' /></p>
 }
 
 export default HeroContent

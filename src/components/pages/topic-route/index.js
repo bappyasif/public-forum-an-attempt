@@ -7,7 +7,7 @@ import UserReplies from '../../user-replies'
 import UserTopic from '../../user-topic'
 import "./styles.css"
 
-function TopicPage() {
+function TopicPage({setAllStates}) {
     let params = useParams()
 
     let [showReactions, setShowReactions] = useState(false)
@@ -21,7 +21,7 @@ function TopicPage() {
         <main className='topic-page'>
             <HeaderUI />
             <section style={{width: '850px', margin: '0 auto'}} aria-label='user topic and replies'>
-                {params.topicId && <UserTopic />}
+                {params.topicId && <UserTopic setAllStates={setAllStates} />}
                 {params.topicId && <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} />}
                 <div onMouseEnter={handleMouseMovedOut}>{params.topicId && <UserReplies />}</div>
             </section>

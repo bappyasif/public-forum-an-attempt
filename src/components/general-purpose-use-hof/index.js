@@ -1,5 +1,6 @@
 import React, { useContext, useRef, useState } from 'react'
-import { UserContext } from '../../App'
+import { Link } from 'react-router-dom'
+import { baseUri, handleUpdateStatesValue, UserContext } from '../../App'
 import { useOnClickOutside } from '../hooks'
 
 export let SearchComponent = ({ blurUpdater }) => {
@@ -63,15 +64,27 @@ let ShowDropDownOption = ({ name }) => {
   return <li aria-label={name}><a href='http://localhost:3000/'>{name}</a></li>
 }
 
-export let RenderListOfElements = ({list, wrapperClassName, elementClassName}) => {
-  let listElementNames = () => list.map(name => <RenderListItem key={name} name={name} itemClassName={elementClassName} />)
+export let RenderListOfElements = ({ list, wrapperClassName, elementClassName, setAllStates }) => {
+  let listElementNames = () => list.map(name => <RenderListItem key={name} name={name} itemClassName={elementClassName} setAllStates={setAllStates} />)
   return (
-      <ul className={wrapperClassName} aria-label='prominent topics'>
-          {listElementNames()}
-      </ul>
+    <ul className={wrapperClassName} aria-label='prominent topics'>
+      {listElementNames()}
+    </ul>
   )
 }
 
-let RenderListItem = ({name, itemClassName}) => {
-  return <li aria-label={name} className={itemClassName} tabIndex={'0'}>{itemClassName.includes('number') !== true ? <a href='http://localhost:3000/' tabIndex={'-1'}>{name}</a> : name}</li>
+let RenderListItem = ({ name, itemClassName, setAllStates }) => {
+  // let allStates = useContext(UserContext)
+
+  let handleClick = () => {
+    handleUpdateStatesValue(setAllStates, 'tagCategoryName', name)
+    // console.log('herehereherere')
+  }
+
+  return (
+    <li aria-label={name} className={itemClassName} tabIndex={'0'} onClick={handleClick}>
+      {/* {itemClassName.includes('number') !== true ? <a href={`${baseUri}/category`} tabIndex={'-1'}>{name}</a> : name} */}
+      {itemClassName.includes('number') !== true ? <Link to={`${baseUri}/category`} tabIndex={'-1'}>{name}</Link> : name}
+    </li>
+  )
 }

@@ -15,6 +15,7 @@ p {
 
 .left-side-panel-container ul a {
     text-decoration: none;
+    display: contents;
 }
 
 .left-side-panel-container thead th {

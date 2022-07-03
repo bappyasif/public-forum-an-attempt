@@ -4,12 +4,13 @@ import React, { useContext } from 'react'
 import './styles.css'
 import TopicMap from './topic-map'
 import remarkGfm from 'remark-gfm'
-import { UserContext } from '../../App'
+import { baseUri, handleUpdateStatesValue, UserContext } from '../../App'
+import { Link } from 'react-router-dom'
 
-function UserTopic() {
+function UserTopic({setAllStates}) {
   return (
     <section className='user-topic' aria-label='user topic'>
-      <TopicHeader />
+      <TopicHeader setAllStates={setAllStates} />
       <TopicContent />
       <TopicMap />
     </section>
@@ -99,15 +100,28 @@ let DescriptionText = () => {
   )
 }
 
-let TopicHeader = () => {
+let TopicHeader = ({ setAllStates }) => {
+
   return (
     <section id='header-section' aria-label='topic header' tabIndex={'0'}>
       <h1>user topic sentence goes here, if you know how to help with this, please, feel free to do so</h1>
       <ul aria-label='topic category'>
+        {['HTML', 'CSS'].map(name => <RenderTagName key={name} name={name} setAllStates={setAllStates} />)}
+      </ul>
+      {/* <ul aria-label='topic category'>
         <li tabIndex={'0'}>HTML</li>
         <li tabIndex={'0'}>CSS</li>
-      </ul>
+      </ul> */}
     </section>
+  )
+}
+
+let RenderTagName = ({setAllStates, name}) => {
+  let handleClick = () => {
+    handleUpdateStatesValue(setAllStates, 'tagCategoryName', name)
+  }
+  return (
+    <li onClick={handleClick}><Link to={`${baseUri}/category`}>{name}</Link></li>
   )
 }
 

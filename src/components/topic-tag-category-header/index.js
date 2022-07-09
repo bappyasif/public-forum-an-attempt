@@ -5,6 +5,7 @@ import './styles.css'
 import { baseUri, handleUpdateStatesValue, UserContext } from '../../App'
 import { CreateNewTopic } from '../create-a-new-topic'
 import { useOnClickOutside } from '../hooks'
+import { RenderListItem } from '../general-purpose-use-hof'
 import { Link } from 'react-router-dom'
 
 function TopicTagCategoryHeader({ categoryName, setAllStates }) {
@@ -111,7 +112,9 @@ let NavigationBar = ({setAllStates}) => {
 
     // let showNavs = () => labels.map(name => <li key={name} className='nav-item'><Link className='nav-link' to={`${baseUri}/category`} target={'_parent'}>{name}</Link></li>)
 
-    let showNavs = () => labels.map(name => <RenderFeaturedNavsLinks key={name} className='nav-item' name={name} setAllStates={setAllStates} />)
+    // let showNavs = () => labels.map(name => <RenderFeaturedNavsLinks key={name} className='nav-item' name={name} setAllStates={setAllStates} />)
+
+    let showNavs = () => labels.map(name => <RenderListItem key={name} itemClassName='nav-item' name={name} setAllStates={setAllStates} />)
 
     return (
         <ul className='navs-view' role={'list'} aria-label='featuring tags nav items'>
@@ -120,18 +123,18 @@ let NavigationBar = ({setAllStates}) => {
     )
 }
 
-let RenderFeaturedNavsLinks = ({ name, className, setAllStates }) => {
-    let handleClick = () => {
-        handleUpdateStatesValue(setAllStates, 'tagCategoryName', name)
-    }
-    return (
-        <li className={className} onClick={handleClick} aria-label={`${name} tag`}>
-            {/* <Link className='nav-link' to={`${baseUri}/category`} target={'_blank'}>{name}</Link> */}
-            {/* <Link to={`${baseUri}/category`} tabIndex={'-1'}>{name}</Link> */}
-            <Link to={`${baseUri}/category`}>{name}</Link>
-        </li>
-    )
-}
+// let RenderFeaturedNavsLinks = ({ name, className, setAllStates }) => {
+//     let handleClick = () => {
+//         handleUpdateStatesValue(setAllStates, 'tagCategoryName', name)
+//     }
+//     return (
+//         <li className={className} onClick={handleClick} aria-label={`${name} tag`}>
+//             {/* <Link className='nav-link' to={`${baseUri}/category`} target={'_blank'}>{name}</Link> */}
+//             {/* <Link to={`${baseUri}/category`} tabIndex={'-1'}>{name}</Link> */}
+//             <Link to={`${baseUri}/category`}>{name}</Link>
+//         </li>
+//     )
+// }
 
 let labels = ['Latest', 'Top', 'Leaderboard']
 

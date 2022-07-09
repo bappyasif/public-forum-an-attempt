@@ -73,7 +73,7 @@ export let RenderListOfElements = ({ list, wrapperClassName, elementClassName, s
   )
 }
 
-let RenderListItem = ({ name, itemClassName, setAllStates }) => {
+export let RenderListItem = ({ name, itemClassName, setAllStates }) => {
   // let allStates = useContext(UserContext)
 
   let handleClick = () => {
@@ -84,7 +84,7 @@ let RenderListItem = ({ name, itemClassName, setAllStates }) => {
   return (
     <li aria-label={name} className={itemClassName} tabIndex={'0'} onClick={handleClick}>
       {/* {itemClassName.includes('number') !== true ? <a href={`${baseUri}/category`} tabIndex={'-1'}>{name}</a> : name} */}
-      {itemClassName.includes('number') !== true ? <Link to={`${baseUri}/category`} tabIndex={'-1'}>{name}</Link> : name}
+      {itemClassName?.includes('number') !== true ? <Link to={`${baseUri}/category`} tabIndex={'-1'}>{name}</Link> : name}
     </li>
   )
 }

@@ -15,13 +15,13 @@
 }
 
 .user-actions > div svg,
-.user-actions > div > #reply-div  {
+.user-actions > div > .reply-div  {
     outline: solid 1px var(--bg-clr);
     padding: 6px;
     border-radius: 6px;
 }
 
-.user-actions > div #reply-icon {
+.user-actions > div .reply-icon {
     outline: none;
     background-color: none;
 }
@@ -31,7 +31,7 @@
 }
 
 .user-actions > div > svg:hover,
-.user-actions > div > #reply-div:hover {
+.user-actions > div > .reply-div:hover {
     outline: solid 1px var(--primary-clr);
 }
 
@@ -39,15 +39,15 @@
     background-color: var(--secondary-clr);
 }
 
-.user-actions > div #reply-icon:hover {
+.user-actions > div .reply-icon:hover {
     background-color: inherit;
 }
 
-.user-actions > div #reply-div:hover {
+.user-actions > div .reply-div:hover {
     background-color: var(--bg-clr);
 }
 
-.user-actions > div > #reply-div {
+.user-actions > div > .reply-div {
     display: flex;
     align-items: center;
     gap: 11px;
@@ -55,7 +55,7 @@
     color: var(--primary-clr);
 }
 
-.user-actions > div > #reply-icon {
+.user-actions > div > .reply-icon {
     color: var(--primary-clr);
     position: relative;
 }
@@ -66,12 +66,12 @@
     bottom: 0;
 }
 
-.user-actions #reactions {
+.user-actions .reactions {
     gap: 6px;
     background-color: var(--secondary-clr);
 }
 
-.user-actions #reactions p #tooltipText,
+.user-actions .reactions p #tooltipText,
 .user-actions > div .ua-tooltips,
 .user-actions > div > .show-options .ua-tooltips {
     position: absolute;
@@ -86,17 +86,17 @@
     border-radius: 4px;
 }
 
-.user-actions #reactions svg {
+.user-actions .reactions svg {
     padding: 4px 11px;
 }
 
-.user-actions #reactions svg:hover {
+.user-actions .reactions svg:hover {
     background-color: var(--primary-clr);
     outline: solid 1px var(--bg-clr);
     border-radius: 6px;
 }
 
-#fa-heart:hover + #reactions {
+.fa-heart:hover + .reactions {
     animation: reactions-frame .2s ease-in-out 1;
 }
 

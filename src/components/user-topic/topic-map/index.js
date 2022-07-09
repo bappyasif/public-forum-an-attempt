@@ -36,7 +36,7 @@ let ShowRecentTopicMaps = () => {
 let CurrentlyParticipatingUsers = () => {
     let populateUsers = () => participatingUsers.map(item => <PopulateUser key={item.name} item={item} />)
     return (
-        <li className='users-group' role={'list'} aria-label='list of user replied'>
+        <li className='users-group' role={'listitem'} aria-label='list of user replied'>
             {populateUsers()}
         </li>
     )
@@ -47,7 +47,7 @@ let PopulateUser = ({ item }) => {
     let [showTooltip, setShowTooltip] = useState(false)
 
     return (
-        <div role={'listitem'} aria-label='replied user' onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
+        <div role={'article'} aria-label='replied user' onMouseEnter={() => setShowTooltip(true)} onMouseLeave={() => setShowTooltip(false)}>
             <img src={imgUrl} alt='user depiction' />
             {showTooltip && <p>{name}</p>}
         </div>

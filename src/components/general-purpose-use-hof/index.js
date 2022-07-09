@@ -13,7 +13,7 @@ export let SearchComponent = ({ blurUpdater }) => {
   )
 }
 
-export let IconElement = ({ icon, altText }) => {
+export let IconElement = ({ icon, altText, setAllStates }) => {
   let [showSearch, setShowSearch] = useState(false)
   let [showMenu, setShowMenu] = useState(false)
 
@@ -23,7 +23,7 @@ export let IconElement = ({ icon, altText }) => {
   let showElement = () => {
     if (altText === 'Menu') {
 
-      return <ElementWrapper icon={icon} altText={altText} clickHnadler={() => setShowMenu(!showMenu)} Component={MenuDropdown} stateValue={showMenu} setStateValue={setShowMenu} />
+      return <ElementWrapper icon={icon} altText={altText} clickHnadler={() => setShowMenu(!showMenu)} Component={MenuDropdown} stateValue={showMenu} setStateValue={setShowMenu} setAllStates={setAllStates} />
 
     } else {
 
@@ -33,7 +33,7 @@ export let IconElement = ({ icon, altText }) => {
   return showElement()
 }
 
-let ElementWrapper = ({ icon, altText, clickHnadler, blurUpdater, Component, stateValue, setStateValue }) => {
+let ElementWrapper = ({ icon, altText, clickHnadler, blurUpdater, Component, stateValue, setStateValue, setAllStates }) => {
   let ref = useRef(null)
   useOnClickOutside(ref, () => setStateValue(false))
 
@@ -47,15 +47,17 @@ let ElementWrapper = ({ icon, altText, clickHnadler, blurUpdater, Component, sta
           <img className='icon-view' src={icon} alt={altText} onClick={clickHnadler} />
       }
 
-      {stateValue && <Component blurUpdater={altText === 'Search' ? blurUpdater : null} />}
+      {stateValue && <Component blurUpdater={altText === 'Search' ? blurUpdater : null} setAllStates={setAllStates} />}
     </li>
   )
 }
 
-export let MenuDropdown = () => {
+export let MenuDropdown = ({setAllStates}) => {
   let allStates = useContext(UserContext)
 
-  let options = allStates.categoriesInfo.map(item => <ShowDropDownOption key={item.name} name={item.name} />)
+  // let options = allStates.categoriesInfo.map(item => <ShowDropDownOption key={item.name} name={item.name} />)
+
+  let options = allStates.categoriesInfo.map(item => <RenderListItem key={item.name} name={item.name} setAllStates={setAllStates} />)
 
   return <nav className='menu-dropdown' aria-label='dropdown-list-main-menu'>{options}</nav>
 }

@@ -5,26 +5,26 @@ import forumLogo from '../assets/forum-logo.png'
 import './styles.css'
 import { IconElement } from '../general-purpose-use-hof'
 
-function HeaderUI() {
+function HeaderUI({setAllStates}) {
   return (
     <header className='header-section' aria-label='forum header' role={'banner'}>
       <ForumLogo />
-      <HeaderRightSideUI />
+      <HeaderRightSideUI setAllStates={setAllStates} />
     </header>
   )
 }
 
-let HeaderRightSideUI = () => {
+let HeaderRightSideUI = ({setAllStates}) => {
   return (
     <section className='right-side-ui-wrapper' aria-label='main navigations'>
       <LoginOrSignupButtons />
-      <SearchAndMenuIcons />
+      <SearchAndMenuIcons setAllStates={setAllStates} />
     </section>
   )
 }
 
-let SearchAndMenuIcons = () => {
-  let icons = ["Search", "Menu"].map(name => <IconElement key={name} altText={name} icon={name === 'Search' ? search : menu} />)
+let SearchAndMenuIcons = ({setAllStates}) => {
+  let icons = ["Search", "Menu"].map(name => <IconElement key={name} altText={name} icon={name === 'Search' ? search : menu} setAllStates={setAllStates} />)
   return (
     <nav aria-label='MenuDropdown'>
       <ul className='header-icons' aria-label='menu icons'>

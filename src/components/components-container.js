@@ -9,7 +9,7 @@ export default function ComponentsContainer({setAllStates}) {
   
   return (
       <div className='components-container'>
-        <HeaderUI />
+        <HeaderUI setAllStates={setAllStates} />
         <HeroContent />
         <main aria-label='web forum main content'>
           <DashboardContainer setAllStates={setAllStates} />

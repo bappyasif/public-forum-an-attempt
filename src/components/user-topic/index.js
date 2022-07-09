@@ -6,6 +6,7 @@ import TopicMap from './topic-map'
 import remarkGfm from 'remark-gfm'
 import { baseUri, handleUpdateStatesValue, UserContext } from '../../App'
 import { Link } from 'react-router-dom'
+import { RenderListItem } from '../general-purpose-use-hof'
 
 function UserTopic({setAllStates}) {
   return (
@@ -106,7 +107,8 @@ let TopicHeader = ({ setAllStates }) => {
     <section id='header-section' aria-label='topic header' tabIndex={'0'}>
       <h1>user topic sentence goes here, if you know how to help with this, please, feel free to do so</h1>
       <ul aria-label='topic category'>
-        {['HTML', 'CSS'].map(name => <RenderTagName key={name} name={name} setAllStates={setAllStates} />)}
+        {/* {['HTML', 'CSS'].map(name => <RenderTagName key={name} name={name} setAllStates={setAllStates} />)} */}
+        {['HTML', 'CSS'].map(name => <RenderListItem key={name} name={name} setAllStates={setAllStates} />)}
       </ul>
       {/* <ul aria-label='topic category'>
         <li tabIndex={'0'}>HTML</li>
@@ -116,13 +118,13 @@ let TopicHeader = ({ setAllStates }) => {
   )
 }
 
-let RenderTagName = ({setAllStates, name}) => {
-  let handleClick = () => {
-    handleUpdateStatesValue(setAllStates, 'tagCategoryName', name)
-  }
-  return (
-    <li onClick={handleClick}><Link to={`${baseUri}/category`}>{name}</Link></li>
-  )
-}
+// let RenderTagName = ({setAllStates, name}) => {
+//   let handleClick = () => {
+//     handleUpdateStatesValue(setAllStates, 'tagCategoryName', name)
+//   }
+//   return (
+//     <li onClick={handleClick}><Link to={`${baseUri}/category`}>{name}</Link></li>
+//   )
+// }
 
 export default UserTopic

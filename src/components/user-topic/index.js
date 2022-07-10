@@ -29,7 +29,7 @@ let TopicContent = () => {
 
 let UserInfoAndTopicTimeStamp = () => {
   return (
-    <p className='starting-infos' aria-label='user topic posted info'>
+    <p className='starting-infos' role={'article'} aria-label='user topic posted info'>
       <UserInfo />
       <TimeStamp />
     </p>
@@ -46,9 +46,9 @@ let TimeStamp = () => {
 
 let UserInfo = () => {
   return (
-    <p className='user-info' aria-label='user info'>
+    <p className='user-info' role={'article'} aria-label='user info'>
       <img src='https://unsplash.it/60' alt='user visual' tabIndex={'0'} />
-      <span aria-label='user name' tabIndex={'0'} role={''}>User Name</span>
+      <span aria-label='user name' tabIndex={'0'} role={'note'}>User Name</span>
     </p>
   )
 }
@@ -95,7 +95,7 @@ let TopicDescription = () => {
 
 let DescriptionText = () => {
   return (
-    <p aria-label='user topic description text'>
+    <p aria-label='user topic description text' role={'article'}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
   )

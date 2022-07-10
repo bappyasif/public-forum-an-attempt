@@ -4,7 +4,7 @@ import UserActions from '../user-actions';
 import "./styles.css";
 
 function UserReplies() {
-  let renderReplies = () => fakeReplies?.map(item => <RenderReply key={item.id} item={item} />)
+  let renderReplies = () => fakeReplies?.map(item => <RenderReply key={item.id} item={item} id={item.id} />)
   return (
     <section className='render-replies' aria-label='render replies'>
       {renderReplies()}
@@ -12,7 +12,7 @@ function UserReplies() {
   )
 }
 
-let RenderReply = ({ item }) => {
+let RenderReply = ({ item , id }) => {
   let { name, picUrl, replyText, postedTime } = { ...item }
   
   let [showReactions, setShowReactions] = useState(false)
@@ -22,10 +22,10 @@ let RenderReply = ({ item }) => {
   let handleMouseMovedOut = () => setShowReactions(false)
   
   return (
-    <div className='reply-wrapper' role={'contentinfo'} aria-label='reply container' onMouseLeave={handleMouseMovedOut}>
+    <div className='reply-wrapper' onMouseLeave={handleMouseMovedOut}>
       <RenderReplyTopPart name={name} picUrl={picUrl} postedTime={postedTime} />
       <RenderReplyTextContent replyText={replyText} />
-      <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} fromReplies={true} />
+      <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} fromReplies={true} id={id} />
     </div>
   )
 }
@@ -38,12 +38,12 @@ let RenderReplyTextContent = ({ replyText }) => {
 
 let RenderReplyTopPart = ({ name, picUrl, postedTime }) => {
   return (
-    <section className='rr-top-part'  aria-label='topic reply info container'>
-      <p className='user-info' aria-label='user info'>
+    <section className='rr-top-part'  aria-label={'topic reply info container posted on '+postedTime}>
+      <p className='user-info' aria-label='user info' role={'article'}>
         <img src={picUrl} alt="user depiction" />
-        <span aria-label={'user name'}>{name}</span>
+        <span aria-label={'user name'} role={'note'}>{name}</span>
       </p>
-      <span aria-label='posted time'>{postedTime}</span>
+      <span aria-label='posted time' role={'note'}>{postedTime}</span>
     </section>
   )
 }

@@ -4,7 +4,7 @@ import { faBookmark, faGrin, faHandSpock, faHeart } from "@fortawesome/free-regu
 import React, { useEffect, useState } from 'react'
 import "./styles.css"
 
-function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies }) {
+function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies, id }) {
     let [heartCount, setHeartCount] = useState(0);
     let [whichIcon, setWhichIcon] = useState(null);
     let [rndNum, setRndNum] = useState(null)
@@ -125,7 +125,7 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
 
     let OptionElement = () => {
         return (
-            <p id='option-icon' tabIndex={'0'} role={'button'} aria-label='option icon' onKeyUp={handleOptionIconKeypressed} onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
+            <p className='option-icon' tabIndex={'0'} role={'button'} aria-label='option icon' onKeyUp={handleOptionIconKeypressed} onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
                 <FontAwesomeIcon icon={faEllipsis} onClick={handleOptionsVisible} />
                 {userActionIconName === 'option-icon' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
             </p>
@@ -137,7 +137,7 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
      */
 
     return (
-        <section className='user-actions' aria-label='user actions'>
+        <section className='user-actions' aria-label={fromReplies ? 'reply container' + id : 'reply container'}>
             {<FontAwesomeIcon id='topic-user-reply-reaction' icon={whichIcon && whichIcon} style={{ visibility: fromReplies && rndNum > .2 ? 'visible' : 'hidden' }} />}
 
             <div>

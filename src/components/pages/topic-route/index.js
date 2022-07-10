@@ -18,15 +18,15 @@ function TopicPage({setAllStates}) {
 
     // console.log(params, 'params!!', showReactions)
     return (
-        <main className='topic-page'>
+        <div className='topic-page'>
             <HeaderUI setAllStates={setAllStates} />
-            <section style={{width: '850px', margin: '0 auto'}} aria-label='user topic and replies'>
+            <main style={{width: '850px', margin: '0 auto'}} aria-label='user topic and replies'>
                 {params.topicId && <UserTopic setAllStates={setAllStates} />}
                 {params.topicId && <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} />}
                 <div onMouseEnter={handleMouseMovedOut}>{params.topicId && <UserReplies />}</div>
-            </section>
+            </main>
             <FooterContents />
-        </main>
+        </div>
     )
 }
 

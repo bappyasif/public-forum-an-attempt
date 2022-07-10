@@ -53,6 +53,12 @@
     gap: 11px;
     padding: 0px 13px 0px 6px;
     color: var(--primary-clr);
+    background-color: var(--bg-clr);
+    font-weight: bold;
+}
+
+.user-actions > div > .reply-div span {
+    color: var(--special-clr);
 }
 
 .user-actions > div > .reply-icon {

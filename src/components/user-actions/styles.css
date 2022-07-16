@@ -123,6 +123,19 @@
     right: 162px;
 }
 
+.user-actions .show-reply-modal-wrapper {
+    position: absolute;
+    width: max-content;
+    right: 0;
+    top: 15px;
+    display: flex;
+    flex-direction: column;
+    z-index: 99;
+    align-items: flex-start;
+    padding: 8px 8px;
+    background-color: darkgreen;
+}
+
 @keyframes reactions-frame {
     from {
         transform: translate(80px, 0px);

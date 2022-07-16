@@ -3,6 +3,8 @@ import { faHeartbeat, faLink, faEllipsis, faReply, faThumbsUp, faSurprise, faHan
 import { faBookmark, faGrin, faHandSpock, faHeart } from "@fortawesome/free-regular-svg-icons"
 import React, { useEffect, useState } from 'react'
 import "./styles.css"
+import WysiwygEditor, { WysiwygModalFooter } from '../WysiwygEditor'
+import { handleUpdateStatesValue } from '../../App'
 
 function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies, id }) {
     let [heartCount, setHeartCount] = useState(0);
@@ -149,7 +151,7 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
     )
 }
 
-let LinkComponent = ({handleFaLinkKeypressed, handleHover, setUserActionIconName, userActionIconName, tooltipText}) => {
+let LinkComponent = ({ handleFaLinkKeypressed, handleHover, setUserActionIconName, userActionIconName, tooltipText }) => {
     return (
         <p
             className='fa-link'
@@ -185,12 +187,15 @@ let PrimaryReaction = ({ handleFaHeartKeypressed, handleHover, setUserActionIcon
                 style={{ position: "relative", color: reactionName ? 'var(--primary-clr)' : 'none' }}
             />
             <TooltipText userActionIconName={userActionIconName} tooltipText={tooltipText} tttFor={'fa-heart'} />
-            
+
         </p>
     )
 }
 
 let ReplyComponent = ({ handleHover, setUserActionIconName, tooltipText, userActionIconName }) => {
+    let [showModal, setShowModal] = useState(null)
+    let handleShowModal = () => setShowModal(true)
+    let handleCloseModal = () => setShowModal(false)
     return (
         <p
             className='reply-div'
@@ -198,11 +203,29 @@ let ReplyComponent = ({ handleHover, setUserActionIconName, tooltipText, userAct
             aria-label='reply to this topic'
             onMouseEnter={handleHover}
             onMouseLeave={() => setUserActionIconName('')}
-            style={{ position: 'relative' }}>
+            onClick={handleShowModal}
+            style={{ position: 'relative' }}
+        >
             <FontAwesomeIcon icon={faReply} className='reply-icon' onMouseEnter={handleHover} />
             <span>Reply</span>
             <TooltipText userActionIconName={userActionIconName} tooltipText={tooltipText} tttFor={'reply-div'} />
+            {showModal && <ShowReplyModal handleClose={handleCloseModal} />}
         </p>
+    )
+}
+
+let ShowReplyModal = ({ handleClose, setAllStates }) => {
+    // let handleMarkdownContent = () => handleUpdateStatesValue(setAllStates, 'markdownIt', markdownContents)
+    return (
+        <div className='show-reply-modal-wrapper'>
+            <p>some user</p>
+            <WysiwygEditor setMarkdownContents={() => null} />
+            <WysiwygModalFooter
+                handleFunctionality={() => {}}
+                closeModal={handleClose}
+                handleMarkdownContent={() => {}}
+            />
+        </div>
     )
 }
 

@@ -6,7 +6,7 @@ import { useOnClickOutside } from '../hooks'
 import MDEditor from '@uiw/react-md-editor'
 import { useNavigate } from 'react-router-dom'
 import { baseUri, handleUpdateStatesValue, UserContext } from '../../App'
-import WysiwygEditor from '../WysiwygEditor'
+import WysiwygEditor, { WysiwygModalFooter } from '../WysiwygEditor'
 
 export function CreateNewTopic({closeModal, setAllStates}) {
     // let allStates = useContext(UserContext)
@@ -27,9 +27,9 @@ export function CreateNewTopic({closeModal, setAllStates}) {
         <section className='create-a-new-topic' aria-label='create a topic modal'>
             <HeaderElement />
             <TopicTitleAndTags />
-            {/* <MarkDownTextEditor setMarkdownContents={setMarkdownContents} /> */}
             <WysiwygEditor setMarkdownContents={setMarkdownContents} />
-            <TopicFooter createTopic={handleCreateTopic} closeModal={closeModal} handleMarkdownContent={handleMarkdownContent} />
+            {/* <TopicFooter createTopic={handleCreateTopic} closeModal={closeModal} handleMarkdownContent={handleMarkdownContent} /> */}
+            <WysiwygModalFooter handleFunctionality={handleCreateTopic} closeModal={closeModal} handleMarkdownContent={handleMarkdownContent} />
         </section>
     )
 }
@@ -43,26 +43,6 @@ let TopicFooter = ({createTopic, closeModal, handleMarkdownContent}) => {
             </button>
             <button role={'button'} onClick={closeModal} tabIndex='0' aria-label='cancel topic'>Cancel</button>
         </div>
-    )
-}
-
-let MarkDownTextEditor = ({setMarkdownContents}) => {
-    let [value, setValue] = useState('')
-    
-    useEffect(() => {
-        setMarkdownContents(value)
-        // eslint-disable-next-line
-    }, [value])
-
-    useEffect(() => {
-        document.querySelector('textarea')?.setAttribute('aria-label', 'markdown area')
-        document.querySelectorAll('.create-a-new-topic svg').forEach(node => node.setAttribute('aria-label', node.parentNode.ariaLabel))
-    }, [])
-
-    return (
-        <MDEditor value={value} onChange={setValue}>
-            <MDEditor.Markdown source={value} />
-        </MDEditor>
     )
 }
 

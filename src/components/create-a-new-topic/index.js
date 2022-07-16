@@ -6,6 +6,7 @@ import { useOnClickOutside } from '../hooks'
 import MDEditor from '@uiw/react-md-editor'
 import { useNavigate } from 'react-router-dom'
 import { baseUri, handleUpdateStatesValue, UserContext } from '../../App'
+import WysiwygEditor from '../WysiwygEditor'
 
 export function CreateNewTopic({closeModal, setAllStates}) {
     // let allStates = useContext(UserContext)
@@ -26,7 +27,8 @@ export function CreateNewTopic({closeModal, setAllStates}) {
         <section className='create-a-new-topic' aria-label='create a topic modal'>
             <HeaderElement />
             <TopicTitleAndTags />
-            <MarkDownTextEditor setMarkdownContents={setMarkdownContents} />
+            {/* <MarkDownTextEditor setMarkdownContents={setMarkdownContents} /> */}
+            <WysiwygEditor setMarkdownContents={setMarkdownContents} />
             <TopicFooter createTopic={handleCreateTopic} closeModal={closeModal} handleMarkdownContent={handleMarkdownContent} />
         </section>
     )

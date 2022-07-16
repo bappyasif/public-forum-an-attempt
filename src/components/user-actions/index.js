@@ -143,28 +143,110 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
             <div>
                 {heartCount > 0 && reactionName === 'heart' && <span style={{ marginRight: '-13px' }} >{heartCount}</span>}
 
-                <p className='fa-heart' tabIndex={'0'} role={'button'} aria-label='choose reaction' onKeyUp={handleFaHeartKeypressed} onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
+                <PrimaryReaction handleFaHeartKeypressed={handleFaHeartKeypressed} handleHover={handleHover} setUserActionIconName={setUserActionIconName} showReactions={showReactions} handleMouseIn={handleMouseIn} reactionName={reactionName} whichIcon={whichIcon} userActionIconName={userActionIconName} tooltipText={tooltipText} />
+                {/* <p className='fa-heart' tabIndex={'0'} role={'button'} aria-label='choose reaction' onKeyUp={handleFaHeartKeypressed} onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
                     <FontAwesomeIcon icon={showReactions ? faHeartbeat : whichIcon ? whichIcon : faHeart} onMouseEnter={handleMouseIn} style={{ position: "relative", color: reactionName ? 'var(--primary-clr)' : 'none' }} />
                     {userActionIconName === 'fa-heart' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
-                </p>
+                </p> */}
 
                 {<ShowReactions handleShowReactions={handleMouseOut} showReactions={showReactions} handleReactionName={handleReactionName} />}
 
-                <p className='fa-link' role={'button'} tabIndex={'0'} aria-label='included link/s' onKeyUp={handleFaLinkKeypressed} onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
+                <LinkComponent handleFaLinkKeypressed={handleFaHeartKeypressed} handleHover={handleHover} setUserActionIconName={setUserActionIconName} userActionIconName={userActionIconName} tooltipText={tooltipText} />
+                {/* <p className='fa-link' role={'button'} tabIndex={'0'} aria-label='included link/s' onKeyUp={handleFaLinkKeypressed} onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
                     <FontAwesomeIcon icon={faLink} />
                     {userActionIconName === 'fa-link' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
-                </p>
+                </p> */}
 
                 {optionsVisible ? <ShowOptions handleOptionsHidden={handleOptionsHidden} userActionIconName={userActionIconName} tooltipText={tooltipText} handleHover={handleHover} setUserActionIconName={setUserActionIconName} /> : <OptionElement />}
 
-                <p className='reply-div' role={'button'} aria-label='reply to this topic' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
+                {/* <p className='reply-div' role={'button'} aria-label='reply to this topic' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
                     <FontAwesomeIcon icon={faReply} className='reply-icon' onMouseEnter={handleHover} />
                     <span>Reply</span>
                     {userActionIconName === 'reply-div' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
-                </p>
+                </p> */}
+                <ReplyComponent handleHover={handleHover} setUserActionIconName={setUserActionIconName} tooltipText={tooltipText} userActionIconName={userActionIconName} />
             </div>
 
         </section>
+    )
+}
+
+let LinkComponent = (handleFaLinkKeypressed, handleHover, setUserActionIconName, userActionIconName, tooltipText) => {
+    return (
+        <p
+            className='fa-link'
+            role={'button'}
+            tabIndex={'0'}
+            aria-label='included link/s'
+            onKeyUp={handleFaLinkKeypressed}
+            onMouseEnter={handleHover}
+            onMouseLeave={() => setUserActionIconName('')}
+            style={{ position: 'relative' }}
+        >
+            <FontAwesomeIcon icon={faLink} />
+            <TooltipText userActionIconName={userActionIconName} tooltipText={tooltipText} tttFor={'fa-link'} />
+            {/* {
+                userActionIconName === 'fa-link'
+                &&
+                <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>
+            } */}
+        </p>
+    )
+}
+
+let PrimaryReaction = ({ handleFaHeartKeypressed, handleHover, setUserActionIconName, showReactions, handleMouseIn, reactionName, whichIcon, userActionIconName, tooltipText }) => {
+    return (
+        <p
+            className='fa-heart'
+            tabIndex={'0'}
+            role={'button'}
+            aria-label='choose reaction'
+            onKeyUp={handleFaHeartKeypressed}
+            onMouseEnter={handleHover}
+            onMouseLeave={() => setUserActionIconName('')}
+            style={{ position: 'relative' }}
+        >
+            <FontAwesomeIcon
+                icon={showReactions ? faHeartbeat : whichIcon ? whichIcon : faHeart}
+                onMouseEnter={handleMouseIn}
+                style={{ position: "relative", color: reactionName ? 'var(--primary-clr)' : 'none' }}
+            />
+            <TooltipText userActionIconName={userActionIconName} tooltipText={tooltipText} tttFor={'fa-heart'} />
+            {/* {
+                userActionIconName === 'fa-heart'
+                &&
+                <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>
+            } */}
+        </p>
+    )
+}
+
+let ReplyComponent = ({ handleHover, setUserActionIconName, tooltipText, userActionIconName }) => {
+    return (
+        <p
+            className='reply-div'
+            role={'button'}
+            aria-label='reply to this topic'
+            onMouseEnter={handleHover}
+            onMouseLeave={() => setUserActionIconName('')}
+            style={{ position: 'relative' }}>
+            <FontAwesomeIcon icon={faReply} className='reply-icon' onMouseEnter={handleHover} />
+            <span>Reply</span>
+            <TooltipText userActionIconName={userActionIconName} tooltipText={tooltipText} tttFor={'reply-div'} />
+            {/* {
+                userActionIconName === 'reply-div'
+                &&
+                <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>
+            } */}
+        </p>
+    )
+}
+
+let TooltipText = ({ userActionIconName, tooltipText, tttFor }) => {
+    return (
+        userActionIconName === tttFor
+        &&
+        <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>
     )
 }
 

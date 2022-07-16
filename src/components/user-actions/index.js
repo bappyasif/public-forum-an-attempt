@@ -13,7 +13,6 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
 
     let [reactionName, setReactionName] = useState(null)
     let handleReactionName = value => setReactionName(value);
-    // console.log(reactionName, 'reactionName');
 
     let [optionsVisible, setOptionsVisible] = useState(false)
     let handleOptionsVisible = () => setOptionsVisible(true)
@@ -49,13 +48,9 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
     }
 
     let handleHover = evt => {
-        // let gotId = evt.target.id || evt.target.parentNode.id || evt.target.parentNode.parentNode.id;
-        let gotId = evt.target.parentNode.id || evt.target.id || evt.target.parentNode.parentNode.id;
+        // let gotId = evt.target.parentNode.id || evt.target.id || evt.target.parentNode.parentNode.id;
         let gotCN = evt.target.parentNode.className || evt.target.className || evt.target.parentNode.parentNode.className;
-        // console.log(gotId, 'gotID!!')
         // console.log(gotId, 'gotID!!', gotCN)
-        // gotId && setUserActionIconName(gotId);
-        // gotCN && console.log('gotCN!!', gotCN)
         gotCN && setUserActionIconName(gotCN);
     }
 
@@ -80,15 +75,6 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
     }
 
     let handleFaHeartKeypressed = evt => {
-        // console.log(evt.target.keyCode, 'keyCOde', evt.keyCode)
-        // console.log('keyCOde', evt.keyCode)
-        // if(evt.keyCode === 13) {
-        //     handleHover(evt)
-        //     handleMouseIn()
-        // } else if(evt.keyCode === 27) {
-        //     setUserActionIconName('')
-        //     handleMouseOut()
-        // }
 
         handleKeyPressed(evt);
 
@@ -97,18 +83,6 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
         } else if (evt.keyCode === 27) {
             handleMouseOut()
         }
-    }
-
-    let handleFaLinkKeypressed = evt => {
-        handleKeyPressed(evt)
-        // console.log('keyCOde', evt.keyCode)
-        // if(evt.keyCode === 13) {
-        //     handleHover(evt)
-        //     // handleMouseIn()
-        // } else if(evt.keyCode === 27) {
-        //     setUserActionIconName('')
-        //     // handleMouseOut()
-        // }
     }
 
     let handleOptionIconKeypressed = (evt) => {
@@ -132,10 +106,6 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
         )
     }
 
-    /**
-     * things to consider
-     */
-
     return (
         <section className='user-actions' aria-label={fromReplies ? 'reply container' + id : 'reply container'}>
             {<FontAwesomeIcon id='topic-user-reply-reaction' icon={whichIcon && whichIcon} style={{ visibility: fromReplies && rndNum > .2 ? 'visible' : 'hidden' }} />}
@@ -143,35 +113,43 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
             <div>
                 {heartCount > 0 && reactionName === 'heart' && <span style={{ marginRight: '-13px' }} >{heartCount}</span>}
 
-                <PrimaryReaction handleFaHeartKeypressed={handleFaHeartKeypressed} handleHover={handleHover} setUserActionIconName={setUserActionIconName} showReactions={showReactions} handleMouseIn={handleMouseIn} reactionName={reactionName} whichIcon={whichIcon} userActionIconName={userActionIconName} tooltipText={tooltipText} />
-                {/* <p className='fa-heart' tabIndex={'0'} role={'button'} aria-label='choose reaction' onKeyUp={handleFaHeartKeypressed} onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
-                    <FontAwesomeIcon icon={showReactions ? faHeartbeat : whichIcon ? whichIcon : faHeart} onMouseEnter={handleMouseIn} style={{ position: "relative", color: reactionName ? 'var(--primary-clr)' : 'none' }} />
-                    {userActionIconName === 'fa-heart' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
-                </p> */}
+                <PrimaryReaction
+                    handleFaHeartKeypressed={handleFaHeartKeypressed}
+                    handleHover={handleHover}
+                    setUserActionIconName={setUserActionIconName}
+                    showReactions={showReactions}
+                    handleMouseIn={handleMouseIn}
+                    reactionName={reactionName}
+                    whichIcon={whichIcon}
+                    userActionIconName={userActionIconName}
+                    tooltipText={tooltipText}
+                />
 
                 {<ShowReactions handleShowReactions={handleMouseOut} showReactions={showReactions} handleReactionName={handleReactionName} />}
 
-                <LinkComponent handleFaLinkKeypressed={handleFaHeartKeypressed} handleHover={handleHover} setUserActionIconName={setUserActionIconName} userActionIconName={userActionIconName} tooltipText={tooltipText} />
-                {/* <p className='fa-link' role={'button'} tabIndex={'0'} aria-label='included link/s' onKeyUp={handleFaLinkKeypressed} onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
-                    <FontAwesomeIcon icon={faLink} />
-                    {userActionIconName === 'fa-link' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
-                </p> */}
+                <LinkComponent
+                    handleFaLinkKeypressed={handleFaHeartKeypressed}
+                    handleHover={handleHover}
+                    setUserActionIconName={setUserActionIconName}
+                    userActionIconName={userActionIconName}
+                    tooltipText={tooltipText}
+                />
 
                 {optionsVisible ? <ShowOptions handleOptionsHidden={handleOptionsHidden} userActionIconName={userActionIconName} tooltipText={tooltipText} handleHover={handleHover} setUserActionIconName={setUserActionIconName} /> : <OptionElement />}
 
-                {/* <p className='reply-div' role={'button'} aria-label='reply to this topic' onMouseEnter={handleHover} onMouseLeave={() => setUserActionIconName('')} style={{ position: 'relative' }}>
-                    <FontAwesomeIcon icon={faReply} className='reply-icon' onMouseEnter={handleHover} />
-                    <span>Reply</span>
-                    {userActionIconName === 'reply-div' && <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>}
-                </p> */}
-                <ReplyComponent handleHover={handleHover} setUserActionIconName={setUserActionIconName} tooltipText={tooltipText} userActionIconName={userActionIconName} />
+                <ReplyComponent
+                    handleHover={handleHover}
+                    setUserActionIconName={setUserActionIconName}
+                    tooltipText={tooltipText}
+                    userActionIconName={userActionIconName}
+                />
             </div>
 
         </section>
     )
 }
 
-let LinkComponent = (handleFaLinkKeypressed, handleHover, setUserActionIconName, userActionIconName, tooltipText) => {
+let LinkComponent = ({handleFaLinkKeypressed, handleHover, setUserActionIconName, userActionIconName, tooltipText}) => {
     return (
         <p
             className='fa-link'
@@ -185,11 +163,6 @@ let LinkComponent = (handleFaLinkKeypressed, handleHover, setUserActionIconName,
         >
             <FontAwesomeIcon icon={faLink} />
             <TooltipText userActionIconName={userActionIconName} tooltipText={tooltipText} tttFor={'fa-link'} />
-            {/* {
-                userActionIconName === 'fa-link'
-                &&
-                <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>
-            } */}
         </p>
     )
 }
@@ -212,11 +185,7 @@ let PrimaryReaction = ({ handleFaHeartKeypressed, handleHover, setUserActionIcon
                 style={{ position: "relative", color: reactionName ? 'var(--primary-clr)' : 'none' }}
             />
             <TooltipText userActionIconName={userActionIconName} tooltipText={tooltipText} tttFor={'fa-heart'} />
-            {/* {
-                userActionIconName === 'fa-heart'
-                &&
-                <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>
-            } */}
+            
         </p>
     )
 }
@@ -233,11 +202,6 @@ let ReplyComponent = ({ handleHover, setUserActionIconName, tooltipText, userAct
             <FontAwesomeIcon icon={faReply} className='reply-icon' onMouseEnter={handleHover} />
             <span>Reply</span>
             <TooltipText userActionIconName={userActionIconName} tooltipText={tooltipText} tttFor={'reply-div'} />
-            {/* {
-                userActionIconName === 'reply-div'
-                &&
-                <span className='ua-tooltips' role={'tooltip'}>{tooltipText}</span>
-            } */}
         </p>
     )
 }
@@ -280,16 +244,6 @@ let ShowReactions = ({ handleShowReactions, showReactions, handleReactionName })
         <div aria-label='reactions options to choose' className={`reactions ${showReactions ? 'reactions-picker' : 'fold-down'}`} onMouseLeave={handleShowReactions}>
             {renderIconsItems()}
         </div>
-
-        // <div id='reactions' role={'menu'} aria-label='reactions options to choose' className={`${showReactions ? 'reactions-picker' : 'fold-down'}`} onMouseLeave={handleShowReactions}>
-        //     {renderIconsItems()}
-        //     {/* <GenerateIcon iconName={faHeart} name='heart' handleReactionName={handleReactionName} handleShowReactions={handleShowReactions} />
-        //     <GenerateIcon iconName={faThumbsUp} name='thumbsUp' handleReactionName={handleReactionName} handleShowReactions={handleShowReactions} />
-        //     <GenerateIcon iconName={faGrin} name='grin' handleReactionName={handleReactionName} handleShowReactions={handleShowReactions} />
-        //     <GenerateIcon iconName={faSurprise} name='surprise' handleReactionName={handleReactionName} handleShowReactions={handleShowReactions} />
-        //     <GenerateIcon iconName={faHandsClapping} name='clap' handleReactionName={handleReactionName} handleShowReactions={handleShowReactions} />
-        //     <GenerateIcon iconName={faHandSpock} name='spock' handleReactionName={handleReactionName} handleShowReactions={handleShowReactions} /> */}
-        // </div>
     )
 }
 

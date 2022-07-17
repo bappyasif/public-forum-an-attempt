@@ -6,8 +6,7 @@ import "./styles.css";
 
 function UserReplies({setAllStates}) {
   let allStates = useContext(UserContext);
-  // let renderReplies = () => fakeReplies?.map(item => <RenderReply key={item.id} item={item} id={item.id} setAllStates={setAllStates} />)
-  // let renderReplies = () => allStates['topicRepliesByUser'].length ? allStates['topicRepliesByUser'].map(item => <RenderReply key={item.id} item={item} id={item.id} setAllStates={setAllStates} /> :  fakeReplies.map(item => <RenderReply key={item.id} item={item} id={item.id} setAllStates={setAllStates} />)
+  
   let renderReplies = () => {
     if(allStates['topicRepliesByUser']?.length) {
       return allStates['topicRepliesByUser']?.map(item => <RenderReply key={item.id} item={item} id={item.id} setAllStates={setAllStates} />)

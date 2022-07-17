@@ -196,12 +196,12 @@ let PrimaryReaction = ({ handleFaHeartKeypressed, handleHover, setUserActionIcon
 let ReplyComponent = ({ handleHover, setUserActionIconName, tooltipText, userActionIconName, setAllStates }) => {
     let [showModal, setShowModal] = useState(null)
     let handleShowModal = () => setShowModal(true)
+
     let handleCloseModal = (evt) => {
         setShowModal(false)
         evt.stopPropagation()
-        // console.log('hiding modal!!')
     }
-    // console.log(showModal, 'showModal!!')
+    
     return (
         <p
             className='reply-div'
@@ -222,16 +222,12 @@ let ReplyComponent = ({ handleHover, setUserActionIconName, tooltipText, userAct
 
 let ShowReplyModal = ({ handleClose, setAllStates }) => {
     let [markdownContents, setMarkdownContents] = useState(null);
+    
     let allStates = useContext(UserContext);
-    // {
-    //     id: '01',
-    //     name: "some user",
-    //     picUrl: "https://unsplash.it/47",
-    //     replyText: "this is a demo reply text on this fake topic, if found helpful feel free to use it as a solution or give it an appropriate reaction",
-    //     postedTime: "44m"
-    //   }
+    
     let handleMarkdownContent = () => {
         let updatedData;
+        
         let curateData = {
             id: '01',
             name: "some user",
@@ -241,23 +237,18 @@ let ShowReplyModal = ({ handleClose, setAllStates }) => {
         }
 
         if (allStates['topicRepliesByUser']) {
-            // updatedData = allStates['topicRepliesByUser'].push(markdownContents)
-            // allStates['topicRepliesByUser']?.push(markdownContents)
             allStates['topicRepliesByUser']?.push(curateData)
             updatedData = allStates['topicRepliesByUser']
-            // console.log(allStates['topicRepliesByUser'], "allStates['topicRepliesByUser']")
         } else {
-            // updatedData = [markdownContents]
             updatedData = [curateData]
         }
 
-        console.log(updatedData, 'updatedData!!')
+        // console.log(updatedData, 'updatedData!!')
 
-        // handleUpdateStatesValue(setAllStates, 'topicRepliesByUser', markdownContents)
         handleUpdateStatesValue(setAllStates, 'topicRepliesByUser', updatedData)
     }
     let handleReplies = (evt) => {
-        console.log('handle replies');
+        // console.log('handle replies');
         handleClose(evt)
     }
     return (

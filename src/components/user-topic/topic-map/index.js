@@ -1,6 +1,7 @@
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { UserContext } from '../../../App'
 import './styles.css'
 
 function TopicMap() {
@@ -56,9 +57,11 @@ let PopulateUser = ({ item }) => {
 
 let ShowTopicRelatedNumbers = ({ item }) => {
     let { title, count } = { ...item }
+    let allStates = useContext(UserContext);
+
     return (
         <li className='numbers-group' aria-label={title}>
-            <span>{count}</span>
+            <span>{ (title == 'replies' || title == 'users') && allStates['topicRepliesByUser']?.length || count}</span>
             <p>{title}</p>
         </li>
     )

@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeartbeat, faLink, faEllipsis, faReply, faThumbsUp, faSurprise, faHandsClapping, faFlag } from "@fortawesome/free-solid-svg-icons"
 import { faBookmark, faGrin, faHandSpock, faHeart } from "@fortawesome/free-regular-svg-icons"
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./styles.css"
 import WysiwygEditor, { WysiwygModalFooter } from '../WysiwygEditor'
-import { handleUpdateStatesValue } from '../../App'
+import { handleUpdateStatesValue, UserContext } from '../../App'
 
-function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies, id }) {
+function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies, id, setAllStates }) {
     let [heartCount, setHeartCount] = useState(0);
     let [whichIcon, setWhichIcon] = useState(null);
     let [rndNum, setRndNum] = useState(null)
@@ -144,6 +144,7 @@ function UserActions({ showReactions, handleMouseIn, handleMouseOut, fromReplies
                     setUserActionIconName={setUserActionIconName}
                     tooltipText={tooltipText}
                     userActionIconName={userActionIconName}
+                    setAllStates={setAllStates}
                 />
             </div>
 
@@ -192,10 +193,15 @@ let PrimaryReaction = ({ handleFaHeartKeypressed, handleHover, setUserActionIcon
     )
 }
 
-let ReplyComponent = ({ handleHover, setUserActionIconName, tooltipText, userActionIconName }) => {
+let ReplyComponent = ({ handleHover, setUserActionIconName, tooltipText, userActionIconName, setAllStates }) => {
     let [showModal, setShowModal] = useState(null)
     let handleShowModal = () => setShowModal(true)
-    let handleCloseModal = () => setShowModal(false)
+    let handleCloseModal = (evt) => {
+        setShowModal(false)
+        evt.stopPropagation()
+        // console.log('hiding modal!!')
+    }
+    // console.log(showModal, 'showModal!!')
     return (
         <p
             className='reply-div'
@@ -209,21 +215,59 @@ let ReplyComponent = ({ handleHover, setUserActionIconName, tooltipText, userAct
             <FontAwesomeIcon icon={faReply} className='reply-icon' onMouseEnter={handleHover} />
             <span>Reply</span>
             <TooltipText userActionIconName={userActionIconName} tooltipText={tooltipText} tttFor={'reply-div'} />
-            {showModal && <ShowReplyModal handleClose={handleCloseModal} />}
+            {showModal && <ShowReplyModal handleClose={handleCloseModal} setAllStates={setAllStates} />}
         </p>
     )
 }
 
 let ShowReplyModal = ({ handleClose, setAllStates }) => {
-    // let handleMarkdownContent = () => handleUpdateStatesValue(setAllStates, 'markdownIt', markdownContents)
+    let [markdownContents, setMarkdownContents] = useState(null);
+    let allStates = useContext(UserContext);
+    // {
+    //     id: '01',
+    //     name: "some user",
+    //     picUrl: "https://unsplash.it/47",
+    //     replyText: "this is a demo reply text on this fake topic, if found helpful feel free to use it as a solution or give it an appropriate reaction",
+    //     postedTime: "44m"
+    //   }
+    let handleMarkdownContent = () => {
+        let updatedData;
+        let curateData = {
+            id: '01',
+            name: "some user",
+            picUrl: "https://unsplash.it/47",
+            replyText: markdownContents,
+            postedTime: "44m"
+        }
+
+        if (allStates['topicRepliesByUser']) {
+            // updatedData = allStates['topicRepliesByUser'].push(markdownContents)
+            // allStates['topicRepliesByUser']?.push(markdownContents)
+            allStates['topicRepliesByUser']?.push(curateData)
+            updatedData = allStates['topicRepliesByUser']
+            // console.log(allStates['topicRepliesByUser'], "allStates['topicRepliesByUser']")
+        } else {
+            // updatedData = [markdownContents]
+            updatedData = [curateData]
+        }
+
+        console.log(updatedData, 'updatedData!!')
+
+        // handleUpdateStatesValue(setAllStates, 'topicRepliesByUser', markdownContents)
+        handleUpdateStatesValue(setAllStates, 'topicRepliesByUser', updatedData)
+    }
+    let handleReplies = (evt) => {
+        console.log('handle replies');
+        handleClose(evt)
+    }
     return (
         <div className='show-reply-modal-wrapper'>
             <p>some user</p>
-            <WysiwygEditor setMarkdownContents={() => null} />
+            <WysiwygEditor setMarkdownContents={setMarkdownContents} />
             <WysiwygModalFooter
-                handleFunctionality={() => {}}
+                handleFunctionality={handleReplies}
                 closeModal={handleClose}
-                handleMarkdownContent={() => {}}
+                handleMarkdownContent={handleMarkdownContent}
             />
         </div>
     )

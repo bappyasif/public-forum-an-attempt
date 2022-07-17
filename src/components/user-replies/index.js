@@ -1,10 +1,21 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { UserContext } from '../../App';
 import { fakeReplies } from '../components-container'
 import UserActions from '../user-actions';
 import "./styles.css";
 
-function UserReplies() {
-  let renderReplies = () => fakeReplies?.map(item => <RenderReply key={item.id} item={item} id={item.id} />)
+function UserReplies({setAllStates}) {
+  let allStates = useContext(UserContext);
+  // let renderReplies = () => fakeReplies?.map(item => <RenderReply key={item.id} item={item} id={item.id} setAllStates={setAllStates} />)
+  // let renderReplies = () => allStates['topicRepliesByUser'].length ? allStates['topicRepliesByUser'].map(item => <RenderReply key={item.id} item={item} id={item.id} setAllStates={setAllStates} /> :  fakeReplies.map(item => <RenderReply key={item.id} item={item} id={item.id} setAllStates={setAllStates} />)
+  let renderReplies = () => {
+    if(allStates['topicRepliesByUser']?.length) {
+      return allStates['topicRepliesByUser']?.map(item => <RenderReply key={item.id} item={item} id={item.id} setAllStates={setAllStates} />)
+    } else {
+      return fakeReplies?.map(item => <RenderReply key={item.id} item={item} id={item.id} setAllStates={setAllStates} />)
+    }
+  }
+
   return (
     <section className='render-replies' aria-label='render replies'>
       {renderReplies()}
@@ -12,7 +23,7 @@ function UserReplies() {
   )
 }
 
-let RenderReply = ({ item , id }) => {
+let RenderReply = ({ item , id, setAllStates }) => {
   let { name, picUrl, replyText, postedTime } = { ...item }
   
   let [showReactions, setShowReactions] = useState(false)
@@ -25,7 +36,7 @@ let RenderReply = ({ item , id }) => {
     <div className='reply-wrapper' onMouseLeave={handleMouseMovedOut}>
       <RenderReplyTopPart name={name} picUrl={picUrl} postedTime={postedTime} />
       <RenderReplyTextContent replyText={replyText} />
-      <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} fromReplies={true} id={id} />
+      <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} fromReplies={true} id={id} setAllStates={setAllStates} />
     </div>
   )
 }

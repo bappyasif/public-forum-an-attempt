@@ -22,8 +22,8 @@ function TopicPage({setAllStates}) {
             <HeaderUI setAllStates={setAllStates} />
             <main style={{width: '850px', margin: '0 auto'}} aria-label='user topic and replies'>
                 {params.topicId && <UserTopic setAllStates={setAllStates} />}
-                {params.topicId && <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} />}
-                <div onMouseEnter={handleMouseMovedOut}>{params.topicId && <UserReplies />}</div>
+                {params.topicId && <UserActions showReactions={showReactions} handleMouseIn={handleMouseMovedIn} handleMouseOut={handleMouseMovedOut} setAllStates={setAllStates} />}
+                <div onMouseEnter={handleMouseMovedOut}>{params.topicId && <UserReplies setAllStates={setAllStates} />}</div>
             </main>
             <FooterContents />
         </div>

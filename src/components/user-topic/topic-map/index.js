@@ -1,4 +1,4 @@
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../../../App'
@@ -17,9 +17,22 @@ function TopicMap() {
 }
 
 let ShowTopicMapDropdown = () => {
+    let [showDropdown, setShowDropdown] = useState(false)
+    let toggleDropdown = () => setShowDropdown(!showDropdown)
     return (
         <div className='topic-map-drop-down' role={'img'} aria-label='dropdown icon'>
-            <FontAwesomeIcon icon={faAngleDown} width={156} />
+            {/* <FontAwesomeIcon icon={faAngleDown} width={156} onClick={toggleDropdown} /> */}
+            { showDropdown ? <FontAwesomeIcon icon={faAngleUp} width={156} onClick={toggleDropdown} /> : <FontAwesomeIcon icon={faAngleDown} width={156} onClick={toggleDropdown} />}
+            { showDropdown ? <DropdownDrawer /> : null}
+        </div>
+    )
+}
+
+let DropdownDrawer = () => {
+    return (
+        <div className='ddd-wrapper'>
+            <img src='https://unsplash.it/47' alt='user displayed who replied' />
+            <img src='https://unsplash.it/47' alt='user displayed who replied' />
         </div>
     )
 }
@@ -61,7 +74,7 @@ let ShowTopicRelatedNumbers = ({ item }) => {
 
     return (
         <li className='numbers-group' aria-label={title}>
-            <span>{ (title == 'replies' || title == 'users') && allStates['topicRepliesByUser']?.length || count}</span>
+            <span>{ ((title === 'replies' || title === 'users') && allStates['topicRepliesByUser']?.length) || count}</span>
             <p>{title}</p>
         </li>
     )

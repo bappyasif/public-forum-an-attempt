@@ -4,6 +4,7 @@
 }
 
 .user-topic > .map {
+    position: relative;
     padding: 11px;
     width: min-content;
     background-color: var(--bg-clr);
@@ -40,6 +41,24 @@
 .topic-map .topic-map-drop-down > svg {
     transform: scale(1.5);
     color: var(--primary-clr);
+}
+
+.topic-map-drop-down .ddd-wrapper {
+    position: absolute;
+    display: flex;
+    bottom: -60px;
+    left: 0;
+    background-color: var(--primary-clr);
+    outline: solid var(--bg-clr) 2px;
+    padding: 4px;
+    width: 233px;
+    /* transform: left 2s linear; */
+    /* left: 20px; */
+}
+
+.topic-map-drop-down .ddd-wrapper img {
+    border-radius: 50%;
+    margin: 0 11px 0 0;
 }
 
 .topic-map ul {

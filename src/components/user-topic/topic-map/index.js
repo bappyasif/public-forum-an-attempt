@@ -22,15 +22,19 @@ let ShowTopicMapDropdown = () => {
     return (
         <div className='topic-map-drop-down' role={'img'} aria-label='dropdown icon'>
             {/* <FontAwesomeIcon icon={faAngleDown} width={156} onClick={toggleDropdown} /> */}
-            { showDropdown ? <FontAwesomeIcon icon={faAngleUp} width={156} onClick={toggleDropdown} /> : <FontAwesomeIcon icon={faAngleDown} width={156} onClick={toggleDropdown} />}
-            { showDropdown ? <DropdownDrawer /> : null}
+            {/* { showDropdown ? <FontAwesomeIcon icon={faAngleUp} width={156} onClick={toggleDropdown} className='arrow-up' /> : <FontAwesomeIcon icon={faAngleDown} width={156} onClick={toggleDropdown} className='arrow-down' />} */}
+            {/* <FontAwesomeIcon icon={!showDropdown ? faAngleUp : faAngleDown} width={156} onClick={toggleDropdown} className={showDropdown ? 'arrow-up' : 'arrow-down'} /> */}
+
+            <FontAwesomeIcon icon={faAngleUp} width={156} onClick={toggleDropdown} className={showDropdown ? 'arrow-up' : 'arrow-down'} />
+            {/* { showDropdown ? <DropdownDrawer /> : null} */}
+            <DropdownDrawer showDropdown={showDropdown} />
         </div>
     )
 }
 
-let DropdownDrawer = () => {
+let DropdownDrawer = ({showDropdown}) => {
     return (
-        <div className='ddd-wrapper'>
+        <div className={`ddd-wrapper ${showDropdown ? 'active' : 'inactive'}`}>
             <img src='https://unsplash.it/47' alt='user displayed who replied' />
             <img src='https://unsplash.it/47' alt='user displayed who replied' />
         </div>

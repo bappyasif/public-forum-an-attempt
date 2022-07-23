@@ -1,4 +1,4 @@
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../../../App'
@@ -54,7 +54,7 @@ let ShowRecentTopicMaps = () => {
 let CurrentlyParticipatingUsers = () => {
     let populateUsers = () => participatingUsers.map(item => <PopulateUser key={item.name} item={item} />)
     return (
-        <li className='users-group' role={'listitem'} aria-label='list of user replied'>
+        <li className='users-group' aria-label='list of user replied'>
             {populateUsers()}
         </li>
     )

@@ -105,3 +105,39 @@
     outline: none;
     height: 40px;
 }
+
+/* user info drop down */
+li.user-info-dd {
+    position: relative;
+}
+
+/* a:focus,
+li a:focus, */
+/* li a:focus, */
+/* li.user-info-dd .uidd:focus, */
+li.user-info-dd:hover {
+    outline: solid 2px var(--primary-clr);
+    border-radius: 4px;
+}
+
+ul.hide-dd {
+    position: absolute;
+    right: 0;
+    background-color: var(--bg-clr);
+    top: 62px;
+}
+
+ul.hide-dd li {
+    padding: 8px;
+    outline: solid 0.2px var(--primary-clr);
+    margin: 0 0 4px 0;
+}
+
+ul.hide-dd li:hover,
+ul.hide-dd li:focus {
+    background-color: var(--secondary-clr);
+}
+
+img.uidd {
+    display: flex;
+}

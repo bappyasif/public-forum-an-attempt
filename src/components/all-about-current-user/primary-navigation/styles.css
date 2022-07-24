@@ -1,0 +1,12 @@
+.primary-navigation ul {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+}
+
+.primary-navigation ul li {
+    line-height: 2em;
+    width: 240px;
+    background-color: aqua;
+    outline: solid;
+}

@@ -1,0 +1,30 @@
+.collapsed-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    position: relative;
+    min-height: 62px;
+}
+
+.collapsed-info .controls-info {
+    width: 200px;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+}
+
+.collapsed-info .controls-info>div {
+    line-height: 2em;
+}
+
+.collapsed-info .controls-info>div>span {
+    margin-left: 20px;
+}
+
+.collapsed-info .profile-names {
+    position: absolute;
+    text-align: justify;
+}

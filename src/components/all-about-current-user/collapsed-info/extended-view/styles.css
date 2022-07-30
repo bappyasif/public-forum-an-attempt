@@ -1,0 +1,24 @@
+.render-details,
+.render-details .show-detail {
+    display: flex;
+    align-items: center;
+}
+
+.render-details {
+    justify-content: space-between;
+}
+
+.render-details .show-detail,
+.render-details .show-detail dt {
+    margin-right: 11px;
+}
+
+.render-details .show-detail dt {
+    font-size: large;
+    color: silver;
+}
+
+.render-details .show-detail dd {
+    font-size: medium;
+    margin: 0%;
+}

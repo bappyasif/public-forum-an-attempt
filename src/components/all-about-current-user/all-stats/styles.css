@@ -1,0 +1,32 @@
+.stats-container h1 {
+    text-align: justify;
+    margin: 20px 0;
+}
+
+.render-stats {
+    display: grid;
+    /* grid-template-columns: repeat(5, 1fr); */
+    /* grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); */
+    /* grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); */
+    /* grid-template-columns: repeat(auto-fill, minmax(182px, 1fr)); */
+    /* grid-template-columns: repeat(5, minmax(auto-fill, 180px)); */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    justify-items: stretch;
+}
+
+li.stat-content,
+li.stat-content p {
+    /* min-width: 260px; */
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+li.stat-content span {
+    margin-right: 20px;
+}
+
+li.stat-content p {
+    font-size: medium;
+}

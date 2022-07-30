@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
 import './styles.css'
 
-function CollapsedInfo() {
-    let [expanded, setExpanded] = useState(false)
-    let handleToggle = () => setExpanded(!expanded)
+function CollapsedInfo({expanded, handleToggle}) {
+    // let [expanded, setExpanded] = useState(false)
+    // let handleToggle = () => setExpanded(!expanded)
 
   return (
     <section className='collapsed-info'>

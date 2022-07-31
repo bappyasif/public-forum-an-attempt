@@ -1,0 +1,47 @@
+.top-links-most-replied,
+li.render-most-replied-to {
+    display: flex;
+}
+
+.top-links-most-replied h2 {
+    margin: 20px 0;
+}
+
+.top-links {
+    margin-right: 29px;
+}
+
+.top-links a.link-add {
+    font-size: medium;
+}
+
+.top-links a.topic-title {
+    font-size: larger;
+    color: grey;
+}
+
+span.click-count,
+span.how-many-times {
+    margin-left: 11px;
+}
+
+.top-links,
+.most-replied-to {
+    text-align: justify;
+}
+
+li.render-most-replied-to .user-details,
+span.user-name {
+    margin-left: 20px;
+}
+
+span.decorative {
+    height: 4px;
+    width: 135px;
+    background-color: silver;
+    position: absolute;
+}
+
+.name-line .details {
+    margin-top: 4px;
+}

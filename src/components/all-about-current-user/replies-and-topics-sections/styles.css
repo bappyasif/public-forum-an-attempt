@@ -1,0 +1,16 @@
+.replies-and-topics-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.replies-and-topics-section .sections {
+    text-align: justify;
+}
+
+.replies-and-topics-section .sections ul {
+    margin-right: 29px;
+}
+
+.replies-and-topics-section .sections ul li.element-view {
+    margin: 20px 0;
+}

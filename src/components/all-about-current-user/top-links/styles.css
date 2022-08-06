@@ -30,6 +30,12 @@ span.how-many-times {
     text-align: justify;
 }
 
+.top-links ul,
+.most-replied-to ul {
+    border-left: solid 0.2px;
+    padding-left: 11px;
+}
+
 li.render-most-replied-to .user-details,
 span.user-name {
     margin-left: 20px;

@@ -1,0 +1,32 @@
+.most-liked-details-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.most-liked-details-container h2 {
+    margin-bottom: 11px;
+}
+
+.most-liked-details-container .list-wrapper:nth-child(2) {
+    margin-right: 303px;
+}
+
+.most-liked-details-container .list-wrapper ul {
+    border-left: solid 0.2px;
+}
+
+.most-liked-details-container .list-wrapper ul li.list-elem,
+.most-liked-details-container .list-wrapper ul li.list-elem p.item-info {
+    display: flex;
+    align-items: center;
+}
+
+.most-liked-details-container .list-wrapper ul li.list-elem {
+    gap: 20px;
+    padding-left: 11px;
+    margin-bottom: 11px;
+}
+
+.most-liked-details-container .list-wrapper ul li.list-elem p.item-info {
+    flex-direction: column;
+}

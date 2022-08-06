@@ -3,14 +3,40 @@
     justify-content: space-between;
 }
 
+.sections.top-replies ul,
+.sections.top-topics ul {
+    border-left: solid 0.2px;
+}
+
+.sections.top-topics {
+    width: 38%;
+}
+
 .replies-and-topics-section .sections {
     text-align: justify;
 }
 
 .replies-and-topics-section .sections ul {
+    padding-left: 11px;
+}
+
+.replies-and-topics-section .sections.top-replies {
     margin-right: 29px;
+}
+
+.replies-and-topics-section .sections.top-topics {
+    margin-right: 0;
 }
 
 .replies-and-topics-section .sections ul li.element-view {
     margin: 20px 0;
+}
+
+.replies-and-topics-section .sections ul li.element-view {
+    display: flex;
+    flex-direction: column;
+}
+
+.replies-and-topics-section .sections ul li.element-view span.topic-info {
+    margin-bottom: 11px;
 }

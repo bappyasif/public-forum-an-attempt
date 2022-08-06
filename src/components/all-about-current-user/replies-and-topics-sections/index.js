@@ -34,7 +34,7 @@ let RenderElements = ({ item }) => {
         <FontAwesomeIcon icon={faHeart} />
         <span className='like-count'>{liked}</span>
       </span>
-      <br />
+      
       <a href='#'>{topicTitle}</a>
     </li>
   )

@@ -1,0 +1,15 @@
+table {
+    border-collapse: collapse;
+}
+
+thead .col-header {
+    padding: .4em;
+}
+
+tbody {
+    border-top: 3px solid var(--bg-clr);
+}
+
+tbody .row-header {
+    text-align: justify;
+}

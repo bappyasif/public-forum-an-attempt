@@ -6,6 +6,7 @@ import MostLikedTopicsDetails from '../liked-details'
 import PrimaryNavigation from '../primary-navigation'
 import RepliesAndTopicsSections from '../replies-and-topics-sections'
 import TopLinksAndMostRepliedTo from '../top-links'
+import TopSubforums from '../top-subforums'
 
 function SummaryDetails() {
   let [expanded, setExpanded] = useState(false)
@@ -17,11 +18,16 @@ function SummaryDetails() {
       {expanded ? <ExtendedView /> : null}
       <PrimaryNavigation />
       <AllStats />
-      Summary Details
+      
+      {/* Summary Details */}
       <RepliesAndTopicsSections />
       <TopLinksAndMostRepliedTo />
-      Liked Details
+      
+      {/* Liked Details */}
       <MostLikedTopicsDetails />
+      
+      {/* Top Subforums */}
+      <TopSubforums />
     </div>
   )
 }

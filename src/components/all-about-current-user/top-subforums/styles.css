@@ -13,3 +13,12 @@ tbody {
 tbody .row-header {
     text-align: justify;
 }
+
+tbody .row-header .tag-name {
+    background-color: var(--primary-clr);
+    padding: 6px;
+}
+
+tbody .row-data {
+    line-height: 2em;
+}

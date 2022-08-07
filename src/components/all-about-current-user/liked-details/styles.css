@@ -1,6 +1,7 @@
 .most-liked-details-container {
     display: flex;
     justify-content: space-between;
+    margin: 20px 0;
 }
 
 .most-liked-details-container h2 {

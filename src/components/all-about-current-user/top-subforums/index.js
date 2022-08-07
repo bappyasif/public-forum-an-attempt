@@ -27,9 +27,9 @@ let RenderRow = ({item}) => {
 
     return (
         <tr>
-            <th className='row-header' scope='row'>{tags}</th>
-            <td>{topicsCount}</td>
-            <td>{repliesCount}</td> 
+            <th className='row-header' scope='row'><span className='tag-name'>{tags}</span></th>
+            <td className='row-data'>{topicsCount}</td>
+            <td className='row-data'>{repliesCount}</td> 
         </tr>
     )
 }

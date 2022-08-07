@@ -7,6 +7,7 @@ import NestedRouteCompTest from './components/pages/NestedRouteCompTest';
 import TagRoute from './components/pages/tag-route';
 import TestComponent from './components/pages/TestComponet';
 import TopicPage from './components/pages/topic-route';
+import ActivityDetails from './components/pages/current-user/activity';
 
 export let baseUri = '/public-forum-an-attempt';
 
@@ -40,6 +41,7 @@ function App() {
             {/* <Route path={`${baseUri}/topic/`} element={<NestedRouteCompTest />}> */}
             
             <Route path={`${baseUri}/u/summary`} element={<SummaryDetails setAllStates={setAllStates} />}></Route>
+            <Route path={`${baseUri}/u/activity`} element={<ActivityDetails setAllStates={setAllStates} />}></Route>
             
             <Route path={`${baseUri}/topic/`} element={<TopicPage setAllStates={setAllStates} />}>
               <Route path=':topicId' element={<TopicPage setAllStates={setAllStates} />} />

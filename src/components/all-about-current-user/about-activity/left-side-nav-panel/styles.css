@@ -1,0 +1,12 @@
+.side-nav  {
+    margin: 20px 0;
+}
+
+.nav-list {
+    text-align: justify;
+}
+
+.nav-list .nav-elem {
+    line-height: 2em;
+    margin: 4px 0;
+}

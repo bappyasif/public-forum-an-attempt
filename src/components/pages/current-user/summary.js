@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import AllStats from '../../all-about-current-user/all-stats'
+import AllStats from '../../all-about-current-user/about-summary/all-stats'
 import CollapsedInfo from '../../all-about-current-user/collapsed-info'
 import ExtendedView from '../../all-about-current-user/collapsed-info/extended-view'
-import MostLikedTopicsDetails from '../../all-about-current-user/liked-details'
+import MostLikedTopicsDetails from '../../all-about-current-user/about-summary/liked-details'
 import PrimaryNavigation from '../../all-about-current-user/primary-navigation'
-import RepliesAndTopicsSections from '../../all-about-current-user/replies-and-topics-sections'
-import TopLinksAndMostRepliedTo from '../../all-about-current-user/top-links'
-import TopSubforums from '../../all-about-current-user/top-subforums'
+import RepliesAndTopicsSections from '../../all-about-current-user/about-summary/replies-and-topics-sections'
+import TopLinksAndMostRepliedTo from '../../all-about-current-user/about-summary/top-links'
+import TopSubforums from '../../all-about-current-user/about-summary/top-subforums'
 import HeaderUI from '../../header-section'
 
 function SummaryDetails({setAllStates}) {

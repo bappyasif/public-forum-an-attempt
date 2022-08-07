@@ -5,6 +5,7 @@ import forumLogo from '../assets/forum-logo.png'
 import './styles.css'
 import { IconElement } from '../general-purpose-use-hof'
 import { useOnClickOutside } from '../hooks'
+import { baseUri } from '../../App'
 
 function HeaderUI({ setAllStates }) {
   return (
@@ -50,7 +51,7 @@ let ShowProfileDropDown = ({ showDD }) => {
 
   let handleClick = evt => console.log(evt.target.textContent)
 
-  let renderItems = () => ddItems.map(item => <li key={item} onClick={handleClick}><a href='#' aria-label={item}>{item}</a></li>)
+  let renderItems = () => ddItems.map(item => <li key={item} onClick={handleClick}><a href={`${baseUri}/u/${item.toLowerCase()}`} aria-label={item}>{item}</a></li>)
 
   return (
     <ul className={`${showDD ? 'show-dd' : 'hide-dd'}`}>

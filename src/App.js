@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import SummaryDetails from './components/all-about-current-user/summary';
+import SummaryDetails from './components/pages/current-user/summary';
 import ComponentsContainer, { fakeTopics } from './components/components-container';
 import NestedRouteCompTest from './components/pages/NestedRouteCompTest';
 import TagRoute from './components/pages/tag-route';
@@ -39,7 +39,7 @@ function App() {
             {/* <Route path={`${baseUri}/topic/`} element={<TopicPage />} /> */}
             {/* <Route path={`${baseUri}/topic/`} element={<NestedRouteCompTest />}> */}
             
-            <Route path={`${baseUri}/u/summary`} element={<SummaryDetails />}></Route>
+            <Route path={`${baseUri}/u/summary`} element={<SummaryDetails setAllStates={setAllStates} />}></Route>
             
             <Route path={`${baseUri}/topic/`} element={<TopicPage setAllStates={setAllStates} />}>
               <Route path=':topicId' element={<TopicPage setAllStates={setAllStates} />} />

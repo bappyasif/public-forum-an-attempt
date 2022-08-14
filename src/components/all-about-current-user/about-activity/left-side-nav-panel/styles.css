@@ -1,5 +1,6 @@
 .side-nav  {
     margin: 20px 0;
+    min-width: 11vw;
 }
 
 .nav-list {

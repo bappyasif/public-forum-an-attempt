@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import AllTopicsEngaggedWith from '../../all-about-current-user/about-activity/all-topics-engagged-with'
 import LeftSideNavigationPanel from '../../all-about-current-user/about-activity/left-side-nav-panel'
 import CollapsedInfo from '../../all-about-current-user/collapsed-info'
 import ExtendedView from '../../all-about-current-user/collapsed-info/extended-view'
@@ -18,6 +19,7 @@ function ActivityDetails({ setAllStates }) {
                 <PrimaryNavigation />
                 <div style={{display: 'flex'}}>
                     <LeftSideNavigationPanel />
+                    <AllTopicsEngaggedWith />
                 </div>
             </div>
         </main>

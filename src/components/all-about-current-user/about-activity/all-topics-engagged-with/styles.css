@@ -1,0 +1,33 @@
+.individual-topic {
+    margin: 20px 0 27px 0;
+    text-align: justify;
+}
+
+.individual-topic .reply-body {
+    margin: 11px 0 0 80px;
+}
+
+.tc-info {
+    position: relative;
+}
+
+.tc-info .outer,
+.tc-info .outer .inner {
+    display: flex;
+}
+
+.tc-info .outer {
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.tc-info .outer .inner .topic-title,
+.tc-info .outer .right-most span {
+    margin: 0 0 0 20px;
+}
+
+.tc-info .category-tag {
+    position: absolute;
+    top: 35px;
+    left: 80px;
+}

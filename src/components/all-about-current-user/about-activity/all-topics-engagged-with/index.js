@@ -5,11 +5,16 @@ import { getTimeElapsed } from '../../utility-methods'
 import './styles.css'
 
 function AllTopicsEngaggedWith() {
-  let renderTopics = () => topicsDemo.map(topic => <IndividualTopic key={topic.topicTitle} item={topic} />)
+  let [updatedTime, setUpdatedTime] = useState(null)
+  
+  let renderTopics = () => topicsDemo.map(topic => <IndividualTopic key={topic.topicTitle} item={topic} count={count} setUpdatedTime={setUpdatedTime} />)
+  
+  setInterval(() => setUpdatedTime(renderTopics()), 60000)
+
   return (
     <div>
       <ul>
-        {renderTopics()}
+        { updatedTime || renderTopics()}
       </ul>
     </div>
   )
@@ -31,6 +36,7 @@ let ReplyBody = ({ replyText }) => {
 }
 
 let TopContents = ({ photo, title, tag, time, userName }) => {
+
   return (
     <div className='tc-info'>
       <div className='outer'>
@@ -43,22 +49,14 @@ let TopContents = ({ photo, title, tag, time, userName }) => {
 }
 
 let RightMostDiv = ({ time }) => {
-  let [updatedTime, setUpdatedTime] = useState()
-  
-  let [count, setCount] = useState()
-
   let [expand, setExpand] = useState(false)
   
   let handleClick = () => setExpand(!expand)
 
-  setInterval(() => setCount(count + 1), 60000)
-
-  useEffect(() => setUpdatedTime(getTimeElapsed(time)), [count])
-
   return (
     <div className='right-most'>
       <FontAwesomeIcon icon={faAngleDown} onClick={handleClick} className={`expand ${expand ? 'now' : ''}`} />
-      <span>{ updatedTime || getTimeElapsed(time)}</span>
+      <span>{ getTimeElapsed(time)}</span>
     </div>
   )
 }

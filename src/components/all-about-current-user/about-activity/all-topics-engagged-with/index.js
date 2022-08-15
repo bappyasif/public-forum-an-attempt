@@ -20,7 +20,7 @@ let IndividualTopic = ({ item }) => {
 
   return (
     <li className='individual-topic'>
-      <TopContents photo={photo} time={time} title={topicTitle} tag={topicTag} />
+      <TopContents userName={userName} photo={photo} time={time} title={topicTitle} tag={topicTag} />
       <ReplyBody replyText={replyText} />
     </li>
   )
@@ -30,11 +30,11 @@ let ReplyBody = ({ replyText }) => {
   return <p className='reply-body'>{replyText}</p>
 }
 
-let TopContents = ({ photo, title, tag, time }) => {
+let TopContents = ({ photo, title, tag, time, userName }) => {
   return (
     <div className='tc-info'>
       <div className='outer'>
-        <InnerMostDiv title={title} photo={photo} />
+        <InnerMostDiv title={title} photo={photo} userName={userName} />
         <RightMostDiv time={time} />
       </div>
       <div className='category-tag'>{tag}</div>
@@ -44,8 +44,11 @@ let TopContents = ({ photo, title, tag, time }) => {
 
 let RightMostDiv = ({ time }) => {
   let [updatedTime, setUpdatedTime] = useState()
+  
   let [count, setCount] = useState()
+
   let [expand, setExpand] = useState(false)
+  
   let handleClick = () => setExpand(!expand)
 
   setInterval(() => setCount(count + 1), 60000)
@@ -55,17 +58,21 @@ let RightMostDiv = ({ time }) => {
   return (
     <div className='right-most'>
       <FontAwesomeIcon icon={faAngleDown} onClick={handleClick} className={`expand ${expand ? 'now' : ''}`} />
-      {/* <span>{getTimeElapsed(time)}</span> */}
       <span>{ updatedTime || getTimeElapsed(time)}</span>
     </div>
   )
 }
 
-let InnerMostDiv = ({ title, photo }) => {
+let InnerMostDiv = ({ title, photo, userName }) => {
+  let [showTooltip, setShowTooltip] = useState(false)
+  let handleShowTooltip = () => setShowTooltip(true)
+  let handleCloseShowTooltip = () => setShowTooltip(false)
+
   return (
     <div className='inner'>
-      <a><img src={photo} alt="user profile display portrait" /></a>
+      <a onMouseEnter={handleShowTooltip} onMouseLeave={handleCloseShowTooltip}><img src={photo} alt="user profile display portrait" /></a>
       <span className='topic-title'><a>{title}</a></span>
+      <p className='name-tooltip' style={{display: showTooltip ? "block" : "none"}}>{userName}</p>
     </div>
   )
 }

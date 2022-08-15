@@ -16,6 +16,15 @@
     display: flex;
 }
 
+.tc-info .outer .inner .name-tooltip {
+    position: absolute;
+    bottom: -31px;
+    left: 7.1px;
+    background-color: darkslateblue;
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
 .tc-info .outer {
     align-items: flex-start;
     justify-content: space-between;

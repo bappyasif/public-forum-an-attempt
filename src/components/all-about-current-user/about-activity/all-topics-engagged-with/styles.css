@@ -1,13 +1,23 @@
 .individual-topic {
     margin: 20px 0 27px 0;
     text-align: justify;
+    display: flex;
+    flex-direction: column;
 }
 
 .individual-topic .reply-body {
     margin: 11px 0 0 80px;
 }
 
-.tc-info {
+.individual-topic .attached-media {
+    margin: auto;
+    width: 38vw;
+    height: 20vw;
+}
+
+.tc-info,
+.tc-info .outer .right-most .expand,
+.time-elapsed {
     position: relative;
 }
 
@@ -20,7 +30,7 @@
     position: absolute;
     bottom: -31px;
     left: 7.1px;
-    background-color: darkslateblue;
+    background-color: var(--bg-clr);
     padding: 2px 8px;
     border-radius: 6px;
 }
@@ -45,6 +55,44 @@
     transform: rotate(0deg);
     transition: transform 2s;
     transform: rotate(180deg);
+}
+
+.tc-info .outer .right-most .sc-tooltip {
+    position: absolute;
+    background-color: var(--bg-clr);
+    right: 17px;
+    padding: 2px 11px;
+    
+    transition: opacity 2s;
+    opacity: 1;
+}
+
+.time-elapsed + .dt-tooltip {
+    position: absolute;
+    right: -105px;
+    background-color: var(--bg-clr);
+    padding: 2px 6px;
+}
+
+.time-elapsed:not(:hover) + .dt-tooltip {
+    display: none;
+    opacity: 0;
+    /* transition: display 2s linear 2000ms, opacity 2s; */
+    transition: opacity 2s;
+}
+
+
+
+.time-elapsed:hover + .dt-tooltip {
+    display: block;
+    opacity: 1;
+    /* transition: display 2s linear 2000ms, opacity 2s; */
+    transition: opacity 2s;
+}
+
+.tc-info .outer .right-most .sc-tooltip.now {
+    transition: opacity 2s;
+    opacity: 0;
 }
 
 .tc-info .category-tag {

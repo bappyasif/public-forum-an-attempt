@@ -1,6 +1,6 @@
 import { faAngleDown, faAnglesDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getTimeElapsed } from '../../utility-methods'
 import './styles.css'
 
@@ -43,12 +43,20 @@ let TopContents = ({ photo, title, tag, time }) => {
 }
 
 let RightMostDiv = ({ time }) => {
+  let [updatedTime, setUpdatedTime] = useState()
+  let [count, setCount] = useState()
   let [expand, setExpand] = useState(false)
   let handleClick = () => setExpand(!expand)
+
+  setInterval(() => setCount(count + 1), 60000)
+
+  useEffect(() => setUpdatedTime(getTimeElapsed(time)), [count])
+
   return (
     <div className='right-most'>
       <FontAwesomeIcon icon={faAngleDown} onClick={handleClick} className={`expand ${expand ? 'now' : ''}`} />
-      <span>{getTimeElapsed(time)}</span>
+      {/* <span>{getTimeElapsed(time)}</span> */}
+      <span>{ updatedTime || getTimeElapsed(time)}</span>
     </div>
   )
 }

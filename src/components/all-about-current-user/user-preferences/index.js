@@ -1,10 +1,10 @@
 import React from 'react'
-import LeftNavigationPanel from './left-nav-panel'
+import AccountProfile from './account-profile'
 
 function UserPreferences() {
   return (
     <div role={'tabpanel'}>
-      <LeftNavigationPanel />
+      <AccountProfile />
     </div>
   )
 }

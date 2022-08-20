@@ -8,6 +8,7 @@ import TagRoute from './components/pages/tag-route';
 import TestComponent from './components/pages/TestComponet';
 import TopicPage from './components/pages/topic-route';
 import ActivityDetails from './components/pages/current-user/activity';
+import PreferencesDetails from './components/pages/current-user/preferences';
 
 export let baseUri = '/public-forum-an-attempt';
 
@@ -42,6 +43,7 @@ function App() {
             
             <Route path={`${baseUri}/u/summary`} element={<SummaryDetails setAllStates={setAllStates} />}></Route>
             <Route path={`${baseUri}/u/activity`} element={<ActivityDetails setAllStates={setAllStates} />}></Route>
+            <Route path={`${baseUri}/u/preferences`} element={<PreferencesDetails setAllStates={setAllStates} />}></Route>
             
             <Route path={`${baseUri}/topic/`} element={<TopicPage setAllStates={setAllStates} />}>
               <Route path=':topicId' element={<TopicPage setAllStates={setAllStates} />} />

@@ -39,16 +39,16 @@ let UserInfo = () => {
   return (
     // <img src='https://unsplash.it/47/51' alt='when logged in user info will show up' />
     <li className='user-info-dd' onClick={handleShowDD} ref={ref}>
-      <a className='uidd' href='#' aria-label='user info drop down'>
+      <div role={'link'} className='uidd' href='#' aria-label='user info drop down'>
         <img className='uidd' src='https://unsplash.it/47' alt='when logged in user info will show up' />
         {showDD ? <ShowProfileDropDown /> : null}
-      </a>
+      </div>
     </li>
   )
 }
 
 let ShowProfileDropDown = ({ showDD }) => {
-  let ddItems = ['Summary', 'Activity', 'Preference', 'Logout']
+  let ddItems = ['Summary', 'Activity', 'Preferences', 'Logout']
 
   let handleClick = evt => console.log(evt.target.textContent)
 

@@ -1,0 +1,16 @@
+.left-panel-nav-list {
+    text-align: left;
+    width: 12.6vw;
+}
+
+.left-panel-nav-list li {
+    line-height: 2em;
+    margin: 11px 0;
+    padding: 0px 9px;
+}
+
+.left-panel-nav-list li:hover {
+    outline: solid .4px var(--secondary-clr);
+    border-radius: 11px;
+    background-color: var(--bg-clr);
+}

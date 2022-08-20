@@ -3,7 +3,7 @@ import LeftNavigationPanel from './left-nav-panel'
 
 function UserPreferences() {
   return (
-    <div>
+    <div role={'tabpanel'}>
       <LeftNavigationPanel />
     </div>
   )

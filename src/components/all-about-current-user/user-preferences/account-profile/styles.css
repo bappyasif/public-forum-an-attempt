@@ -1,3 +1,8 @@
+h2, h4, h5 {
+    margin: 0;
+    padding: 0;
+}
+
 .account-profile {
     display: flex;
 }
@@ -7,4 +12,96 @@
     text-align: left;
     margin: 24px 0;
     padding: 0 0px 0 20px;
+}
+
+.pp-wrapper,
+.pp-wrapper .img-div,
+.ae-wrapper .email-infos {
+    margin: 20px 0;
+}
+
+.pp-wrapper .img-div {
+    display: flex;
+    align-items: center;
+}
+
+.pp-wrapper .img-div > svg {
+    font-size: -webkit-xxx-large;
+    margin-left: 20px;
+}
+
+.ae-wrapper .email-infos,
+.aa-wrapper p.acc-infos {
+    display: flex;
+    align-items: flex-end;    
+}
+
+.ae-wrapper .email-infos {
+    margin-top: 6px;
+}
+
+.ae-wrapper .email-infos .primary-email {
+    width: 20vw;
+}
+
+.ae-wrapper .email-infos .primary-email h4,
+.ae-wrapper .email-infos .primary-email h5 {
+    margin: 11px 0 0;
+}
+
+.ae-wrapper .email-infos .primary-email h4:last-child {
+    margin-top: 4px;
+}
+
+.ae-wrapper .email-infos .alternative-email > svg,
+.aa-wrapper p.acc-infos > svg {
+    margin-bottom: 20px;
+    outline: solid .4px var(--primary-clr);
+    padding: 11px;
+    border-radius: 6px;
+}
+
+.ae-wrapper .email-infos .alternative-email > svg:hover,
+.aa-wrapper p.acc-infos > svg:hover {
+    background-color: var(--bg-clr);
+}
+
+.aa-wrapper,
+.un-wrapper {
+    min-width: 37.1vw;
+    max-width: 37.1vw;
+}
+
+.aa-wrapper p.acc-infos {
+    justify-content: space-between;
+    align-items: center;
+    border: solid;
+    border-top-width: 8px;
+    padding: 11px 0;
+    border-left: none;
+    border-right: none;
+    margin-top: 11px;
+}
+
+.aa-wrapper p.acc-infos > svg {
+    margin-bottom: 0;
+}
+
+.un-wrapper {
+    margin: 20px 0 0;
+}
+
+.un-wrapper input {
+    width: -webkit-fill-available;
+    padding: 11px 2px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+    margin-top: 11px;
+}
+
+.user-details .save-btn {
+    margin: 20px 0;
+    padding: 17px 41px;
+    border-radius: 6px;
+    background-color: var(--bg-clr);
 }

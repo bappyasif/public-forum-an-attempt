@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import AccountProfile from './account-profile'
+import AccountSecurity from './account-security'
 
 function UserPreferences() {
   let [initTabname, setInitTabname] = useState(null)
@@ -24,6 +25,8 @@ function UserPreferences() {
       {/* { initTabname === "account" ? <AccountProfile /> : ''} */}
       { initTabname === "account" || params.tabName === undefined ? <AccountProfile /> : ''}
       { (tabChanged === "account" ) ? <AccountProfile /> : ''}
+
+      { (tabChanged === "security" ) ? <AccountSecurity /> : ''}
     </div>
   )
 }

@@ -103,5 +103,12 @@ h2, h4, h5 {
     margin: 20px 0;
     padding: 17px 41px;
     border-radius: 6px;
+    border: none;
+    font-weight: bold;
     background-color: var(--bg-clr);
+}
+
+.user-details .save-btn:hover {
+    background-color: var(--primary-clr);
+    outline: solid 2px var(--bg-clr);
 }

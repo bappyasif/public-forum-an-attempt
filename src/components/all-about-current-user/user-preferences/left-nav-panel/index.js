@@ -24,7 +24,10 @@ let RenderPanelName = ({ name, currentTab, handleTab }) => {
         handleTab(name)
     }
     return (
-        <li onClick={handleClick} className={`nav-tab ${currentTab === name ? "active" : ""}`} >{name}</li>
+        // <li onClick={handleClick} className={`nav-tab ${currentTab === name ? "active" : ""}`} >{name}</li>
+        <Link to={`${baseUri}/u/preferences/${name.toLowerCase()}`}>
+            <li onClick={handleClick} className={`nav-tab ${currentTab === name ? "active" : ""}`} >{name}</li>
+        </Link>
     )
 }
 

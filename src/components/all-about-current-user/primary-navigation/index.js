@@ -32,7 +32,7 @@ let RenderNavigationItem = ({ name, handleActiveTab, activeTabName }) => {
       className={`${activeTabName === name ? 'active' : 'inactive'}`}
       aria-selected={`${activeTabName === name ? true : false}`}
     >
-      <Link to={`${baseUri}/u/${name}`} >{name}</Link>
+      <Link to={`${baseUri}/u/${name.toLowerCase()}`} >{name}</Link>
     </li>
     // <li role={'tab'} onClick={handleClicked} className={`${clicked ? 'active' : ''}`}>{name}</li>
   )

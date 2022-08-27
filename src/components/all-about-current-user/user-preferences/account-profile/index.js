@@ -7,7 +7,7 @@ import './styles.css'
 function AccountProfile() {
     return (
         <div className='account-profile'>
-            <LeftNavigationPanel />
+            {/* <LeftNavigationPanel /> */}
             <UserDetails />
         </div>
     )

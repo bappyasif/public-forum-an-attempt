@@ -1,0 +1,49 @@
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.as-wrapper {
+    text-align: justify;
+}
+
+.as-wrapper p.sab-ui {
+    outline: solid .6px var(--primary-clr);
+    padding: 20px 29px;
+    width: fit-content;
+    margin: 8px 0;
+    border-radius: 11px;
+}
+
+.as-wrapper p.sab-ui > span {
+    margin: 0 11px;
+}
+
+.as-wrapper .pr-wrapper,
+.as-wrapper .tf-wrapper {
+    margin: 20px 0;
+}
+
+.as-wrapper .tf-wrapper p {
+    margin: 8px 0 11px;
+}
+
+.rud-wrapper h2 {
+    text-align: justify;
+    margin: 15px 0;
+}
+
+.rud-wrapper .di-wrapper {
+    display: flex;
+    align-items: baseline;
+}
+
+.rud-wrapper .di-wrapper > svg {
+    transform: scale(3.5);
+    align-self: center;
+}
+
+.rud-wrapper .dev-info {
+    text-align: justify;
+    margin-left: 42px;
+}

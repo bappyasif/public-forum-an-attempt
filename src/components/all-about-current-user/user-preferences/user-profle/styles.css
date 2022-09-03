@@ -1,0 +1,7 @@
+.am-wrapper {
+    text-align: justify;
+}
+
+.am-wrapper span.tox-statusbar__branding svg {
+    display: none !important;
+}

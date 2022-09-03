@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import AccountProfile from './account-profile'
 import AccountSecurity from './account-security'
+import UserProfile from './user-profle'
 
 function UserPreferences() {
   let [initTabname, setInitTabname] = useState(null)
@@ -14,10 +15,17 @@ function UserPreferences() {
 
   // useEffect(() => setTabname(params.tabName), [params.tabName])
 
+  console.log(params, "<<params>>")
+
   useEffect(() => {
     setTabChanged(params.tabName)
     setInitTabname(null)
   }, [params.tabName])
+
+  useEffect (() => {
+    let brandEl = document.querySelector("span.tox-statusbar__branding svg");
+    brandEl?.remove()
+  }, [tabChanged])
 
   return (
     <div role={'tabpanel'}>
@@ -27,6 +35,8 @@ function UserPreferences() {
       { (tabChanged === "account" ) ? <AccountProfile /> : ''}
 
       { (tabChanged === "security" ) ? <AccountSecurity /> : ''}
+
+      { (tabChanged === "profile" ) ? <UserProfile /> : ''}
     </div>
   )
 }

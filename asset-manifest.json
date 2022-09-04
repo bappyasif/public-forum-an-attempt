@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/public-forum-an-attempt/static/css/main.d86aeeb2.css",
-    "main.js": "/public-forum-an-attempt/static/js/main.b2cb7e79.js",
+    "main.css": "/public-forum-an-attempt/static/css/main.f5a545dd.css",
+    "main.js": "/public-forum-an-attempt/static/js/main.edb65c9b.js",
     "static/js/787.603a03df.chunk.js": "/public-forum-an-attempt/static/js/787.603a03df.chunk.js",
     "static/media/resized-infographic.png": "/public-forum-an-attempt/static/media/resized-infographic.86cd57a47273bc9fb5d3.png",
     "index.html": "/public-forum-an-attempt/index.html",
-    "main.d86aeeb2.css.map": "/public-forum-an-attempt/static/css/main.d86aeeb2.css.map",
-    "main.b2cb7e79.js.map": "/public-forum-an-attempt/static/js/main.b2cb7e79.js.map",
+    "main.f5a545dd.css.map": "/public-forum-an-attempt/static/css/main.f5a545dd.css.map",
+    "main.edb65c9b.js.map": "/public-forum-an-attempt/static/js/main.edb65c9b.js.map",
     "787.603a03df.chunk.js.map": "/public-forum-an-attempt/static/js/787.603a03df.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d86aeeb2.css",
-    "static/js/main.b2cb7e79.js"
+    "static/css/main.f5a545dd.css",
+    "static/js/main.edb65c9b.js"
   ]
 }

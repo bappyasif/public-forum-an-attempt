@@ -13,19 +13,15 @@ function UserPreferences() {
 
   useEffect(() => setInitTabname("account"), [])
 
-  // useEffect(() => setTabname(params.tabName), [params.tabName])
-
-  console.log(params, "<<params>>")
-
   useEffect(() => {
     setTabChanged(params.tabName)
     setInitTabname(null)
   }, [params.tabName])
 
-  useEffect (() => {
-    let brandEl = document.querySelector("span.tox-statusbar__branding svg");
-    brandEl?.remove()
-  }, [tabChanged])
+  // useEffect (() => {
+  //   let brandEl = document.querySelector("span.tox-statusbar__branding svg");
+  //   brandEl?.remove()
+  // }, [tabChanged])
 
   return (
     <div role={'tabpanel'}>

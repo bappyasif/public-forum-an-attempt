@@ -1,31 +1,61 @@
 import { Editor } from '@tinymce/tinymce-react';
 import React, { useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import TimezoneSelect from 'react-timezone-select'
 import './styles.css'
 
 function UserProfile() {
-   useEffect(() => {
+  useEffect(() => {
     let brandEl = document.querySelector(".tox-statusbar__branding svg");
     brandEl?.remove()
   }, [])
 
   return (
     <div className='up-container'>
-      <AboutMe />      
+      <AboutMe />
+      <TimeZone />
+      <InfoComp name={"Location"} />
+      <InfoComp name={"Website"} />
+    </div>
+  )
+}
+
+let InfoComp = ({ name }) => {
+  return (
+    <label className='ic-wrapper'>
+      <h2>{name}</h2>
+      <input type={'text'} />
+    </label>
+  )
+}
+
+let TimeZone = () => {
+  // let [timezone, setTimezone] = useState('Dhaka')
+  // let [timezone, setTimezone] = useState(Intl.DateTimeFormat().resolvedOptions().timeZone)
+  let [timezone, setTimezone] = useState(Intl.DateTimeFormat().resolvedOptions().timeZone)
+  let [tz, setTz] = useState(null)
+
+  useEffect(() => setTz(timezone), [timezone])
+
+  let currentTimezone = () => setTimezone(Intl.DateTimeFormat().resolvedOptions().timeZone)
+
+  return (
+    <div className='tz-wrapper'>
+      <h2>Time Zone</h2>
+
+      <TimezoneSelect
+        value={timezone}
+        onChange={setTimezone}
+      />
+
+      <button onClick={currentTimezone}>Current Timezone</button>
+      <pre>{JSON.stringify(tz?.value, null, 2)}</pre>
+
     </div>
   )
 }
 
 let AboutMe = () => {
   const editorRef = useRef(null);
-  // let params = useParams();
-
-  // useEffect(() => {
-  //   let brandEl = document.querySelector("span.tox-statusbar__branding");
-  //   brandEl?.remove()
-  // }, [params.tabName])
-
-  // console.log(params, "<<params>>")
 
   return (
     <div className='am-wrapper'>
@@ -37,13 +67,17 @@ let AboutMe = () => {
         init={{
           height: 270,
           menubar: false,
-          plugins: ['emoticons', 'lists', 'link', 'preview', 'help', 'wordcount'],
-          toolbar: 
-            'bold italic | alignleft aligncenter ' +
-            'alignright alignjustify | bullist numlist outdent indent | link image emoticons |',
+          plugins: ['emoticons', 'lists', 'link', 'preview', 'help', 'wordcount', 'code'],
+          toolbar:
+            'preview | bold italic | alignleft aligncenter' +
+            'alignright alignjustify | bullist numlist outdent indent | code link image emoticons ',
           content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
         }}
       />
+
+      {/* <div
+        dangerouslySetInnerHTML={}
+      /> */}
     </div>
   );
 }

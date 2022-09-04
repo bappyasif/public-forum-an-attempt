@@ -1,7 +1,40 @@
+pre {
+    margin: 0;
+}
+
+.up-container {
+    text-align: justify;
+    width: 22.7rem;
+}
+
 .am-wrapper {
     text-align: justify;
 }
 
 .am-wrapper span.tox-statusbar__branding svg {
     display: none !important;
+}
+
+.tz-wrapper {
+    margin: 15px 0;
+    min-height: 200px;
+}
+
+.tz-wrapper h2 {
+    margin: 20px 0;
+}
+
+.tz-wrapper > button {
+    margin: 20px 0;
+    line-height: 2em;
+    padding: 0 15px;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.ic-wrapper input {
+    width: -webkit-fill-available;
+    line-height: 2em;
+    margin: 11px 0;
+    font-size: larger;
 }

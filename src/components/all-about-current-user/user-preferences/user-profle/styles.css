@@ -1,0 +1,81 @@
+pre {
+    margin: 0;
+}
+
+.up-container {
+    text-align: justify;
+    width: 22.7rem;
+}
+
+.am-wrapper {
+    text-align: justify;
+}
+
+.am-wrapper span.tox-statusbar__branding svg {
+    display: none !important;
+}
+
+.tz-wrapper {
+    margin: 15px 0;
+    min-height: 200px;
+}
+
+.tz-wrapper h2 {
+    margin: 20px 0;
+}
+
+.tz-wrapper > button {
+    margin: 20px 0;
+    line-height: 2em;
+    padding: 0 15px;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.ic-wrapper input {
+    width: -webkit-fill-available;
+    line-height: 2em;
+    margin: 11px 0;
+    font-size: larger;
+}
+
+.imgc-wrapper {
+    margin: 11px 0 0 0;
+}
+
+.imgc-wrapper:last-child {
+    margin: 42px 0;
+}
+
+.fig-wrapper {
+    margin: 0;
+    border: solid;
+    height: 170px;
+    position: relative;
+}
+
+.fig-wrapper .svgs-div {
+    display: flex;
+    justify-content: space-between;
+    z-index: 99;
+}
+
+.fig-wrapper .svgs-div span {
+    position: absolute;
+}
+
+.fig-wrapper .svgs-div span:last-child {
+    right: 0;
+}
+
+.fig-wrapper .svgs-div .svg-icon {
+    padding: 8px;
+    outline: solid;
+    margin: 8px;
+}
+
+.fig-wrapper .img-elm {
+    top: 0;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+}

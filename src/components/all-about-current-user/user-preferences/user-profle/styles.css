@@ -40,7 +40,7 @@ pre {
 }
 
 .imgc-wrapper {
-    margin: 11px 0 0 0;
+    margin: 11px 0 45px 0;
 }
 
 .imgc-wrapper:last-child {
@@ -78,4 +78,53 @@ pre {
     top: 0;
     width: -webkit-fill-available;
     height: -webkit-fill-available;
+}
+
+.ft-wrapper {
+    margin: 56px 0;
+}
+
+.ft-wrapper button,
+.up-container .save-btn {
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+.ft-wrapper p {
+    font-size: smaller;
+    color: silver;
+}
+
+.dob-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.dob-wrapper .render-months,
+.dob-wrapper .render-days {
+    width: 200px;
+    border: solid;
+    text-align: right;
+    position: absolute;
+    left: -110px;
+    background-color: var(--bg-clr);
+}
+
+.dob-wrapper .render-months li,
+.dob-wrapper .render-days li {
+    font-size: larger;
+    margin: 4px;
+    outline: solid;
+}
+
+.dob-wrapper .svg-elem {
+    outline: solid;
+    padding: 8px 18px;
+    font-size: x-large;
+}
+
+.rd-wrapper,
+.rm-wrapper {
+    position: relative;
 }

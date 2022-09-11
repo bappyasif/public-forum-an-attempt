@@ -1,9 +1,10 @@
 import { faImage, faTrashCan } from '@fortawesome/free-regular-svg-icons';
-import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faAngleUp, faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Editor } from '@tinymce/tinymce-react';
 import React, { useEffect, useRef, useState } from 'react'
 import TimezoneSelect from 'react-timezone-select'
+import { useOnClickOutside } from '../../../hooks';
 import './styles.css'
 
 function UserProfile() {
@@ -20,23 +21,108 @@ function UserProfile() {
       <InfoComp name={"Website"} />
       <ImageComp name={'Profile Header'} />
       <ImageComp name={'Use Card Background'} />
+      <FeaturedTopic />
+      <DateOfBirth />
+      <button className='save-btn'>Save Changes</button>
     </div>
   )
 }
 
-let ImageComp = ({name}) => {
+let DateOfBirth = () => {
+  return (
+    <div className='dob-wrapper'>
+      <RenderMonths />
+      <RenderDays />
+    </div>
+  )
+}
+
+let RenderDays = () => {
+  let [showDropdown, setShowDropdown] = useState(false);
+
+  let toggleDD = () => setShowDropdown(!showDropdown);
+
+  let closeDD = () => setShowDropdown(false);
+
+  let days = Array.from({ length: 30 }, (_, i) => i + 1)
+
+  let ref = useRef(null)
+
+  // let renderDays = () => days.map(day => <option key={day}>{day}</option>)
+  let renderDays2 = () => days.map(day => <li key={day} onClick={closeDD}>{day}</li>)
+
+  useOnClickOutside(ref, closeDD)
+
+  return (
+    <div className='rd-wrapper' ref={ref}>
+      <FontAwesomeIcon icon={ showDropdown ? faAngleUp : faAngleDown} className='svg-elem' onClick={toggleDD} />
+      {
+        showDropdown
+          ?
+          <ul className='render-days'>
+            {renderDays2()}
+          </ul>
+          :
+          null
+      }
+    </div>
+  )
+}
+
+let RenderMonths = () => {
+  let [showDropdown, setShowDropdown] = useState(false);
+
+  let toggleDD = () => setShowDropdown(!showDropdown);
+
+  let closeDD = () => setShowDropdown(false);
+
+  let ref = useRef(null)
+
+  useOnClickOutside(ref, closeDD)
+
+  let months = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "October", "November", "December"];
+
+  let renderOptions = () => months.map(name => <li key={name} onClick={closeDD}>{name}</li>)
+
+  return (
+    <div className='rm-wrapper' ref={ref}>
+      <FontAwesomeIcon icon={ showDropdown ? faAngleUp : faAngleDown} className='svg-elem' onClick={toggleDD} />
+      {
+        showDropdown
+          ?
+          <ul className='render-months'>
+            {renderOptions()}
+          </ul>
+          :
+          null
+      }
+    </div>
+  )
+}
+
+let FeaturedTopic = () => {
+  return (
+    <div className='ft-wrapper'>
+      <h2>Featured Topic</h2>
+      <button>Select a New Topic</button>
+      <p>A link to this topic will be on your user card and profile</p>
+    </div>
+  )
+}
+
+let ImageComp = ({ name }) => {
   let [imageFile, setImageFile] = useState(null)
 
   let inputRef = useRef(null)
-  
+
   let activateImageFileSelecton = () => inputRef.current.click()
 
   let handleImageFileChange = evt => setImageFile(evt.target.files[0])
 
   return (
-      <div className='imgc-wrapper'>
-        <h2>{name}</h2>
-        <figure className='fig-wrapper'>
+    <div className='imgc-wrapper'>
+      <h2>{name}</h2>
+      <figure className='fig-wrapper'>
         <div className='svgs-div'>
           <span>
             <FontAwesomeIcon icon={faImage} className='svg-icon' onClick={activateImageFileSelecton} />
@@ -50,18 +136,18 @@ let ImageComp = ({name}) => {
         <img className='img-elm' src={handleMediaFileChecks(imageFile)} />
         <figcaption>{name} will be centered</figcaption>
       </figure>
-      </div>
+    </div>
   )
 }
 
-let UploadFile = ({changeHandler, inputRef}) => {
+let UploadFile = ({ changeHandler, inputRef }) => {
   return <input type='file' ref={inputRef} name='image-file' onChange={changeHandler} accept="image/png, image/jpeg, svg, jpg" style={{ display: 'none' }} />
 }
 
 let handleMediaFileChecks = (mediaFile) => {
   let mediaSrc = mediaFile;
   if (mediaFile instanceof File || mediaFile instanceof Blob || mediaFile instanceof MediaSource) {
-      mediaSrc = URL.createObjectURL(mediaFile)
+    mediaSrc = URL.createObjectURL(mediaFile)
   }
   return mediaSrc;
 }
@@ -128,6 +214,29 @@ let AboutMe = () => {
     </div>
   );
 }
+
+// let RenderDays = () => {
+//   let days = Array.from({length: 30}, (_, i) => i + 1)
+//   let renderDays = () => days.map(day => <option key={day}>{day}</option>)
+//   return (
+//     <select className='render-days'>
+//       <option></option>
+//       {renderDays()}
+//     </select>
+//   )
+// }
+
+// let RenderMonths = () => {
+//   let months = ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "October", "November", "December"];
+//   let renderOptions = () => months.map(name => <option key={name}>{name}</option>)
+//   return (
+//     <select className='render-months'>
+//       <option></option>
+//       {renderOptions()}
+//     </select>
+//   )
+// }
+
 
 // let AboutMe = () => {
 //   const editorRef = useRef(null);

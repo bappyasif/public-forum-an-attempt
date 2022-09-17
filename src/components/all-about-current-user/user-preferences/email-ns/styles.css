@@ -1,0 +1,19 @@
+.ep-wrapper,
+.as-wrapper,
+.ml-wrapper {
+    text-align: justify;
+    margin-bottom: 11px;
+}
+
+.en-container {
+    position: relative;
+}
+
+.en-container button {
+    position: absolute;
+    left: 0;
+    padding: 20px;
+    border: none;
+    outline: solid .5px brown;
+    border-radius: 8px;
+}

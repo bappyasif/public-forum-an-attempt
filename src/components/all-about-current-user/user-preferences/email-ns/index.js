@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { AdditionalInformation, CheckBox, DropDown, SettingsExplanation } from '../reusable-units'
 import './styles.css'
 
 function EmailNotifications() {
@@ -51,37 +52,6 @@ let EmailPreference = () => {
             <CheckBox text={'Include an excerpt of replied to post in emails'} cbId="email" />
         </div>
     )
-}
-
-let CheckBox = ({text, cbId, handleClicked}) => {
-    return (
-        <div className='cb-wrapper'>
-            <input type={'checkbox'} id={cbId} onClick={handleClicked} />
-            <label htmlFor={cbId}>{text}</label>
-        </div>
-        
-    )
-}
-
-let AdditionalInformation = ({text}) => <p className='ai-wrapper'>{text}</p>
-
-let SettingsExplanation = ({text}) => {
-    return <p>{text}</p>
-}
-
-
-let DropDown = () => {
-    let messageOption = ["Always", "Only when away", "Never"]
-    let renderOptions = () => messageOption.map(name => <RenderOption key={name} name={name} />)
-    return (
-        <select>
-            {renderOptions()}
-        </select>
-    )
-}
-
-let RenderOption = ({name}) => {
-    return <option>{name}</option>
 }
 
 export default EmailNotifications

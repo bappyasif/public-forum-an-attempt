@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import AccountProfile from './account-profile'
 import AccountSecurity from './account-security'
+import EmailNotifications from './email-ns'
+import InterfaceSettings from './interface-settings'
 import UserProfile from './user-profle'
 
 function UserPreferences() {
@@ -28,11 +30,16 @@ function UserPreferences() {
       {/* <AccountProfile /> */}
       {/* { initTabname === "account" ? <AccountProfile /> : ''} */}
       { initTabname === "account" || params.tabName === undefined ? <AccountProfile /> : ''}
+      
       { (tabChanged === "account" ) ? <AccountProfile /> : ''}
 
       { (tabChanged === "security" ) ? <AccountSecurity /> : ''}
 
       { (tabChanged === "profile" ) ? <UserProfile /> : ''}
+
+      { (tabChanged === "emails" ) ? <EmailNotifications /> : ''}
+
+      { (tabChanged === "interface" ) ? <InterfaceSettings /> : ''}
     </div>
   )
 }

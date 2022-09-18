@@ -7,6 +7,7 @@
 
 .en-container {
     position: relative;
+    padding: 20px 0;
 }
 
 .en-container button {
@@ -14,6 +15,30 @@
     left: 0;
     padding: 20px;
     border: none;
-    outline: solid .5px brown;
+    outline: solid .5px var(--secondary-clr);
     border-radius: 8px;
+}
+
+.en-container select {
+    margin: 11px 0;
+    height: 2.2rem;
+    font-size: xx-large;
+    outline: solid 0.4px var(--primary-clr);
+    border-radius: 4px;
+    padding: 0 6px;
+    border: none;
+}
+
+.cb-wrapper {
+    line-height: 1.5rem;
+}
+
+.cb-wrapper input {
+    margin-right: 11px;
+}
+
+.ai-wrapper {
+    color: gray;
+    font-size: smaller;
+    margin: 6px 0;
 }

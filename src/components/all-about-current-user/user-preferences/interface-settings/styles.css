@@ -1,3 +1,16 @@
 .is-container {
     text-align: left;
 }
+
+.snsd-wrapper select{
+    /* background: #20d492; */
+    background: var(--bg-clr);
+    color: darkcyan;
+    padding: 0 10px;
+    font-size: 22px;
+}
+
+.snsd-wrapper select option{
+	color: #000;
+    padding: 0 10px;
+}

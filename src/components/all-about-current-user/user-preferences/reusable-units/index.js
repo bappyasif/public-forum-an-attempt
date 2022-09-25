@@ -1,33 +1,45 @@
 import React from 'react'
 
-let DropDown = ({data}) => {
+// let DropDown = ({data}) => {
+//     let messageOption = ["Always", "Only when away", "Never"]
+//     let renderOptions = () => (data || messageOption).map(name => <RenderOption key={name} name={name} />)
+//     return (
+//         <select>
+//             {renderOptions()}
+//         </select>
+//     )
+// }
+
+let DropDown = ({ data }) => {
     let messageOption = ["Always", "Only when away", "Never"]
     let renderOptions = () => (data || messageOption).map(name => <RenderOption key={name} name={name} />)
     return (
-        <select>
-            {renderOptions()}
-        </select>
+        <div className='select-div'>
+            <select>
+                {renderOptions()}
+            </select>
+        </div>
     )
 }
 
-let RenderOption = ({name}) => {
+let RenderOption = ({ name }) => {
     return <option>{name}</option>
 }
 
-let CheckBox = ({text, cbId, handleClicked}) => {
+let CheckBox = ({ text, cbId, handleClicked }) => {
     return (
         <div className='cb-wrapper'>
             <input type={'checkbox'} id={cbId} onClick={handleClicked} />
             <label htmlFor={cbId}>{text}</label>
         </div>
-        
+
     )
 }
 
-let AdditionalInformation = ({text}) => <p className='ai-wrapper'>{text}</p>
+let AdditionalInformation = ({ text }) => <p className='ai-wrapper'>{text}</p>
 
-let SettingsExplanation = ({text}) => {
+let SettingsExplanation = ({ text }) => {
     return <p>{text}</p>
 }
 
-export {DropDown, CheckBox, AdditionalInformation, SettingsExplanation}
+export { DropDown, CheckBox, AdditionalInformation, SettingsExplanation }

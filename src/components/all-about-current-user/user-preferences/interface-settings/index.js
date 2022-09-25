@@ -51,27 +51,29 @@ let OtherSettings = () => {
 let RenderOption = ({ option, index }) => {
     return (
         index != 6
-        ?
-        <li>
-            <label>
-                <input type={"checkbox"} />
-                <span>{option}</span>
-            </label>
-        </li>
-        :
-        <ShowNotificationSettingDropdown title={option} />
+            ?
+            <li>
+                <label className='form-control'>
+                    <input type={"checkbox"} />
+                    <span>{option}</span>
+                </label>
+            </li>
+            :
+            <ShowNotificationSettingDropdown title={option} />
     )
 }
 
-let ShowNotificationSettingDropdown = ({title}) => {
+let ShowNotificationSettingDropdown = ({ title }) => {
     let options = ["New notifications", "New page content"];
     let renderOptions = () => options.map(option => <option key={option}>{option}</option>)
     return (
         <div className='snsd-wrapper'>
             <p>{title}</p>
-            <select>
-                {renderOptions()}
-            </select>
+            <div className='select-div'>
+                <select>
+                    {renderOptions()}
+                </select>
+            </div>
         </div>
     )
 }
